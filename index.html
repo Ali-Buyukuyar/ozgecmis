@@ -1463,7 +1463,7 @@ function updateLightbox(){
   lightboxPrev.style.display = multi ? 'flex' : 'none';
   lightboxNext.style.display = multi ? 'flex' : 'none';
 }
-function openLightbox(images, index){
+function Lightbox(images, index){
   if(!images || !images.length) return;
   lbImages = images;
   lbIndex = index || 0;
@@ -1489,7 +1489,7 @@ document.addEventListener('keydown', (e)=>{
   if(e.key === 'ArrowRight') lbStep(1);
 });
 
-/* open lightbox from project cards */
+/*  lightbox from project cards */
 document.querySelectorAll('.proj[data-images]').forEach(proj=>{
   let images = [];
   try{ images = JSON.parse(proj.dataset.images || '[]'); }catch(e){ images = []; }
@@ -1503,14 +1503,14 @@ document.querySelectorAll('.proj[data-images]').forEach(proj=>{
       const found = images.indexOf(currentImg.getAttribute('src'));
       if(found >= 0) startIdx = found;
     }
-    openLightbox(images, startIdx);
+    Lightbox(images, startIdx);
   });
 });
 
-/* open lightbox from featured project gallery */
+/*  lightbox from featured project gallery */
 const focusGalleryImages = Array.from(document.querySelectorAll('.focus-gallery-item img')).map(img=>img.getAttribute('src'));
 document.querySelectorAll('.focus-gallery-item').forEach((item,i)=>{
-  item.addEventListener('click', ()=> openLightbox(focusGalleryImages, i));
+  item.addEventListener('click', ()=> Lightbox(focusGalleryImages, i));
 });
 
 /* project media — cycle through gallery images on hover */
@@ -1651,7 +1651,7 @@ if(window.matchMedia('(min-width:861px)').matches){
 
   function attachHover(el){
     el.addEventListener('mouseenter',()=>{
-      const t = el.dataset.hover || (el.tagName==='A' ? 'OPEN' : '');
+      const t = el.dataset.hover || (el.tagName==='A' ? 'GİT' : '');
       ring.style.width='60px'; ring.style.height='60px';
       cur.style.width='0px'; cur.style.height='0px';
       if(t){ lbl.textContent=t; lbl.style.opacity='1'; }
