@@ -230,9 +230,9 @@ main{position:relative;z-index:2;}
   line-height:.86;
   font-size:clamp(64px,10.6vw,168px);
   letter-spacing:-.02em;
-  overflow:hidden;
+  overflow:visible;
 }
-.hero-name .row{overflow:hidden;}
+.hero-name .row{overflow:hidden;padding-top:.22em;margin-top:-.22em;}
 .hero-name span{display:inline-block;will-change:transform;}
 
 .hero-right{
@@ -635,32 +635,98 @@ main{position:relative;z-index:2;}
   justify-content:space-between;
   position:relative;
 }
-@media (max-width:900px){.flow{flex-direction:column;align-items:flex-start;gap:36px;}}
-.flow-line{
-  position:absolute;left:0;right:0;top:50%;
-  height:1px;background:var(--line);
+@media (max-width:900px){
+  .flow{
+    flex-direction:column;
+    align-items:center;
+    gap:46px;
+    padding:6px 0;
+  }
+}
+
+/* single source of truth for both the connecting line and the traveling
+   packet: a path drawn between the real (measured) dot positions in JS,
+   so the line always matches the current layout — straight on desktop,
+   zigzag on mobile — and the packet motion is native SVG motion-along-path,
+   which is exactly what the node "lit" delays are computed from. */
+.flow-svg{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  overflow:visible;
+  pointer-events:none;
   z-index:0;
 }
-@media (max-width:900px){.flow-line{left:8px;right:auto;top:0;bottom:0;width:1px;height:auto;}}
+.flow-svg .flow-path{fill:none;stroke:var(--line);stroke-width:1;}
+.flow-svg .flow-packet{fill:var(--accent);filter:drop-shadow(0 0 6px rgba(232,163,61,.75));}
+@media (prefers-reduced-motion: reduce){
+  .flow-svg .flow-packet{display:none;}
+}
+
 .flow-node{
   position:relative;z-index:1;
-  background:var(--bg);
   display:flex;flex-direction:column;align-items:center;
   gap:12px;
   padding:0 6px;
+  cursor:default;
 }
-@media (max-width:900px){.flow-node{flex-direction:row;padding-left:0;}}
+@media (max-width:900px){
+  .flow-node{flex-direction:row;padding-left:0;}
+  .flow-node:nth-of-type(odd){transform:translateX(-26%);}
+  .flow-node:nth-of-type(even){transform:translateX(26%);}
+}
+
 .flow-dot{
   width:9px;height:9px;border-radius:50%;
-  border:1px solid var(--accent);
+  border:1px solid var(--accent-dim);
   background:var(--bg);
+  position:relative;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  animation:dotLight 4.8s ease-in-out infinite;
 }
+.flow-dot::after{
+  content:'';
+  position:absolute;inset:-7px;
+  border-radius:50%;
+  border:1px solid var(--accent);
+  opacity:0;
+  animation:dotRing 4.8s ease-out infinite;
+}
+@keyframes dotLight{
+  0%,92%,100%{background:var(--bg);border-color:var(--accent-dim);box-shadow:none;}
+  4%{background:var(--accent);border-color:var(--accent);box-shadow:0 0 10px 2px rgba(232,163,61,.65);}
+}
+@keyframes dotRing{
+  0%,90%,100%{transform:scale(.8);opacity:0;}
+  4%{transform:scale(1);opacity:.55;}
+  18%{transform:scale(1.9);opacity:0;}
+}
+
 .flow-node .flabel{
   font-family:var(--font-mono);
   font-size:11px;
   letter-spacing:.08em;
   color:var(--text-dim);
   white-space:nowrap;
+  animation:labelLight 4.8s ease-in-out infinite;
+}
+@keyframes labelLight{
+  0%,92%,100%{color:var(--text-dim);}
+  4%{color:var(--text);}
+}
+
+/* hover: pause the automatic cycle and light the node under the cursor */
+.flow-node:hover .flow-dot{
+  animation-play-state:paused;
+  background:var(--accent);
+  border-color:var(--accent);
+  transform:scale(1.5);
+  box-shadow:0 0 14px 3px rgba(232,163,61,.75);
+}
+.flow-node:hover .flow-dot::after{animation-play-state:paused;opacity:0;}
+.flow-node:hover .flabel{animation-play-state:paused;color:var(--text);}
+
+@media (prefers-reduced-motion: reduce){
+  .flow-dot, .flow-dot::after, .flow-node .flabel{animation:none;}
 }
 
 /* ---------- current focus ---------- */
@@ -1269,7 +1335,13 @@ footer{
   <p style="max-width:560px;color:var(--text-dim);font-weight:300;font-size:15px;">Sahadan yönetim raporuna giden yol — her projede tekrarlanan aynı yol hattı.</p>
 
   <div class="flow" id="flow">
-    <div class="flow-line"></div>
+    <svg class="flow-svg" id="flowSvg" aria-hidden="true">
+      <path class="flow-path" id="flowPath" d=""></path>
+      <circle class="flow-packet" id="flowPacket" r="3.5" cx="0" cy="0">
+        <animateMotion id="flowMotion" dur="4.8s" repeatCount="indefinite" path=""></animateMotion>
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.04;0.96;1" dur="4.8s" repeatCount="indefinite"></animate>
+      </circle>
+    </svg>
     <div class="flow-node"><div class="flow-dot"></div><div class="flabel">VERİ</div></div>
     <div class="flow-node"><div class="flow-dot"></div><div class="flabel">İŞLEME</div></div>
     <div class="flow-node"><div class="flow-dot"></div><div class="flabel">OTOMASYON</div></div>
@@ -1561,16 +1633,66 @@ document.querySelectorAll('.impact-bar-fill').forEach(bar=>{
   });
 });
 
-/* workflow dots + line draw */
+/* workflow: measure real dot positions, draw the connecting path (straight
+   on desktop, zigzag on mobile — whatever the CSS layout produces), drive
+   the traveling packet along that exact path, and delay each node's pulse
+   by precisely how long the packet takes to reach it — so nothing lights
+   up before the packet actually arrives. */
+function buildFlowPath(){
+  const flow = document.getElementById('flow');
+  const svg = document.getElementById('flowSvg');
+  const path = document.getElementById('flowPath');
+  const motion = document.getElementById('flowMotion');
+  if(!flow || !svg || !path || !motion) return;
+  const dots = Array.from(flow.querySelectorAll('.flow-node .flow-dot'));
+  if(!dots.length) return;
+
+  const rect = flow.getBoundingClientRect();
+  if(rect.width < 1 || rect.height < 1) return;
+  svg.setAttribute('viewBox', '0 0 '+rect.width+' '+rect.height);
+
+  const pts = dots.map(dot=>{
+    const r = dot.getBoundingClientRect();
+    return { x:(r.left + r.width/2) - rect.left, y:(r.top + r.height/2) - rect.top };
+  });
+  const d = pts.map((p,i)=> (i===0?'M':'L')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
+  path.setAttribute('d', d);
+  motion.setAttribute('path', d);
+  try{ motion.beginElement(); }catch(e){}
+
+  const total = path.getTotalLength();
+  const DURATION = 4.8;
+  let acc = 0;
+  dots.forEach((dot,i)=>{
+    if(i>0){
+      const dx = pts[i].x-pts[i-1].x, dy = pts[i].y-pts[i-1].y;
+      acc += Math.sqrt(dx*dx+dy*dy);
+    }
+    const delay = ((total>0?acc/total:0)*DURATION).toFixed(2)+'s';
+    dot.style.animationDelay = delay;
+    const node = dot.closest('.flow-node');
+    const label = node && node.querySelector('.flabel');
+    if(label) label.style.animationDelay = delay;
+  });
+}
+window.addEventListener('load', ()=> setTimeout(buildFlowPath, 350));
+if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=> buildFlowPath()); }
+let flowResizeT;
+window.addEventListener('resize', ()=>{
+  clearTimeout(flowResizeT);
+  flowResizeT = setTimeout(buildFlowPath, 150);
+});
+ScrollTrigger.addEventListener('refresh', ()=> setTimeout(buildFlowPath, 50));
+
 gsap.utils.toArray('.flow-node').forEach((el,i)=>{
   gsap.from(el,{
     autoAlpha:0, y:14, duration:.6, delay:i*0.08, ease:'power2.out',
     scrollTrigger:{trigger:'#flow', start:'top 82%'}
   });
 });
-gsap.from('.flow-line',{
-  scaleX:0, transformOrigin:'left center', duration:1.2, ease:'power2.inOut',
-  scrollTrigger:{trigger:'#flow', start:'top 82%'}
+gsap.from('#flowPath',{
+  autoAlpha:0, duration:1, ease:'power2.inOut',
+  scrollTrigger:{trigger:'#flow', start:'top 82%', onEnter:buildFlowPath}
 });
 
 /* focus distortion on mouse */
