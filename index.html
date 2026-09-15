@@ -644,11 +644,13 @@ main{position:relative;z-index:2;}
   }
 }
 
-/* single source of truth for both the connecting line and the traveling
-   packet: a path drawn between the real (measured) dot positions in JS,
-   so the line always matches the current layout — straight on desktop,
-   zigzag on mobile — and the packet motion is native SVG motion-along-path,
-   which is exactly what the node "lit" delays are computed from. */
+/* single source of truth for the connecting line, the traveling packet and
+   its light-beam halo: a path drawn between the real (measured) dot
+   positions in JS, so the line always matches the current layout —
+   straight on desktop, zigzag on mobile. Node "lit" flashes are triggered
+   from JS at the exact moment the packet reaches that point on the path
+   (see buildFlowPath), not via independent CSS timing, so they can't drift
+   out of sync with what's on screen. */
 .flow-svg{
   position:absolute;inset:0;
   width:100%;height:100%;
@@ -657,9 +659,10 @@ main{position:relative;z-index:2;}
   z-index:0;
 }
 .flow-svg .flow-path{fill:none;stroke:var(--line);stroke-width:1;}
-.flow-svg .flow-packet{fill:var(--accent);filter:drop-shadow(0 0 6px rgba(232,163,61,.75));}
+.flow-svg .flow-packet{fill:var(--accent);filter:drop-shadow(0 0 6px rgba(232,163,61,.8));}
+.flow-svg .flow-packet-glow{fill:var(--accent);}
 @media (prefers-reduced-motion: reduce){
-  .flow-svg .flow-packet{display:none;}
+  .flow-svg .flow-packet, .flow-svg .flow-packet-glow{display:none;}
 }
 
 .flow-node{
@@ -680,8 +683,7 @@ main{position:relative;z-index:2;}
   border:1px solid var(--accent-dim);
   background:var(--bg);
   position:relative;
-  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
-  animation:dotLight 4.8s ease-in-out infinite;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
 }
 .flow-dot::after{
   content:'';
@@ -689,16 +691,20 @@ main{position:relative;z-index:2;}
   border-radius:50%;
   border:1px solid var(--accent);
   opacity:0;
-  animation:dotRing 4.8s ease-out infinite;
 }
-@keyframes dotLight{
-  0%,92%,100%{background:var(--bg);border-color:var(--accent-dim);box-shadow:none;}
-  4%{background:var(--accent);border-color:var(--accent);box-shadow:0 0 10px 2px rgba(232,163,61,.65);}
+/* JS adds/removes .lit at the instant the packet passes over this node */
+.flow-dot.lit{animation:dotFlash 1.05s ease-out;}
+.flow-dot.lit::after{animation:ringFlash 1.05s ease-out;}
+@keyframes dotFlash{
+  0%{background:var(--bg);border-color:var(--accent-dim);box-shadow:none;}
+  12%{background:var(--accent);border-color:var(--accent);box-shadow:0 0 10px 2px rgba(232,163,61,.65);}
+  100%{background:var(--bg);border-color:var(--accent-dim);box-shadow:none;}
 }
-@keyframes dotRing{
-  0%,90%,100%{transform:scale(.8);opacity:0;}
-  4%{transform:scale(1);opacity:.55;}
-  18%{transform:scale(1.9);opacity:0;}
+@keyframes ringFlash{
+  0%{transform:scale(.8);opacity:0;}
+  12%{transform:scale(1);opacity:.55;}
+  70%{transform:scale(2);opacity:0;}
+  100%{transform:scale(2);opacity:0;}
 }
 
 .flow-node .flabel{
@@ -707,26 +713,28 @@ main{position:relative;z-index:2;}
   letter-spacing:.08em;
   color:var(--text-dim);
   white-space:nowrap;
-  animation:labelLight 4.8s ease-in-out infinite;
 }
-@keyframes labelLight{
-  0%,92%,100%{color:var(--text-dim);}
-  4%{color:var(--text);}
+.flabel.lit{animation:labelFlash 1.05s ease-out;}
+@keyframes labelFlash{
+  0%{color:var(--text-dim);}
+  12%{color:var(--text);}
+  100%{color:var(--text-dim);}
 }
 
-/* hover: pause the automatic cycle and light the node under the cursor */
+/* hover: light the node under the cursor, independent of the auto cycle */
 .flow-node:hover .flow-dot{
-  animation-play-state:paused;
   background:var(--accent);
   border-color:var(--accent);
   transform:scale(1.5);
   box-shadow:0 0 14px 3px rgba(232,163,61,.75);
 }
-.flow-node:hover .flow-dot::after{animation-play-state:paused;opacity:0;}
-.flow-node:hover .flabel{animation-play-state:paused;color:var(--text);}
+.flow-node:hover .flow-dot.lit{animation-play-state:paused;}
+.flow-node:hover .flow-dot::after{opacity:0;}
+.flow-node:hover .flabel{color:var(--text);}
+.flow-node:hover .flabel.lit{animation-play-state:paused;}
 
 @media (prefers-reduced-motion: reduce){
-  .flow-dot, .flow-dot::after, .flow-node .flabel{animation:none;}
+  .flow-dot.lit, .flow-dot.lit::after, .flabel.lit{animation:none;}
 }
 
 /* ---------- current focus ---------- */
@@ -1336,7 +1344,16 @@ footer{
 
   <div class="flow" id="flow">
     <svg class="flow-svg" id="flowSvg" aria-hidden="true">
+      <defs>
+        <filter id="flowGlow" x="-300%" y="-300%" width="700%" height="700%">
+          <feGaussianBlur stdDeviation="4.5"></feGaussianBlur>
+        </filter>
+      </defs>
       <path class="flow-path" id="flowPath" d=""></path>
+      <circle class="flow-packet-glow" id="flowPacketGlow" r="7" cx="0" cy="0" filter="url(#flowGlow)">
+        <animateMotion id="flowMotionGlow" dur="4.8s" repeatCount="indefinite" path=""></animateMotion>
+        <animate attributeName="opacity" values="0;.55;.55;0" keyTimes="0;0.04;0.96;1" dur="4.8s" repeatCount="indefinite"></animate>
+      </circle>
       <circle class="flow-packet" id="flowPacket" r="3.5" cx="0" cy="0">
         <animateMotion id="flowMotion" dur="4.8s" repeatCount="indefinite" path=""></animateMotion>
         <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.04;0.96;1" dur="4.8s" repeatCount="indefinite"></animate>
@@ -1634,15 +1651,30 @@ document.querySelectorAll('.impact-bar-fill').forEach(bar=>{
 });
 
 /* workflow: measure real dot positions, draw the connecting path (straight
-   on desktop, zigzag on mobile — whatever the CSS layout produces), drive
-   the traveling packet along that exact path, and delay each node's pulse
-   by precisely how long the packet takes to reach it — so nothing lights
-   up before the packet actually arrives. */
+   on desktop, zigzag on mobile — whatever the CSS layout produces), and
+   drive the traveling packet + its glow along that exact path.
+   Node flashes are scheduled from JS with setTimeout, armed at the same
+   instant the SVG motion is (re)started — so a node can only ever light up
+   at the precise moment the dot's path-length matches the packet's, never
+   before. */
+const FLOW_DURATION = 4.8; // seconds — must match the <animateMotion dur> values
+let flowTimers = [];
+function clearFlowTimers(){
+  flowTimers.forEach(t=> t.kind==='interval' ? clearInterval(t.id) : clearTimeout(t.id));
+  flowTimers = [];
+}
+function flashFlowNode(dot){
+  const node = dot.closest('.flow-node');
+  const label = node && node.querySelector('.flabel');
+  dot.classList.remove('lit'); void dot.offsetWidth; dot.classList.add('lit');
+  if(label){ label.classList.remove('lit'); void label.offsetWidth; label.classList.add('lit'); }
+}
 function buildFlowPath(){
   const flow = document.getElementById('flow');
   const svg = document.getElementById('flowSvg');
   const path = document.getElementById('flowPath');
   const motion = document.getElementById('flowMotion');
+  const motionGlow = document.getElementById('flowMotionGlow');
   if(!flow || !svg || !path || !motion) return;
   const dots = Array.from(flow.querySelectorAll('.flow-node .flow-dot'));
   if(!dots.length) return;
@@ -1658,22 +1690,34 @@ function buildFlowPath(){
   const d = pts.map((p,i)=> (i===0?'M':'L')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
   path.setAttribute('d', d);
   motion.setAttribute('path', d);
-  try{ motion.beginElement(); }catch(e){}
+  if(motionGlow) motionGlow.setAttribute('path', d);
 
   const total = path.getTotalLength();
-  const DURATION = 4.8;
+  const delays = [];
   let acc = 0;
   dots.forEach((dot,i)=>{
     if(i>0){
       const dx = pts[i].x-pts[i-1].x, dy = pts[i].y-pts[i-1].y;
       acc += Math.sqrt(dx*dx+dy*dy);
     }
-    const delay = ((total>0?acc/total:0)*DURATION).toFixed(2)+'s';
-    dot.style.animationDelay = delay;
-    const node = dot.closest('.flow-node');
-    const label = node && node.querySelector('.flabel');
-    if(label) label.style.animationDelay = delay;
+    delays.push((total>0 ? acc/total : 0) * FLOW_DURATION);
   });
+
+  clearFlowTimers();
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced) return;
+
+  // restart the SVG motion and the JS-scheduled flashes together, right now
+  try{ motion.beginElement(); }catch(e){}
+  try{ motionGlow && motionGlow.beginElement(); }catch(e){}
+
+  function fireCycle(){
+    dots.forEach((dot,i)=>{
+      flowTimers.push({kind:'timeout', id: setTimeout(()=> flashFlowNode(dot), delays[i]*1000)});
+    });
+  }
+  fireCycle();
+  flowTimers.push({kind:'interval', id: setInterval(fireCycle, FLOW_DURATION*1000)});
 }
 window.addEventListener('load', ()=> setTimeout(buildFlowPath, 350));
 if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=> buildFlowPath()); }
