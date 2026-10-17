@@ -2,1868 +2,617 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ali Büyükuyar — Veri Analisti / Otomasyon</title>
-<meta name="description" content="Ali Büyükuyar — Veri Analizi, Raporlama ve Süreç Otomasyonu">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ali Büyükuyar | Veri Analizi ve Raporlama Uzmanı</title>
+<meta name="description" content="Ali Büyükuyar: üretim, satış ve maliyet verisini yönetim raporlarına, web, masaüstü ve mobil uygulamalara dönüştüren veri analizi ve raporlama uzmanı. FİMAK Makina, Konya.">
+<meta name="theme-color" content="#0b0c0e">
+<link rel="canonical" href="https://ali-buyukuyar.github.io/ozgecmis/">
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Ali Büyükuyar | Veri Analizi ve Raporlama Uzmanı">
+<meta property="og:description" content="Üretim, satış ve maliyet verisini yönetimin her gün açtığı raporlara ve uygulamalara dönüştürüyorum.">
+<meta property="og:url" content="https://ali-buyukuyar.github.io/ozgecmis/">
+<meta property="og:image" content="https://ali-buyukuyar.github.io/ozgecmis/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f2a93b'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='%231a1306'%3EAB%3C/text%3E%3C/svg%3E">
 
+<script>(function (d) { if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { d.classList.add('anim'); setTimeout(function () { if (!window.gsap) d.classList.remove('anim'); }, 4000); } })(document.documentElement);</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="stylesheet" href="assets/css/site.css?v=20261017b">
 
-<style>
-:root{
-  --bg:#0a0b0c;
-  --surface:#131519;
-  --surface-2:#191c21;
-  --line:#242830;
-  --text:#edeae2;
-  --text-dim:#8c8f96;
-  --text-faint:#54585f;
-  --accent:#e8a33d;
-  --accent-dim:#8a6428;
-  --font-display:'Manrope',sans-serif;
-  --font-body:'Inter',sans-serif;
-  --font-mono:'IBM Plex Mono',monospace;
-  --ease:cubic-bezier(.16,.84,.44,1);
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-html{background:var(--bg);scroll-behavior:auto;}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--font-body);
-  overflow-x:hidden;
-  cursor:none;
-  -webkit-font-smoothing:antialiased;
-}
-::selection{background:var(--accent);color:#0a0b0c;}
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;display:block;}
-
-@media (max-width: 860px){
-  body{cursor:auto;}
-}
-
-/* ---------- layout atoms ---------- */
-.wrap{max-width:1320px;margin:0 auto;padding:0 48px;}
-@media (max-width:860px){.wrap{padding:0 22px;}}
-
-.mono{font-family:var(--font-mono);}
-.label{
-  font-family:var(--font-mono);
-  font-size:11px;
-  letter-spacing:.14em;
-  color:var(--text-faint);
-}
-
-/* ---------- custom cursor ---------- */
-.cursor{
-  position:fixed;top:0;left:0;
-  width:9px;height:9px;
-  border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 0 0 3px rgba(232,163,61,.16), 0 0 14px rgba(232,163,61,.5);
-  pointer-events:none;
-  z-index:10050;
-  transform:translate(-50%,-50%);
-  opacity:0;
-  transition:width .25s var(--ease),height .25s var(--ease),background .25s var(--ease),opacity .3s ease;
-}
-.cursor.live{opacity:1;}
-.cursor-ring{
-  position:fixed;top:0;left:0;
-  width:36px;height:36px;
-  border:1px solid rgba(237,234,226,.4);
-  border-radius:50%;
-  pointer-events:none;
-  z-index:10049;
-  transform:translate(-50%,-50%);
-  opacity:0;
-  transition:opacity .3s ease,width .25s var(--ease),height .25s var(--ease),border-color .25s var(--ease);
-}
-.cursor-ring.live{opacity:1;}
-.cursor-ring.on-dark{border-color:rgba(10,11,12,.55);}
-.cursor-label{
-  position:fixed;top:0;left:0;
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.1em;
-  color:var(--bg);
-  background:var(--accent);
-  padding:4px 8px;
-  border-radius:2px;
-  pointer-events:none;
-  z-index:10050;
-  opacity:0;
-  white-space:nowrap;
-  transform:translate(-50%, 22px);
-  transition:opacity .18s var(--ease);
-}
-@media (max-width:860px){
-  .cursor,.cursor-ring,.cursor-label{display:none;}
-}
-
-/* ---------- boot sequence ---------- */
-#boot{
-  position:fixed;inset:0;
-  background:var(--bg);
-  z-index:10000;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  justify-content:center;
-  padding:0 48px;
-}
-#boot .line{
-  font-family:var(--font-mono);
-  font-size:12px;
-  letter-spacing:.08em;
-  color:var(--text-dim);
-  opacity:0;
-  margin-bottom:8px;
-}
-#boot .line .ok{color:var(--accent);}
-#boot .bar-track{
-  width:220px;height:1px;background:var(--line);
-  margin-top:18px;position:relative;overflow:hidden;
-}
-#boot .bar-fill{
-  position:absolute;left:0;top:0;bottom:0;width:0%;
-  background:var(--accent);
-}
-@media (max-width:860px){#boot{padding:0 22px;}}
-
-/* ---------- nav ---------- */
-header{
-  position:fixed;top:0;left:0;right:0;
-  z-index:500;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:26px 48px;
-  mix-blend-mode:difference;
-}
-@media (max-width:860px){header{padding:20px 22px;}}
-.nav-mark{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--text);}
-nav ul{list-style:none;display:flex;gap:34px;}
-nav a{
-  font-family:var(--font-mono);
-  font-size:11px;
-  letter-spacing:.1em;
-  color:var(--text-dim);
-  position:relative;
-  padding-bottom:3px;
-}
-nav a::after{
-  content:'';position:absolute;left:0;bottom:0;
-  width:0%;height:1px;background:var(--text);
-  transition:width .3s var(--ease);
-}
-nav a:hover::after,nav a.active::after{width:100%;}
-nav a.active{color:var(--text);}
-@media (max-width:700px){nav ul{display:none;}}
-
-/* progress rail */
-.railwrap{
-  position:fixed;right:48px;top:50%;
-  transform:translateY(-50%);
-  z-index:400;
-  display:flex;flex-direction:column;gap:14px;
-  align-items:center;
-}
-@media (max-width:1000px){.railwrap{display:none;}}
-.rail-dot{
-  width:5px;height:5px;border-radius:50%;
-  background:var(--text-faint);
-  transition:background .3s,transform .3s;
-}
-.rail-dot.active{background:var(--accent);transform:scale(1.6);}
-
-/* ---------- section base ---------- */
-section{position:relative;}
-.section-pad{padding:160px 0;}
-@media (max-width:860px){.section-pad{padding:100px 0;}}
-
-/* background system */
-#bg-grid{
-  position:fixed;inset:0;
-  z-index:0;
-  pointer-events:none;
-  opacity:.35;
-}
-#bg-noise{
-  position:fixed;inset:0;
-  z-index:1;
-  pointer-events:none;
-  opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-main{position:relative;z-index:2;}
-
-/* ---------- hero ---------- */
-#hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding-top:90px;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 2.4fr 1fr;
-  gap:24px;
-  align-items:end;
-}
-@media (max-width:1000px){.hero-grid{grid-template-columns:1fr;gap:40px;}}
-@media (max-width:480px){.hero-name{font-size:13vw;}}
-
-.hero-meta-col{
-  display:flex;flex-direction:column;gap:10px;
-  padding-bottom:14px;
-}
-.hero-meta-col .label{margin-bottom:2px;}
-.hero-meta-col .val{font-family:var(--font-mono);font-size:13px;color:var(--text);}
-
-.hero-name{
-  font-family:var(--font-display);
-  font-weight:800;
-  line-height:.86;
-  font-size:clamp(64px,10.6vw,168px);
-  letter-spacing:-.02em;
-  overflow:visible;
-}
-.hero-name .row{overflow:hidden;padding-top:.22em;margin-top:-.22em;}
-.hero-name span{display:inline-block;will-change:transform;}
-
-.hero-right{
-  display:flex;flex-direction:column;gap:22px;
-  text-align:right;
-  padding-bottom:14px;
-}
-@media (max-width:1000px){.hero-right{text-align:left;}}
-.hero-right .item .label{margin-bottom:4px;}
-.hero-right .item .val{font-family:var(--font-mono);font-size:13px;}
-
-.hero-sub{
-  margin-top:56px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-.hero-sub-line{
-  font-family:var(--font-body);
-  font-size:17px;
-  color:var(--text-dim);
-  max-width:520px;
-  font-weight:300;
-}
-.scroll-cue{
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.14em;
-  color:var(--text-faint);
-  display:flex;align-items:center;gap:10px;
-  white-space:nowrap;
-}
-.scroll-cue .stick{width:1px;height:34px;background:var(--line);position:relative;overflow:hidden;}
-.scroll-cue .stick::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:34px;
-  background:var(--accent);
-  animation:scrollcue 2.2s var(--ease) infinite;
-}
-@keyframes scrollcue{
-  0%{transform:translateY(-100%);}
-  60%{transform:translateY(100%);}
-  100%{transform:translateY(100%);}
-}
-
-/* ---------- eyebrow numbering (used sparingly, real sequences only) ---------- */
-.sec-index{
-  font-family:var(--font-mono);
-  font-size:12px;
-  color:var(--accent);
-  letter-spacing:.1em;
-  margin-bottom:22px;
-  display:flex;align-items:baseline;gap:10px;
-}
-.sec-index .of{color:var(--text-faint);}
-
-/* ---------- about ---------- */
-.about-statement{
-  font-family:var(--font-display);
-  font-weight:600;
-  font-size:clamp(30px,4.4vw,58px);
-  line-height:1.14;
-  max-width:1100px;
-  letter-spacing:-.01em;
-}
-.about-statement em{
-  font-style:normal;
-  color:var(--accent);
-}
-.about-facts{
-  margin-top:100px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);
-}
-@media (max-width:860px){.about-facts{grid-template-columns:repeat(2,1fr);}}
-.about-fact{
-  padding:30px 26px;
-  border-bottom:1px solid var(--line);
-}
-@media (min-width:861px){.about-fact:nth-child(4n+1){padding-left:0;}}
-@media (max-width:860px){.about-fact:nth-child(odd){padding-left:0;}}
-.about-fact:not(:last-child){border-right:1px solid var(--line);}
-@media (max-width:860px){.about-fact:nth-child(odd){border-right:1px solid var(--line);}.about-fact:nth-child(2n){border-right:none;}}
-@media (max-width:480px){
-  .about-facts{grid-template-columns:1fr;}
-  .about-fact{padding-left:26px !important;border-right:none !important;}
-}
-.about-fact .num{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:38px;
-  color:var(--text);
-}
-.about-fact .cap{
-  margin-top:8px;
-  font-family:var(--font-mono);
-  font-size:11px;
-  letter-spacing:.1em;
-  color:var(--text-dim);
-}
-
-/* ---------- experience ---------- */
-.exp-shell{
-  display:grid;
-  grid-template-columns:.7fr 2fr;
-  gap:60px;
-}
-@media (max-width:860px){.exp-shell{grid-template-columns:1fr;gap:30px;}}
-.exp-years{
-  position:sticky;top:140px;
-  align-self:start;
-  display:flex;flex-direction:column;gap:2px;
-}
-@media (max-width:860px){.exp-years{position:static;flex-direction:row;flex-wrap:wrap;gap:10px 18px;margin-bottom:20px;}}
-.exp-year-item{
-  font-family:var(--font-mono);
-  font-size:15px;
-  color:var(--text-faint);
-  padding:9px 0;
-  transition:color .3s;
-  cursor:default;
-}
-.exp-year-item.active{color:var(--accent);}
-
-.exp-list{display:flex;flex-direction:column;}
-.exp-row{
-  padding:38px 0;
-  border-top:1px solid var(--line);
-  display:grid;
-  grid-template-columns:.85fr 1.6fr;
-  gap:30px;
-}
-.exp-list .exp-row:last-child{border-bottom:1px solid var(--line);}
-@media (max-width:860px){.exp-row{grid-template-columns:1fr;gap:12px;}}
-.exp-role{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:22px;
-  letter-spacing:-.01em;
-}
-.exp-org{
-  margin-top:8px;
-  font-family:var(--font-mono);
-  font-size:12px;
-  color:var(--text-dim);
-  letter-spacing:.05em;
-}
-.exp-dates{
-  margin-top:10px;
-  font-family:var(--font-mono);
-  font-size:11px;
-  color:var(--text-faint);
-}
-.exp-desc{
-  font-size:14.5px;
-  line-height:1.75;
-  color:var(--text-dim);
-  font-weight:300;
-}
-.exp-desc li{list-style:none;position:relative;padding-left:16px;margin-bottom:9px;}
-.exp-desc li::before{
-  content:'';position:absolute;left:0;top:9px;
-  width:5px;height:1px;background:var(--accent);
-}
-
-/* ---------- tech stack ---------- */
-.stack-map{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1px;
-  background:var(--line);
-  border:1px solid var(--line);
-  margin-top:60px;
-}
-@media (max-width:860px){.stack-map{grid-template-columns:repeat(2,1fr);}}
-.stack-node{
-  background:var(--bg);
-  padding:26px 22px;
-  min-height:130px;
-  display:flex;flex-direction:column;justify-content:space-between;
-  position:relative;
-  transition:background .35s var(--ease);
-}
-.stack-node:hover{background:var(--surface);}
-.stack-node .name{
-  font-family:var(--font-display);
-  font-weight:600;
-  font-size:19px;
-}
-.stack-node .lvl{
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.1em;
-  color:var(--text-faint);
-}
-.stack-node .detail{
-  margin-top:12px;
-  font-size:12.5px;
-  color:var(--text-dim);
-  line-height:1.5;
-  max-height:0;
-  overflow:hidden;
-  opacity:0;
-  transition:max-height .35s var(--ease),opacity .35s var(--ease);
-}
-.stack-node:hover .detail{max-height:80px;opacity:1;}
-.stack-node .bar{
-  position:absolute;left:0;bottom:0;height:2px;background:var(--accent);
-  width:var(--lvl,40%);
-}
-@media (max-width:860px){
-  .stack-node{min-height:auto;}
-  .stack-node .detail{
-    max-height:none;opacity:1;overflow:visible;
-  }
-}
-@media (max-width:480px){
-  .stack-map{grid-template-columns:1fr;}
-}
-
-/* ---------- projects ---------- */
-.projects-note{
-  display:flex;gap:12px;align-items:flex-start;
-  max-width:680px;
-  margin:26px 0 10px;
-  padding:14px 16px;
-  border:1px dashed var(--line);
-  font-family:var(--font-mono);
-  font-size:11.5px;
-  line-height:1.6;
-  color:var(--text-faint);
-}
-.projects-note .mk{color:var(--accent);flex:none;}
-
-.proj{
-  border-top:1px solid var(--line);
-  padding:64px 0;
-  display:grid;
-  grid-template-columns:340px 1fr;
-  gap:56px;
-}
-#projects .proj:last-child{border-bottom:1px solid var(--line);}
-@media (max-width:900px){.proj{grid-template-columns:1fr;gap:26px;}}
-
-.proj-media{
-  position:relative;
-  aspect-ratio:4/3;
-  border:1px solid var(--line);
-  background:var(--surface);
-  overflow:hidden;
-}
-.proj-media img{
-  width:100%;height:100%;object-fit:cover;
-  filter:grayscale(55%) brightness(.82) contrast(1.02);
-  transform:scale(1.001);
-  transition:filter .5s var(--ease),transform .7s var(--ease),opacity .18s ease;
-}
-.proj:hover .proj-media img{filter:grayscale(0%) brightness(1);transform:scale(1.045);}
-.proj-media.empty{
-  display:flex;align-items:center;justify-content:center;
-  background:
-    repeating-linear-gradient(135deg, var(--surface), var(--surface) 10px, var(--surface-2) 10px, var(--surface-2) 11px);
-}
-.proj-media-empty-text{
-  font-family:var(--font-mono);
-  font-size:10.5px;
-  letter-spacing:.08em;
-  color:var(--text-faint);
-  text-align:center;
-  line-height:1.7;
-  padding:0 20px;
-}
-.proj-media-tag{
-  position:absolute;top:10px;left:10px;
-  font-family:var(--font-mono);
-  font-size:10px;
-  letter-spacing:.08em;
-  color:var(--text);
-  background:rgba(10,11,12,.72);
-  border:1px solid var(--line);
-  padding:4px 8px;
-}
-.proj-media-count{
-  position:absolute;bottom:10px;right:10px;
-  font-family:var(--font-mono);
-  font-size:9.5px;
-  letter-spacing:.06em;
-  color:var(--text-dim);
-  background:rgba(10,11,12,.72);
-  border:1px solid var(--line);
-  padding:3px 7px;
-}
-.proj-status{
-  position:absolute;top:10px;right:10px;
-  font-family:var(--font-mono);
-  font-size:9.5px;
-  letter-spacing:.08em;
-  color:var(--accent);
-  border:1px solid var(--accent-dim);
-  padding:4px 8px;
-  background:rgba(10,11,12,.72);
-}
-
-.proj-topline{
-  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
-}
-.proj-idx{
-  font-family:var(--font-mono);
-  font-size:12px;
-  color:var(--accent);
-}
-.proj-year{
-  font-family:var(--font-mono);
-  font-size:12px;
-  color:var(--text-faint);
-}
-.proj-title{
-  margin-top:14px;
-  font-family:var(--font-display);
-  font-weight:800;
-  font-size:clamp(24px,2.6vw,36px);
-  line-height:1.08;
-  letter-spacing:-.015em;
-}
-.proj-tag{
-  margin-top:10px;
-  font-family:var(--font-body);
-  font-weight:300;
-  font-size:15px;
-  color:var(--text-dim);
-  max-width:480px;
-}
-.proj-desc{
-  margin-top:20px;
-  font-size:14px;
-  line-height:1.72;
-  color:var(--text-dim);
-  max-width:640px;
-  font-weight:300;
-}
-.proj-tools{
-  margin-top:22px;
-  display:flex;flex-wrap:wrap;gap:8px;
-}
-.proj-tools span{
-  font-family:var(--font-mono);
-  font-size:10.5px;
-  letter-spacing:.06em;
-  color:var(--text-dim);
-  border:1px solid var(--line);
-  padding:6px 10px;
-}
-.proj-org{
-  margin-top:24px;
-  font-family:var(--font-mono);
-  font-size:11px;
-  color:var(--text-faint);
-}
-
-/* ---------- data / impact ---------- */
-.impact-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1px;
-  background:var(--line);
-  border:1px solid var(--line);
-  margin-top:60px;
-}
-@media (max-width:860px){.impact-grid{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:480px){.impact-grid{grid-template-columns:1fr;}}
-.impact-cell{
-  background:var(--bg);
-  padding:40px 26px;
-}
-.impact-cell .label{margin-bottom:20px;}
-.impact-num{
-  font-family:var(--font-display);
-  font-weight:800;
-  font-size:44px;
-  color:var(--text);
-}
-.impact-num .unit{font-size:22px;color:var(--accent);margin-left:2px;}
-.impact-cap{
-  margin-top:10px;
-  font-size:12.5px;
-  color:var(--text-dim);
-  line-height:1.5;
-}
-.impact-bar-track{
-  margin-top:16px;height:2px;background:var(--surface-2);
-}
-.impact-bar-fill{height:2px;background:var(--accent);width:0%;transition:width 1.4s var(--ease);}
-
-/* ---------- workflow ---------- */
-.flow{
-  margin-top:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:relative;
-}
-@media (max-width:900px){
-  .flow{
-    flex-direction:column;
-    align-items:center;
-    gap:46px;
-    padding:6px 0;
-  }
-}
-
-/* single source of truth for the connecting line, the traveling packet and
-   its light-beam halo: a path drawn between the real (measured) dot
-   positions in JS, so the line always matches the current layout —
-   straight on desktop, zigzag on mobile. Node "lit" flashes are triggered
-   from JS at the exact moment the packet reaches that point on the path
-   (see buildFlowPath), not via independent CSS timing, so they can't drift
-   out of sync with what's on screen. */
-.flow-svg{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  overflow:visible;
-  pointer-events:none;
-  z-index:0;
-}
-.flow-svg .flow-path{fill:none;stroke:var(--line);stroke-width:1;}
-.flow-svg .flow-packet{fill:var(--accent);filter:drop-shadow(0 0 6px rgba(232,163,61,.8));}
-.flow-svg .flow-packet-glow{fill:var(--accent);}
-@media (prefers-reduced-motion: reduce){
-  .flow-svg .flow-packet, .flow-svg .flow-packet-glow{display:none;}
-}
-
-.flow-node{
-  position:relative;z-index:1;
-  display:flex;flex-direction:column;align-items:center;
-  gap:12px;
-  padding:0 6px;
-  cursor:default;
-}
-@media (max-width:900px){
-  .flow-node{flex-direction:row;padding-left:0;}
-  .flow-node:nth-of-type(odd){transform:translateX(-26%);}
-  .flow-node:nth-of-type(even){transform:translateX(26%);}
-}
-
-.flow-dot{
-  width:9px;height:9px;border-radius:50%;
-  border:1px solid var(--accent-dim);
-  background:var(--bg);
-  position:relative;
-  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
-}
-.flow-dot::after{
-  content:'';
-  position:absolute;inset:-7px;
-  border-radius:50%;
-  border:1px solid var(--accent);
-  opacity:0;
-}
-/* JS adds/removes .lit at the instant the packet passes over this node */
-.flow-dot.lit{animation:dotFlash 1.05s ease-out;}
-.flow-dot.lit::after{animation:ringFlash 1.05s ease-out;}
-@keyframes dotFlash{
-  0%{background:var(--bg);border-color:var(--accent-dim);box-shadow:none;}
-  12%{background:var(--accent);border-color:var(--accent);box-shadow:0 0 10px 2px rgba(232,163,61,.65);}
-  100%{background:var(--bg);border-color:var(--accent-dim);box-shadow:none;}
-}
-@keyframes ringFlash{
-  0%{transform:scale(.8);opacity:0;}
-  12%{transform:scale(1);opacity:.55;}
-  70%{transform:scale(2);opacity:0;}
-  100%{transform:scale(2);opacity:0;}
-}
-
-.flow-node .flabel{
-  font-family:var(--font-mono);
-  font-size:11px;
-  letter-spacing:.08em;
-  color:var(--text-dim);
-  white-space:nowrap;
-}
-.flabel.lit{animation:labelFlash 1.05s ease-out;}
-@keyframes labelFlash{
-  0%{color:var(--text-dim);}
-  12%{color:var(--text);}
-  100%{color:var(--text-dim);}
-}
-
-/* hover: light the node under the cursor, independent of the auto cycle */
-.flow-node:hover .flow-dot{
-  background:var(--accent);
-  border-color:var(--accent);
-  transform:scale(1.5);
-  box-shadow:0 0 14px 3px rgba(232,163,61,.75);
-}
-.flow-node:hover .flow-dot.lit{animation-play-state:paused;}
-.flow-node:hover .flow-dot::after{opacity:0;}
-.flow-node:hover .flabel{color:var(--text);}
-.flow-node:hover .flabel.lit{animation-play-state:paused;}
-
-@media (prefers-reduced-motion: reduce){
-  .flow-dot.lit, .flow-dot.lit::after, .flabel.lit{animation:none;}
-}
-
-/* ---------- current focus ---------- */
-#focus{
-  min-height:70vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:120px 0;
-}
-.focus-huge{
-  font-family:var(--font-display);
-  font-weight:800;
-  font-size:clamp(42px,8vw,120px);
-  line-height:.98;
-  letter-spacing:-.02em;
-}
-.focus-huge .dim{color:var(--text-faint);}
-.focus-tags{
-  margin-top:40px;
-  display:flex;gap:18px;flex-wrap:wrap;
-}
-.focus-tags span{
-  font-family:var(--font-mono);
-  font-size:12px;
-  letter-spacing:.06em;
-  color:var(--accent);
-  border:1px solid var(--accent-dim);
-  padding:8px 14px;
-}
-.focus-star{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--font-mono);
-  font-size:11px;letter-spacing:.14em;
-  color:var(--accent);
-  margin-bottom:18px;
-}
-.focus-star::before{content:'★';font-size:11px;}
-.focus-desc{
-  margin-top:26px;
-  max-width:640px;
-  color:var(--text-dim);
-  font-size:15.5px;
-  line-height:1.8;
-  font-weight:300;
-}
-
-/* ---------- focus gallery ---------- */
-.focus-gallery{margin-top:64px;}
-.focus-gallery-main{
-  display:grid;grid-template-columns:1fr 1fr;gap:14px;
-}
-@media (max-width:860px){.focus-gallery-main{grid-template-columns:1fr;}}
-.focus-gallery-extra{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
-  margin-top:10px;
-}
-@media (max-width:860px){.focus-gallery-extra{grid-template-columns:repeat(2,1fr);}}
-.focus-gallery-item{
-  position:relative;
-  border:1px solid var(--line);
-  background:var(--surface);
-  overflow:hidden;
-}
-.focus-gallery-main .focus-gallery-item{aspect-ratio:16/10;}
-.focus-gallery-extra .focus-gallery-item{aspect-ratio:4/3;}
-.focus-gallery-item img{
-  width:100%;height:100%;object-fit:cover;
-  filter:grayscale(55%) brightness(.82) contrast(1.02);
-  transform:scale(1.001);
-  transition:filter .6s var(--ease),transform .8s var(--ease);
-}
-.focus-gallery-item:hover img{filter:grayscale(0%) brightness(1);transform:scale(1.05);}
-.focus-gallery-item .tag{
-  position:absolute;top:8px;left:8px;
-  font-family:var(--font-mono);
-  font-size:9.5px;letter-spacing:.08em;
-  color:var(--text);
-  background:rgba(10,11,12,.72);
-  border:1px solid var(--line);
-  padding:3px 7px;
-}
-
-/* ---------- lightbox ---------- */
-.proj-media,.focus-gallery-item{cursor:pointer;}
-.lightbox{
-  position:fixed;inset:0;z-index:10060;
-  background:rgba(10,11,12,.95);
-  display:none;
-  align-items:center;justify-content:center;
-  padding:60px;
-  cursor:auto;
-}
-.lightbox.active{display:flex;}
-.lightbox-img{
-  max-width:88vw;max-height:82vh;
-  object-fit:contain;
-  border:1px solid var(--line);
-  box-shadow:0 40px 90px rgba(0,0,0,.55);
-  opacity:0;transform:scale(.98);
-  transition:opacity .25s var(--ease),transform .25s var(--ease);
-}
-.lightbox.active .lightbox-img{opacity:1;transform:scale(1);}
-.lightbox-close{
-  position:fixed;top:26px;right:30px;
-  width:40px;height:40px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(10,11,12,.7);
-  border:1px solid var(--line);
-  color:var(--text);
-  font-size:16px;font-family:var(--font-mono);
-  cursor:pointer;
-  transition:border-color .25s,color .25s;
-}
-.lightbox-close:hover{border-color:var(--accent);color:var(--accent);}
-.lightbox-nav{
-  position:fixed;top:50%;transform:translateY(-50%);
-  width:48px;height:48px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(10,11,12,.7);
-  border:1px solid var(--line);
-  color:var(--text);
-  font-size:24px;
-  cursor:pointer;
-  transition:border-color .25s,color .25s,background .25s;
-}
-.lightbox-nav:hover{border-color:var(--accent);color:var(--accent);}
-.lightbox-prev{left:26px;}
-.lightbox-next{right:26px;}
-.lightbox-count{
-  position:fixed;bottom:26px;left:50%;transform:translateX(-50%);
-  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;
-  color:var(--text-dim);
-}
-@media (max-width:700px){
-  .lightbox{padding:20px;}
-  .lightbox-nav{width:38px;height:38px;font-size:19px;}
-  .lightbox-prev{left:12px;}
-  .lightbox-next{right:12px;}
-  .lightbox-close{top:16px;right:16px;width:34px;height:34px;}
-}
-
-/* ---------- contact ---------- */
-#contact{
-  padding:180px 0 90px;
-}
-.contact-kicker{
-  font-family:var(--font-mono);
-  font-size:12px;
-  letter-spacing:.1em;
-  color:var(--text-faint);
-}
-.contact-big{
-  margin-top:20px;
-  font-family:var(--font-display);
-  font-weight:800;
-  font-size:clamp(38px,6.6vw,96px);
-  line-height:1.02;
-  letter-spacing:-.02em;
-}
-.contact-links{
-  margin-top:80px;
-  border-top:1px solid var(--line);
-}
-.contact-link{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:26px 0;
-  border-bottom:1px solid var(--line);
-  font-family:var(--font-display);
-  font-weight:600;
-  font-size:clamp(20px,3vw,32px);
-  transition:color .3s;
-}
-.contact-link .arrow{
-  font-family:var(--font-mono);
-  font-size:14px;
-  color:var(--text-faint);
-  transition:transform .3s var(--ease),color .3s;
-}
-.contact-link:hover{color:var(--accent);}
-.contact-link:hover .arrow{transform:translateX(6px);color:var(--accent);}
-@media (max-width:600px){
-  .contact-link{flex-direction:column;align-items:flex-start;gap:8px;padding:22px 0;}
-  .contact-link .arrow{font-size:12.5px;word-break:break-all;}
-}
-
-footer{
-  padding:40px 0 60px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-family:var(--font-mono);
-  font-size:10.5px;
-  color:var(--text-faint);
-  letter-spacing:.06em;
-}
-@media (max-width:700px){footer{flex-direction:column;gap:10px;align-items:flex-start;}}
-
-.reveal{opacity:0;transform:translateY(24px);}
-@media (prefers-reduced-motion: reduce){
-  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
-}
-</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+} }
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ali Büyükuyar",
+  "jobTitle": "Veri Analizi ve Raporlama Uzmanı",
+  "worksFor": { "@type": "Organization", "name": "FİMAK Makina" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Konya", "addressCountry": "TR" },
+  "email": "mailto:alibuyukuyar.bm@gmail.com",
+  "url": "https://ali-buyukuyar.github.io/ozgecmis/",
+  "sameAs": ["https://github.com/Ali-Buyukuyar"]
+}
+</script>
 </head>
 <body>
+<a class="atla" href="#icerik">İçeriğe geç</a>
+<canvas id="sahne" aria-hidden="true"></canvas>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-<div class="cursor-label" id="cursorLabel"></div>
-
-<div id="boot">
-  <div class="line" data-t="1">&gt; PROFİL BAŞLATILIYOR<span class="ok">...TAMAM</span></div>
-  <div class="line" data-t="2">&gt; DENEYİM YÜKLENİYOR<span class="ok">...TAMAM</span></div>
-  <div class="line" data-t="3">&gt; PROJELER YÜKLENİYOR<span class="ok">...TAMAM</span></div>
-  <div class="line" data-t="4">&gt; SİSTEM YÜKLENİYOR<span class="ok">...TAMAM</span></div>
-  <div class="bar-track"><div class="bar-fill" id="bootBar"></div></div>
-</div>
-
-<canvas id="bg-grid"></canvas>
-<div id="bg-noise"></div>
-
-<header>
-  <div class="nav-mark">ALİ BÜYÜKUYAR / KONYA</div>
-  <nav><ul id="navList">
-    <li><a href="#about" data-target="about">PROFİL</a></li>
-    <li><a href="#experience" data-target="experience">DENEYİM</a></li>
-    <li><a href="#stack" data-target="stack">STACK</a></li>
-    <li><a href="#projects" data-target="projects">PROJELER</a></li>
-    <li><a href="#contact" data-target="contact">İLETİŞİM</a></li>
-  </ul></nav>
+<header class="ust" id="ust">
+  <div class="wrap">
+    <a class="marka" href="#hero" aria-label="Ali Büyükuyar, başa dön"><span class="marka-isaret" aria-hidden="true">AB</span>Ali Büyükuyar</a>
+    <nav class="menu" id="menu" aria-label="Ana menü">
+      <a href="#profil" data-hedef="profil">Profil</a>
+      <a href="#deneyim" data-hedef="deneyim">Deneyim</a>
+      <a href="#fimak" data-hedef="fimak">FİMAK</a>
+      <a href="#projeler" data-hedef="projeler">Projeler</a>
+      <a href="#yetkinlikler" data-hedef="yetkinlikler">Yetkinlikler</a>
+      <a href="#iletisim" data-hedef="iletisim">İletişim</a>
+    </nav>
+    <div class="ust-sag">
+      <button class="btn btn-cizgi btn-kucuk" type="button" data-yazdir><i class="ph-light ph-download-simple" aria-hidden="true"></i>CV'yi indir</button>
+      <button class="menu-dugme" type="button" id="menuDugme" aria-expanded="false" aria-controls="menu" aria-label="Menüyü aç"><i class="ph-light ph-list" aria-hidden="true"></i></button>
+    </div>
+  </div>
 </header>
 
-<div class="railwrap" id="rail"></div>
+<main id="icerik">
 
-<main>
-
-<!-- HERO -->
-<section id="hero" class="wrap">
-  <div class="hero-grid">
-    <div class="hero-meta-col">
-      <div class="label">DİSİPLİN</div>
-      <div class="val">VERİ / RAPORLAMA<br>OTOMASYON</div>
-    </div>
-    <div>
-      <h1 class="hero-name">
-        <div class="row"><span>ALI</span></div>
-        <div class="row"><span>BÜYÜKUYAR</span></div>
-      </h1>
-    </div>
-    <div class="hero-right">
-      <div class="item">
-        <div class="label">KONUM</div>
-        <div class="val">KONYA, TÜRKİYE</div>
-      </div>
-      <div class="item">
-        <div class="label">ODAK</div>
-        <div class="val">OTOMASYON</div>
-      </div>
-      <div class="item">
-        <div class="label">TEMEL ARAÇLAR</div>
-        <div class="val">EXCEL VBA / SQL / C#</div>
+<!-- KAHRAMAN -->
+<section class="hero" id="hero" aria-label="Giriş">
+  <div class="wrap">
+    <div class="hero-ic">
+      <p class="ust-etiket">Veri Analizi ve Raporlama Uzmanı · FİMAK Makina</p>
+      <h1 class="hero-ad"><span class="satir"><span>Ali</span></span><span class="satir"><span>Büyükuyar</span></span></h1>
+      <p class="hero-alt">Üretim, satış ve maliyet verisini <strong>yönetimin her gün açtığı</strong> raporlara ve uygulamalara dönüştürüyorum.</p>
+      <div class="hero-cta">
+        <a class="btn btn-ana" href="#fimak">Projeleri gör<i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+        <button class="btn btn-cizgi" type="button" data-yazdir><i class="ph-light ph-download-simple" aria-hidden="true"></i>CV'yi indir</button>
       </div>
     </div>
-  </div>
-
-  <div class="hero-sub">
-    <p class="hero-sub-line reveal">2021'den bu yana üretim, kalite ve planlama verisini yönetim raporlarına dönüştürüyor; Excel VBA ve SQL tabanlı sistemlerle manuel iş yükünü ölçülebilir şekilde azaltıyor.</p>
-    <div class="scroll-cue"><div class="stick"></div>KAYDIR</div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="wrap section-pad">
-  <div class="sec-index"><span>PROFİL</span><span class="of">/ 02</span></div>
-  <p class="about-statement reveal">Ham veriyi <em>karar destek raporlarına</em>, süreç verimsizliklerini ise <em>ölçülebilir maliyet kazancına</em> dönüştürüyorum.</p>
-
-  <div class="about-facts">
-    <div class="about-fact"><div class="num">5+</div><div class="cap">YIL SANAYİ SEKTÖRÜ</div></div>
-    <div class="about-fact"><div class="num">10</div><div class="cap">GELİŞTİRİLEN SİSTEM (9 + 1)</div></div>
-    <div class="about-fact"><div class="num">4 / 20+</div><div class="cap">FİRMA / PROJE</div></div>
-    <div class="about-fact"><div class="num">%30</div><div class="cap">HURDA GERİ DÖNÜŞÜM ORANI, EMPERO</div></div>
+<!-- RAKAMLAR -->
+<section class="rakamlar" aria-label="Kısa özet">
+  <div class="wrap rakam-izgara">
+    <div class="rakam" data-goster="3d"><div class="deger"><span data-say="5">5</span><em>+</em></div><p class="aciklama">yıl sanayi sektöründe kesintisiz deneyim</p></div>
+    <div class="rakam" data-goster="3d"><div class="deger"><span data-say="30">30</span></div><p class="aciklama">geliştirilen sistem, rapor ve uygulama</p></div>
+    <div class="rakam" data-goster="3d"><div class="deger"><span data-say="21">21</span></div><p class="aciklama">2026 yılında geliştirilen proje ve araç</p></div>
+    <div class="rakam" data-goster="3d"><div class="deger"><em>%</em><span data-say="30">30</span></div><p class="aciklama">hurdanın geri dönüştürülmesiyle maliyet kazancı (Empero)</p></div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience" class="wrap section-pad">
-  <div class="sec-index"><span>DENEYİM</span><span class="of">/ 03</span></div>
-  <div class="exp-shell">
-    <div class="exp-years" id="expYears">
-      <div class="exp-year-item" data-year="2018">2018</div>
-      <div class="exp-year-item" data-year="2021">2021</div>
-      <div class="exp-year-item" data-year="2024">2024</div>
-      <div class="exp-year-item" data-year="2025">2025</div>
-      <div class="exp-year-item" data-year="2026">2026</div>
+<!-- PROFİL -->
+<section class="bolum profil" id="profil" aria-labelledby="profilBaslik">
+  <div class="wrap">
+    <h2 class="gizli" id="profilBaslik">Profil</h2>
+    <p class="ifade" id="ifade">Ham veriyi <em>karar destek raporlarına</em>, süreç verimsizliklerini <em>ölçülebilir maliyet kazancına</em> dönüştürüyorum.</p>
+    <div class="profil-alt">
+      <div data-goster>
+        <p>2018'den bu yana muhasebe, üretim planlama, kalite kontrol ve raporlama görevlerinde çalıştım. Bugün FİMAK Makina'da üretim, depo, satış ve maliyet verisini yönetimin günlük kullandığı raporlara ve uygulamalara dönüştürüyorum.</p>
+        <p>Excel VBA ve SQL ile başlayan araç setim, yapay zekâ destekli geliştirme sayesinde Python, React, .NET ve Three.js ile kurulan web, masaüstü ve mobil uygulamalara genişledi.</p>
+      </div>
+      <dl class="bilgi" data-goster>
+        <div><dt>Şu an</dt><dd>FİMAK Makina, Veri Analizi ve Raporlama Uzmanı</dd></div>
+        <div><dt>Konum</dt><dd>Konya, Türkiye</dd></div>
+        <div><dt>Eğitim</dt><dd>Ankara Üniversitesi, Web Tasarım ve Kodlama</dd></div>
+        <div><dt>Odak</dt><dd>Raporlama, süreç otomasyonu, dijital dönüşüm</dd></div>
+      </dl>
     </div>
-    <div class="exp-list">
+  </div>
+</section>
 
-      <div class="exp-row" data-year="2018">
-        <div>
-          <div class="exp-role">Muhasebe Staj Personeli</div>
-          <div class="exp-org">Kemal Karabulut SMMM</div>
-          <div class="exp-dates">2018 — 2019</div>
+<!-- DENEYİM -->
+<section class="bolum deneyim" id="deneyim" aria-labelledby="deneyimBaslik">
+  <div class="wrap">
+    <h2 class="baslik" id="deneyimBaslik" data-goster>Deneyim</h2>
+    <ol class="cizelge" id="cizelge">
+      <li class="cizelge-hat" aria-hidden="true"><span id="cizelgeDolu"></span></li>
+
+      <li class="ci-satir">
+        <div class="ci-zaman"><span class="yil">2026</span><span class="sure">Devam ediyor</span></div>
+        <span class="ci-nokta" aria-hidden="true"></span>
+        <div class="ci-govde" data-goster="3d">
+          <h3>Veri Analizi ve Raporlama Uzmanı</h3>
+          <p class="ci-firma">FİMAK Makina</p>
+          <ul>
+            <li>Üretim ve operasyon verilerini analiz ederek yönetime yönelik KPI ve performans raporları hazırlıyor, karar destek süreçlerine doğrudan katkı sağlıyor.</li>
+            <li>Depo, B2B satış, üretim ve maliyet verisini birleştiren yönetim raporu ve analiz sitelerini geliştirdi; bu ekranlar yöneticilerin günlük karar aracı olarak kullanılıyor.</li>
+            <li>Yapay zekâ destekli geliştirme araçlarıyla web, masaüstü (.NET, Electron) ve mobil (.NET MAUI) uygulamalar geliştirerek birim süreçlerini dijital panellerde topluyor.</li>
+            <li>SQL tabanlı veri altyapıları, Excel VBA ve Outlook otomasyonlarıyla manuel raporlamayı saatlik ve günlük otomatik raporlara dönüştürdü.</li>
+          </ul>
         </div>
-        <ul class="exp-desc">
-          <li>Günlük mali işlemlerin kaydı, fatura takibi ve arşivleme süreçlerinde muhasebe ekibine veri düzenleme ve raporlama desteği verdi.</li>
+      </li>
+
+      <li class="ci-satir">
+        <div class="ci-zaman"><span class="yil">2025</span><span class="sure">2025-2026</span></div>
+        <span class="ci-nokta" aria-hidden="true"></span>
+        <div class="ci-govde" data-goster="3d">
+          <h3>Raportör, Veri Analizi ve Raporlama</h3>
+          <p class="ci-firma">Empero Endüstriyel Mutfak Ekipmanları</p>
+          <ul>
+            <li>Firma genelindeki maliyet analizlerini düzenli periyotlarla yürüterek yönetime sunulabilir rapor ve sunum formatına dönüştürdü.</li>
+            <li>Hesaplama, veri işleme ve raporlama adımlarını uçtan uca Excel VBA ile otomatikleştirerek analiz süresini kısalttı, hata payını azalttı.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="ci-satir">
+        <div class="ci-zaman"><span class="yil">2024</span><span class="sure">2024-2025</span></div>
+        <span class="ci-nokta" aria-hidden="true"></span>
+        <div class="ci-govde" data-goster="3d">
+          <h3>Kalite Kontrol Sorumlusu</h3>
+          <p class="ci-firma">Empero Endüstriyel Mutfak Ekipmanları</p>
+          <ul>
+            <li>Üretim süreçlerinde kalite kriterlerine uygunluğu denetleyerek uygunsuzlukları analiz etti, kök neden bazlı çözüm önerileri geliştirdi.</li>
+            <li>Düzeltici ve önleyici faaliyet (DÖF) süreçlerini koordine etti; kalite yönetim sistemi kapsamında düzenli performans raporlaması yaptı.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="ci-satir">
+        <div class="ci-zaman"><span class="yil">2021</span><span class="sure">2021-2024</span></div>
+        <span class="ci-nokta" aria-hidden="true"></span>
+        <div class="ci-govde" data-goster="3d">
+          <h3>Üretim Planlama Saha Sorumlusu</h3>
+          <p class="ci-firma">AYD Automotive</p>
+          <ul>
+            <li>SQL destekli Excel VBA uygulamaları geliştirerek depo, sevkiyat ve üretim veri süreçlerini otomatikleştirdi (5 uçtan uca proje).</li>
+            <li>Planlama, üretim, depo ve sevkiyat birimleri arasında gerçek zamanlı veri akışı kurarak birimler arası koordinasyonu iyileştirdi.</li>
+            <li>Personel üretim kayıtlarından performans, üretim adedi ve kayıp zaman analizleri üreterek saha ile planlama arasında karar destek sağladı.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="ci-satir">
+        <div class="ci-zaman"><span class="yil">2018</span><span class="sure">2018-2019</span></div>
+        <span class="ci-nokta" aria-hidden="true"></span>
+        <div class="ci-govde" data-goster="3d">
+          <h3>Muhasebe Stajyeri</h3>
+          <p class="ci-firma">Kemal Karabulut SMMM</p>
+          <ul>
+            <li>Günlük mali işlemlerin kaydı, fatura takibi ve arşivleme süreçlerinde muhasebe ekibine veri düzenleme ve raporlama desteği verdi.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- FİMAK -->
+<section class="bolum fimak" id="fimak" aria-labelledby="fimakBaslik">
+  <div class="wrap">
+    <p class="ust-etiket" data-goster>FİMAK Makina · 2026</p>
+    <h2 class="baslik" id="fimakBaslik" data-goster>FİMAK'ta geliştirdiğim uygulamalar</h2>
+    <p class="giris" data-goster>Depo, satış, üretim ve maliyet verisini yönetimin ve birimlerin her gün kullandığı ekranlara taşıyan web, masaüstü ve mobil uygulamalar. Ekran görüntülerinde ürün, adet, tutar, müşteri ve kişi bilgileri gizlenmiştir.</p>
+
+    <div class="anlatim">
+      <ol class="anlatim-liste" id="anlatim">
+
+        <li class="proje" data-i="0" data-baslik="Yönetim Raporu" data-galeri="assets/img/fimak/yonetim.webp">
+          <button class="proje-gorsel-mobil" type="button" aria-label="Yönetim Raporu ekranlarını büyüt"><img src="assets/img/fimak/yonetim.webp" alt="Yönetim Raporu ana sayfası, altı soru kartı" width="1600" height="1000" loading="lazy"></button>
+          <div class="proje-ust"><span class="durum">Kullanımda</span><span>Web uygulaması</span></div>
+          <h3>Yönetim Raporu</h3>
+          <p>Yöneticinin her sabah açtığı ekran. Depo, B2B satış ve ürün ağacı maliyetini tek sitede birleştirir; altı soru kartının her biri tıkladıkça bir kat daha ayrıntıya iner.</p>
+          <ul>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Üç farklı kod sistemini (depo, B2B, maliyet) ortak ürün ailesinde eşleştirir</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Yıl sonu tahmini, hedef takibi ve kural tabanlı risk listesi</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Kaynak kapalıysa son alınan kopyadan çalışır, Windows açılışında arka planda başlar</li>
+          </ul>
+          <div class="etiketler"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>ECharts</span></div>
+          <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+        </li>
+
+        <li class="proje" data-i="1" data-baslik="B2B Satış Analizi" data-galeri="assets/img/fimak/b2b-genel.webp|assets/img/fimak/b2b-bolge.webp">
+          <button class="proje-gorsel-mobil" type="button" aria-label="B2B Satış Analizi ekranlarını büyüt"><img src="assets/img/fimak/b2b-genel.webp" alt="B2B Satış Analizi, satış özeti ekranı" width="1440" height="1160" loading="lazy"></button>
+          <div class="proje-ust"><span class="durum">Kullanımda</span><span>Web uygulaması</span></div>
+          <h3>B2B Satış Analizi</h3>
+          <p>Excel satış raporunun yerini alan analiz sitesi. Satışçı, cari, ürün grubu, il ve ülke kırılımlarını; fiyat, döviz ve iskonto analizlerini 17 ekranda sunar.</p>
+          <ul>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Ciro değişimini adet etkisi ve fiyat etkisi olarak ikiye ayırır</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Türkiye il ve dünya haritası, dönem karşılaştırma, TL, USD ve EUR görünümü</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Saat başı PDF ekli otomatik Outlook raporu; bağlantı koparsa kendini yeniden dener</li>
+          </ul>
+          <div class="etiketler"><span>Node.js</span><span>React</span><span>ECharts</span><span>Python</span><span>SQL Server</span></div>
+          <button class="metin-btn" type="button">2 ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+        </li>
+
+        <li class="proje" data-i="2" data-baslik="3D Fabrika İzleme" data-galeri="assets/img/fimak/fabrika-3d.webp|assets/img/fimak/fabrika-3d-gece.webp|assets/img/fimak/fabrika-3d-kaynak.webp">
+          <button class="proje-gorsel-mobil" type="button" aria-label="3D Fabrika İzleme ekranlarını büyüt"><img src="assets/img/fimak/fabrika-3d.webp" alt="Fabrikanın 3D modelinde yürüyüş modu: makineler ve çalışanlar" width="1600" height="1049" loading="lazy"></button>
+          <div class="proje-ust"><span class="durum gri">Çalışan prototip</span><span>Web, 3D</span></div>
+          <h3>3D Fabrika İzleme</h3>
+          <p>Siparişleri ve iş emirlerini, fabrikanın yerleşim planından birebir kurulmuş 3D modeli üzerinde ait oldukları hat ve bölgede canlı gösterir.</p>
+          <ul>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>DWG planı Python ile işlendi, makine modelleri Blender ile üretilip GLB olarak sıkıştırıldı</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Gece ve gündüz döngüsü, yürüyüş modu, gecikme yoğunluk haritası</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Genel bakış, hatlar, gecikmeler ve sevkiyat dahil 8 ekran</li>
+          </ul>
+          <div class="etiketler"><span>React Three Fiber</span><span>Three.js</span><span>Blender</span><span>Node.js</span></div>
+          <button class="metin-btn" type="button">3 ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+        </li>
+
+        <li class="proje" data-i="3" data-baslik="Depo Stok Paneli" data-galeri="assets/img/fimak/depo.webp">
+          <button class="proje-gorsel-mobil" type="button" aria-label="Depo Stok Paneli ekranını büyüt"><img src="assets/img/fimak/depo.webp" alt="Depo Stok Paneli, depo durumu ekranı" width="1600" height="1000" loading="lazy"></button>
+          <div class="proje-ust"><span class="durum">Kullanımda</span><span>Web uygulaması</span></div>
+          <h3>Depo Stok Paneli</h3>
+          <p>Excel'deki VBA stok kurallarını Python'a birebir taşıyan depo ve üretim hattı paneli. Sevke hazır, satışa uygun ve cariye ayrılmış makineleri depo bazında gösterir.</p>
+          <ul>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Fuar standı için dokunmatik sorgu ve termin hesaplama ekranı</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Kendi küçük sorgu dili ve müşteri adı göndermeden yapay zekâ ile stok yorumu</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>10 dakikada bir SQL yenileme, A4 PDF rapor</li>
+          </ul>
+          <div class="etiketler"><span>Python</span><span>FastAPI</span><span>React</span><span>Fluent UI</span><span>Excel COM</span></div>
+          <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+        </li>
+
+        <li class="proje" data-i="4" data-baslik="Fuar Görüşme Raporu" data-galeri="assets/img/fimak/fuar.webp">
+          <button class="proje-gorsel-mobil" type="button" aria-label="Fuar Görüşme Raporu ekranını büyüt"><img src="assets/img/fimak/fuar.webp" alt="IBAKTECH 2026 görüşme raporu panosu" width="1600" height="1000" loading="lazy"></button>
+          <div class="proje-ust"><span class="durum">IBAKTECH 2026'da kullanıldı</span><span>Web uygulaması</span></div>
+          <h3>Fuar Görüşme Raporu</h3>
+          <p>Fuar boyunca ziyaretçi görüşmelerini canlı izleyen pano. Satışçı, sonuç, ülke ve sektör dağılımını anlık gösterir.</p>
+          <ul>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Saat başı ayrıntılı PDF ve gün karşılaştırması Outlook ile otomatik gönderilir</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Göndermeden önce taslağı Outlook'ta gösteren test modu</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Gün karşılaştırma ekranı, Excel ve A4 PDF çıktısı</li>
+          </ul>
+          <div class="etiketler"><span>Node.js</span><span>Python</span><span>Outlook COM</span><span>Headless Chrome</span></div>
+          <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+        </li>
+
+        <li class="proje" data-i="5" data-baslik="FİMAK ERP (demo)" data-galeri="assets/img/fimak/erp-lobi.webp">
+          <button class="proje-gorsel-mobil" type="button" aria-label="FİMAK ERP ekranını büyüt"><img src="assets/img/fimak/erp-lobi.webp" alt="FİMAK ERP planlama ve sevkiyat lobisi" width="1600" height="900" loading="lazy"></button>
+          <div class="proje-ust"><span class="durum gri">Demo</span><span>Masaüstü uygulaması</span></div>
+          <h3>FİMAK ERP</h3>
+          <p>Yönetime sunulmak üzere hazırlanan masaüstü ERP demosu. Satış, depo, sevkiyat, muhasebe ve insan kaynakları dahil 11 modül ve 45 ekran.</p>
+          <ul>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Modüler monolit mimari, modül, ekran ve eylem düzeyinde yetki anahtarları</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Kurulum gerektirmeyen tek dosyalık exe</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Otomatik ekran görüntüsü ve veri doğrulama komutları</li>
+          </ul>
+          <div class="etiketler"><span>.NET 10</span><span>WPF</span><span>C#</span><span>SQLite</span></div>
+          <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+        </li>
+
+        <li class="proje" data-i="6" data-baslik="Sac Kesim ve Stok Takip" data-galeri="assets/img/fimak/sac.webp|assets/img/fimak/sac-giris.webp">
+          <button class="proje-gorsel-mobil" type="button" aria-label="Sac Kesim ve Stok Takip ekranlarını büyüt"><img src="assets/img/fimak/sac.webp" alt="Sac Kesim ve Stok Takip ana sayfası, sac stok haritası" width="1600" height="900" loading="lazy"></button>
+          <div class="proje-ust"><span class="durum">v1.1</span><span>Masaüstü uygulaması</span></div>
+          <h3>Sac Kesim ve Stok Takip</h3>
+          <p>Lazer kesimde kullanılan sac stoğu ve ihtiyaç planlama programı. Net ihtiyacı, toplam ihtiyaçtan stoğu ve yoldaki siparişleri düşerek hesaplar.</p>
+          <ul>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Cins, kalınlık ve ebada göre renk kodlu sac stok haritası</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Lazer ışınının logoyu yazdığı Three.js giriş animasyonu</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Kurulum ve taşınabilir exe, Excel ve PDF çıktısı, yedekleme</li>
+          </ul>
+          <div class="etiketler"><span>Electron</span><span>React</span><span>SQLite</span><span>Three.js</span></div>
+          <button class="metin-btn" type="button">2 ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+        </li>
+
+        <li class="proje" data-i="7" data-baslik="FİMAK Merkez" data-galeri="assets/img/fimak/merkez.webp">
+          <button class="proje-gorsel-mobil" type="button" aria-label="FİMAK Merkez ekranını büyüt"><img src="assets/img/fimak/merkez.webp" alt="FİMAK Merkez giriş ekranı" width="1200" height="800" loading="lazy"></button>
+          <div class="proje-ust"><span class="durum gri">Prototip</span><span>Web uygulaması</span></div>
+          <h3>FİMAK Merkez</h3>
+          <p>Tüm birimlerin kullanacağı, yönetici odaklı portal. Kokpit yalnızca istisnaları gösterir; makine pasaportu seri numarasıyla bir makinenin üretimden satışa tüm kaydını açar.</p>
+          <ul>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Dört rol, PBKDF2 ile saklanan şifreler, hatalı girişte hesap kilidi</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Fiyat yetkisi olmayan rolde tutarlar sunucuda ayıklanır, tarayıcıya hiç gitmez</li>
+            <li><i class="ph-light ph-check" aria-hidden="true"></i>Termin performansı ekranı ve gerçek ürün fotoğraflı model vitrini</li>
+          </ul>
+          <div class="etiketler"><span>Python</span><span>FastAPI</span><span>pandas</span><span>JavaScript</span></div>
+          <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+        </li>
+      </ol>
+
+      <div class="anlatim-sahne" aria-hidden="true">
+        <div class="anlatim-sabit">
+          <div class="deste" id="deste">
+            <figure class="ekran3d" data-i="0"><img src="assets/img/fimak/yonetim.webp" alt="" width="1600" height="1000"></figure>
+            <figure class="ekran3d" data-i="1"><img src="assets/img/fimak/b2b-genel.webp" alt="" width="1440" height="1160"></figure>
+            <figure class="ekran3d" data-i="2"><img src="assets/img/fimak/fabrika-3d.webp" alt="" width="1600" height="1049"></figure>
+            <figure class="ekran3d" data-i="3"><img src="assets/img/fimak/depo.webp" alt="" width="1600" height="1000" loading="lazy"></figure>
+            <figure class="ekran3d" data-i="4"><img src="assets/img/fimak/fuar.webp" alt="" width="1600" height="1000" loading="lazy"></figure>
+            <figure class="ekran3d" data-i="5"><img src="assets/img/fimak/erp-lobi.webp" alt="" width="1600" height="900" loading="lazy"></figure>
+            <figure class="ekran3d" data-i="6"><img src="assets/img/fimak/sac.webp" alt="" width="1600" height="900" loading="lazy"></figure>
+            <figure class="ekran3d" data-i="7"><img src="assets/img/fimak/merkez.webp" alt="" width="1200" height="800" loading="lazy"></figure>
+          </div>
+          <div class="cerceve-golge"></div>
+          <p class="cerceve-not">Büyütmek için ekrana tıklayın</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DİĞER İŞLER -->
+<section class="bolum diger" aria-labelledby="digerBaslik">
+  <div class="wrap">
+    <h2 class="baslik" id="digerBaslik" data-goster>Aynı yıl içinde yaptığım diğer işler</h2>
+    <div class="diger-izgara">
+      <div class="grup" data-goster="3d">
+        <h3><i class="ph-light ph-device-mobile" aria-hidden="true"></i>Masaüstü, mobil ve saha</h3>
+        <ul>
+          <li><p class="ad">FiBot</p><p class="ne">Fabrika girişindeki danışma kioskunun uygulaması. Yemekhane menüsü ve duyurular otomatik gelir, paylaşım klasöründen uzaktan güncellenir.</p><p class="ile">Electron, Node.js, Python</p></li>
+          <li><p class="ad">Üretim Kronometresi</p><p class="ne">Operasyon sürelerini sahada ölçen Android uygulaması. Toplam ve ortalama süreyi hesaplar, yöneticiye Excel çıktısı verir, çevrimdışı çalışır.</p><p class="ile">.NET MAUI, C#, JavaScript</p></li>
+          <li><p class="ad">CNC Depo Sarf Takip</p><p class="ne">Talaşlı imalat için takım ve sarf malzemesi giriş çıkışı, personel ve makine bazında tüketim, fire ve hurda stoğu.</p><p class="ile">Electron, React, Express, MUI</p></li>
+          <li><p class="ad">Seri No Okuyucu</p><p class="ne">Sevkiyat etiketindeki seri numarasını el okuyucusu, telefon kamerası veya OCR ile okuyup biçimini doğrular, Excel'e aktarır.</p><p class="ile">HTML, ZXing, Tesseract.js</p></li>
         </ul>
       </div>
-
-      <div class="exp-row" data-year="2021">
-        <div>
-          <div class="exp-role">Üretim Planlama Saha Sorumlusu</div>
-          <div class="exp-org">AYD Automotive</div>
-          <div class="exp-dates">2021 — 2024</div>
-        </div>
-        <ul class="exp-desc">
-          <li>SQL destekli Excel VBA uygulamaları geliştirerek depo, sevkiyat ve üretim veri süreçlerini otomatikleştirdi (5 uçtan uca proje).</li>
-          <li>Planlama, üretim, depo ve sevkiyat birimleri arasında gerçek zamanlı veri akışı kurarak birimler arası koordinasyonu iyileştirdi.</li>
-          <li>Personel üretim kayıtlarından performans, üretim adedi ve kayıp zaman analizleri üreterek saha ile planlama arasında karar destek sağladı.</li>
+      <div class="grup" data-goster="3d">
+        <h3><i class="ph-light ph-chart-line-up" aria-hidden="true"></i>Web raporları</h3>
+        <ul>
+          <li><p class="ad">Satış Yönetim Raporu</p><p class="ne">Tek dosyalık satış panosu: satışçı performansı, TV için canlı sıralama ekranı, il ve dünya haritaları, sekme bazlı yetki.</p><p class="ile">JavaScript, Chart.js, SheetJS</p></li>
+          <li><p class="ad">Üretim Takip ve Raporlama</p><p class="ne">Montaj hattına giren, geciken ve sevk edilen makineleri haftalık raporlar; gecikme sebebi dağılımını gösterir.</p><p class="ile">JavaScript, Chart.js, jsPDF</p></li>
+          <li><p class="ad">Fabrika İzleme</p><p class="ne">B2B siparişlerini fabrikadaki üretim kayıtlarıyla puanlı eşleştirir; opsiyon bazlı stok uyumu, 8 haftalık sevk planı ve TV modu sunar.</p><p class="ile">Python, FastAPI, SQL Server</p></li>
         </ul>
       </div>
-
-      <div class="exp-row" data-year="2024">
-        <div>
-          <div class="exp-role">Kalite Kontrol Sorumlusu</div>
-          <div class="exp-org">Empero Endüstriyel Mutfak Ekipmanları</div>
-          <div class="exp-dates">2024 — 2025</div>
-        </div>
-        <ul class="exp-desc">
-          <li>Üretim süreçlerinde kalite kriterlerine uygunluğu denetleyerek uygunsuzlukları analiz etti, kök neden bazlı çözüm önerileri geliştirdi.</li>
-          <li>Düzeltici/önleyici faaliyet (DÖF) süreçlerini koordine etti; kalite yönetim sistemi kapsamında düzenli performans raporlaması yaptı.</li>
+      <div class="grup" data-goster="3d">
+        <h3><i class="ph-light ph-gear-six" aria-hidden="true"></i>Veri ve otomasyon</h3>
+        <ul>
+          <li><p class="ad">Kapasite Raporu</p><p class="ne">ERP verisinden günlük ve haftalık üretim adetlerini çıkarır; her gün üretim yönetimine otomatik gönderilir.</p><p class="ile">Excel VBA</p></li>
+          <li><p class="ad">Netsis Reçete Aktarımı</p><p class="ne">Çok seviyeli ürün ağaçlarını Netsis reçete formatına dönüştürür. Python sürümü, VBA çıktısını 42 dosyada birebir doğruladı.</p><p class="ile">Excel VBA, Python</p></li>
+          <li><p class="ad">Ürün Ağacı Maliyet Analizi</p><p class="ne">Ürün başına malzeme maliyetini dört fiyat kaynağından öncelik sırasıyla doldurarak hesaplar, PDF fiyat listesi üretir.</p><p class="ile">Python, xlwings</p></li>
+          <li><p class="ad">Satış ve Plasiyer Raporları</p><p class="ne">Kişi bazında hazırlanıp PDF olarak Outlook üzerinden otomatik gönderilen satış raporları.</p><p class="ile">Excel VBA, SQL, Outlook</p></li>
+          <li><p class="ad">Fuar Video Üretim Hattı</p><p class="ne">Ham fuar çekimlerini transkript ve sahne analiziyle kurgulayıp 9:16, 4:5 ve 16:9 formatlarında teslim eden hat.</p><p class="ile">Python, Whisper, FFmpeg</p></li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="exp-row" data-year="2025">
-        <div>
-          <div class="exp-role">Raportör — Veri Analizi &amp; Raporlama</div>
-          <div class="exp-org">Empero Endüstriyel Mutfak Ekipmanları</div>
-          <div class="exp-dates">2025 — 2026</div>
+<!-- İŞ-GÖREV TAKİP -->
+<section class="bolum gorev" id="gorev" aria-labelledby="gorevBaslik">
+  <div class="wrap">
+    <h2 class="baslik" id="gorevBaslik" data-goster>İş-Görev Takip Sistemi</h2>
+    <p class="giris" data-goster>Departmanlar arası görev atama, devretme ve takip. Her departmanın iş akışı ve yoğunluğu Gantt takviminde izlenir. Söz uçar, proje kalır.</p>
+
+    <div class="gorev-sahne">
+      <div class="gorev-ekran" id="gorevEkran">
+        <div class="ekran-ic" id="gorevIc" role="button" tabindex="0" aria-label="İş-Görev Takip ekranlarını büyüt">
+          <img class="aktif" src="assets/img/gorev/ekran-2.webp" alt="İş-Görev Takip, kişisel pano ekranı" width="2000" height="1020" loading="lazy">
+          <img src="assets/img/gorev/ekran-ekleme1.webp" alt="İş-Görev Takip, departman süreleri ve Gantt takvimi" width="2000" height="1020" loading="lazy">
+          <img src="assets/img/gorev/ekran-3.webp" alt="İş-Görev Takip, oluşturduğum görevler listesi" width="2000" height="1020" loading="lazy">
+          <img src="assets/img/gorev/ekran-5.webp" alt="İş-Görev Takip, bildirimler paneli" width="2000" height="1020" loading="lazy">
+          <img src="assets/img/gorev/ekran-4.webp" alt="İş-Görev Takip, kişisel görevler" width="2000" height="1020" loading="lazy">
+          <img src="assets/img/gorev/ekran-1.webp" alt="İş-Görev Takip, giriş ekranı" width="2000" height="1020" loading="lazy">
         </div>
-        <ul class="exp-desc">
-          <li>Firma genelindeki maliyet analizlerini düzenli periyotlarla yürüterek yönetime sunulabilir rapor ve sunum formatına dönüştürdü.</li>
-          <li>Hesaplama, veri işleme ve raporlama adımlarını uçtan uca Excel VBA ile otomatikleştirerek analiz süresini kısalttı, hata payını azalttı.</li>
-        </ul>
+        <div class="gorev-isik" aria-hidden="true"></div>
       </div>
+      <div class="kucukler" id="kucukler" role="tablist" aria-label="Ekran seçimi">
+        <button class="aktif" type="button" role="tab" aria-selected="true" aria-label="Pano"><img src="assets/img/gorev/ekran-2-k.webp" alt="" loading="lazy"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="Gantt takvimi"><img src="assets/img/gorev/ekran-ekleme1-k.webp" alt="" loading="lazy"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="Görev listesi"><img src="assets/img/gorev/ekran-3-k.webp" alt="" loading="lazy"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="Bildirimler"><img src="assets/img/gorev/ekran-5-k.webp" alt="" loading="lazy"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="Kişisel görevler"><img src="assets/img/gorev/ekran-4-k.webp" alt="" loading="lazy"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="Giriş"><img src="assets/img/gorev/ekran-1-k.webp" alt="" loading="lazy"></button>
+      </div>
+    </div>
 
-      <div class="exp-row" data-year="2026">
-        <div>
-          <div class="exp-role">Veri Analizi ve Raporlama Uzmanı</div>
-          <div class="exp-org">FİMAK Makina</div>
-          <div class="exp-dates">2026 — Devam</div>
+    <div class="gorev-ozellik">
+      <div data-goster="3d"><p class="baslikcik">Rol bazlı pano</p><p>Dört rol, altı KPI kartı ve her kartta 14 günlük mini grafik.</p></div>
+      <div data-goster="3d"><p class="baslikcik">İki katmanlı devretme</p><p>Yönetimden departman yöneticisine, oradan personele; yedi görev durumu.</p></div>
+      <div data-goster="3d"><p class="baslikcik">Gantt takvimi</p><p>Dolgu ilerlemeyi, kesikli kenar gecikmeyi gösterir; planlanan ve gerçekleşen süre karşılaştırması.</p></div>
+      <div data-goster="3d"><p class="baslikcik">Kendi sunucunda yayın</p><p>Sürüm 2.0 çok firmalı; Docker ve Caddy ile otomatik HTTPS, Windows için tek exe.</p></div>
+    </div>
+    <div class="gorev-alt">
+      <div class="etiketler"><span>Node.js</span><span>Express</span><span>SQLite</span><span>Chart.js</span><span>Docker</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÖNCEKİ PROJELER -->
+<section class="bolum arsiv" id="projeler" aria-labelledby="arsivBaslik">
+  <div class="wrap arsiv-ust">
+    <p class="ust-etiket" data-goster>AYD Automotive · Empero · Serbest</p>
+    <h2 class="baslik" id="arsivBaslik" data-goster>Önceki projeler</h2>
+    <p class="arsiv-not" data-goster><i class="ph-light ph-eye-slash" aria-hidden="true"></i>2022-2025 arasında sahada fiilen kullanılan sistemler. Görsellerdeki müşteri kodları, ürün bilgileri ve kişisel veriler gizlilik nedeniyle kapatılmıştır; kaynak kod ve iç sistem verisi paylaşılmamaktadır.</p>
+  </div>
+  <div class="arsiv-pist-dis" id="arsivDis">
+    <div class="arsiv-pist" id="arsivPist">
+
+      <article class="kart" data-baslik="Hurda Analiz Programı" data-galeri="assets/img/proje/slide-21.webp|assets/img/proje/slide-22.webp|assets/img/proje/slide-23.webp|assets/img/proje/slide-24.webp">
+        <button class="kart-gorsel" type="button" aria-label="Hurda Analiz Programı görsellerini aç"><img src="assets/img/proje/slide-21-ekran.webp" alt="Hurda Analiz Programı arayüzü" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>4</span></button>
+        <div class="kart-govde">
+          <p class="kart-ust">2025, Empero</p>
+          <h3>Hurda Analiz Programı</h3>
+          <p>Birimlerden gelen hurda verisini departman, hat ve hata kodu bazında analiz eder; sorumlulara ve yönetime otomatik e-postayla rapor gönderir. Kurulan karantina alanı sayesinde hurdanın yaklaşık %30'u geri dönüştürüldü.</p>
+          <div class="etiketler"><span>Excel VBA</span><span>Otomatik e-posta</span><span>Maliyet analizi</span></div>
         </div>
-        <ul class="exp-desc">
-          <li>Üretim ve operasyon verilerini analiz ederek yönetime yönelik KPI ve performans raporları hazırlıyor, karar destek süreçlerine doğrudan katkı sağlıyor.</li>
-          <li>Yapay zekâ destekli geliştirme araçlarını kullanarak raporlama odaklı, dijital ve web tabanlı uygulamalar geliştiriyor; süreçleri tekil bir dijital panel altında birleştiriyor.</li>
-          <li>SQL tabanlı veri altyapıları ve otomasyon çözümleriyle manuel raporlama süreçlerini dijitalleştirerek hız ve doğruluk kazandırıyor.</li>
-        </ul>
+      </article>
+
+      <article class="kart" data-baslik="Stok, Satış ve Çek/Senet Yönetim Sistemi" data-galeri="assets/img/proje/slide-18.webp|assets/img/proje/slide-19.webp|assets/img/proje/slide-20.webp">
+        <button class="kart-gorsel" type="button" aria-label="Stok, Satış ve Çek/Senet Yönetim Sistemi görsellerini aç"><img src="assets/img/proje/slide-19-ekran.webp" alt="Satış modülü arayüzü" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>3</span></button>
+        <div class="kart-govde">
+          <p class="kart-ust">2025, Serbest proje (Göktaş Plastic)</p>
+          <h3>Stok, Satış ve Çek/Senet Yönetim Sistemi</h3>
+          <p>Bir üretim firması için satış, stok ve çek/senet süreçlerini uçtan uca yöneten bağımsız masaüstü uygulaması. Çoklu döviz kuru, firma bazlı satış kaydı ve alacak/verecek bakiye raporu.</p>
+          <div class="etiketler"><span>C#</span><span>Çoklu döviz</span><span>Masaüstü</span></div>
+        </div>
+      </article>
+
+      <article class="kart" data-baslik="KKP, Kalite Kontrol ve Birim Takip Paneli" data-galeri="assets/img/proje/slide-15.webp|assets/img/proje/slide-16.webp|assets/img/proje/slide-17.webp">
+        <button class="kart-gorsel" type="button" aria-label="KKP görsellerini aç"><img src="assets/img/proje/slide-16-ekran.webp" alt="KKP görev takip ekranı" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>3</span></button>
+        <div class="kart-govde">
+          <p class="kart-ust">2024-2025, Empero</p>
+          <h3>KKP, Kalite Kontrol ve Birim Takip Paneli</h3>
+          <p>Birim personelinin görev ve devamsızlık takibini yöneten panel. Görev oluşturma, aciliyet etiketleme, durum takibi ve devamsızlık kayıtları tek arayüzde.</p>
+          <div class="etiketler"><span>Excel VBA</span><span>Görev takibi</span><span>Devamsızlık</span></div>
+        </div>
+      </article>
+
+      <article class="kart" data-baslik="STP, Sevkiyat, Log ve Takip Platformu" data-galeri="assets/img/proje/slide-12.webp|assets/img/proje/slide-13.webp|assets/img/proje/slide-14.webp">
+        <button class="kart-gorsel" type="button" aria-label="STP görsellerini aç"><img src="assets/img/proje/slide-12-ekran.webp" alt="STP sevk programı arayüzü" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>3</span></button>
+        <div class="kart-govde">
+          <p class="kart-ust">2024, AYD Automotive</p>
+          <h3>STP, Sevkiyat, Log ve Takip Platformu</h3>
+          <p>Sevk kayıtlarını SQL üzerinden anlık işleyen Sevk Programı, hataları kodlarıyla yöneticiye e-postayla bildiren Log Modülü ve kayıtları anlık yansıtan Takip Programı.</p>
+          <div class="etiketler"><span>Excel VBA</span><span>SQL</span><span>Log modülü</span></div>
+        </div>
+      </article>
+
+      <article class="kart" data-baslik="Rota ve Resim Programı" data-galeri="assets/img/proje/slide-11.webp">
+        <button class="kart-gorsel" type="button" aria-label="Rota ve Resim Programı görselini aç"><img src="assets/img/proje/slide-11-ekran.webp" alt="Rota ve Resim Programı arayüzü" loading="lazy"></button>
+        <div class="kart-govde">
+          <p class="kart-ust">2024, AYD Automotive</p>
+          <h3>Rota ve Resim Programı</h3>
+          <p>Ürün rotasını ve teknik resmini tek ekrandan sorgulanabilir hale getiren, ana sistemlere yardımcı modül olarak çalışan uygulama.</p>
+          <div class="etiketler"><span>Excel VBA</span><span>Sorgulama</span></div>
+        </div>
+      </article>
+
+      <article class="kart" data-baslik="İş Emri Çıkartma Sistemi" data-galeri="assets/img/proje/slide-10.webp">
+        <button class="kart-gorsel" type="button" aria-label="İş Emri Çıkartma Sistemi görselini aç"><img src="assets/img/proje/slide-10-ekran.webp" alt="İş emri çıktısı" loading="lazy"></button>
+        <div class="kart-govde">
+          <p class="kart-ust">2024, AYD Automotive</p>
+          <h3>İş Emri Çıkartma Sistemi</h3>
+          <p>Planlamanın oluşturduğu iş emirlerini bileşen ve operasyon bilgileriyle derleyip depo için baskıya hazırlar; ilgili teknik resimleri sunucudan çekip belgeye yerleştirir.</p>
+          <div class="etiketler"><span>Excel VBA</span><span>Otomatik belge</span></div>
+        </div>
+      </article>
+
+      <article class="kart" data-baslik="Depo Stok Kayıt Sistemi" data-galeri="assets/img/proje/slide-07.webp">
+        <button class="kart-gorsel" type="button" aria-label="Depo Stok Kayıt Sistemi görselini aç"><img src="assets/img/proje/slide-07-ekran.webp" alt="Depo Stok Kayıt arayüzü" loading="lazy"></button>
+        <div class="kart-govde">
+          <p class="kart-ust">2023, AYD Automotive</p>
+          <h3>Depo Stok Kayıt Sistemi</h3>
+          <p>Depoya giren ve üretime çıkan malzemeleri kaydeden, SQL ile planlama sistemine anlık bağlı stok uygulaması. Raf doluluk oranı, kayıtsız ürün analizi ve teknik resim kontrolü.</p>
+          <div class="etiketler"><span>SQL</span><span>Stok yönetimi</span></div>
+        </div>
+      </article>
+
+      <article class="kart" data-baslik="Üretim Veri Takip Sistemi Ailesi" data-galeri="assets/img/proje/slide-03.webp|assets/img/proje/slide-04.webp|assets/img/proje/slide-05.webp|assets/img/proje/slide-06.webp|assets/img/proje/slide-08.webp|assets/img/proje/slide-09.webp">
+        <button class="kart-gorsel" type="button" aria-label="Üretim Veri Takip görsellerini aç"><img src="assets/img/proje/slide-03-ekran.webp" alt="Montaj veri giriş programı" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>6</span></button>
+        <div class="kart-govde">
+          <p class="kart-ust">2022-2024, AYD Automotive</p>
+          <h3>Üretim Veri Takip Sistemi Ailesi</h3>
+          <p>Farklı hatlara uyarlanan, vardiya bazlı üretim, hurda ve kayıp zaman verisini toplayan programlar. Personel verimliliğini günlük, aylık ve yıllık hesaplar; filtrelenebilir rapor modülleri sunar.</p>
+          <div class="etiketler"><span>Excel VBA</span><span>MÇF takibi</span><span>Rapor modülü</span></div>
+        </div>
+      </article>
+
+      <article class="kart" data-baslik="MDB-SQL Data Viewer" data-galeri="assets/img/proje/slide-02.webp">
+        <button class="kart-gorsel" type="button" aria-label="MDB-SQL Data Viewer görselini aç"><img src="assets/img/proje/slide-02-ekran.webp" alt="MDB-SQL Data Viewer arayüzü" loading="lazy"></button>
+        <div class="kart-govde">
+          <p class="kart-ust">2022, AYD Automotive</p>
+          <h3>MDB-SQL Data Viewer</h3>
+          <p>Access (.ACCDB) veritabanlarını Excel VBA üzerinden görüntüleyip düzenleyen veri yönetim aracı. Tablo, sütun ve satır düzeyinde ekleme, güncelleme ve silme işlemleri tek arayüzde.</p>
+          <div class="etiketler"><span>Excel VBA</span><span>ACCDB</span><span>CRUD</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- YETKİNLİKLER -->
+<section class="bolum yetkinlik" id="yetkinlikler" aria-labelledby="yetBaslik">
+  <div class="wrap">
+    <h2 class="baslik" id="yetBaslik" data-goster>Yetkinlikler</h2>
+    <div class="yet-izgara">
+      <div class="yet genis vurgu" data-goster="3d">
+        <i class="ph-light ph-database simge" aria-hidden="true"></i>
+        <h3>Veri, raporlama ve otomasyon</h3>
+        <p>ERP ve SQL kaynaklarından veriyi çekip temizlemek, KPI'lara dönüştürmek ve raporu insan beklemeden göndermek.</p>
+        <div class="etiketler"><span>SQL Server</span><span>Access</span><span>Excel VBA</span><span>UserForm</span><span>pandas</span><span>Outlook otomasyonu</span><span>KPI ve dashboard</span><span>PDF raporlama</span></div>
       </div>
-
+      <div class="yet desen" data-goster="3d">
+        <i class="ph-light ph-code simge" aria-hidden="true"></i>
+        <h3>Web uygulamaları</h3>
+        <p>Yönetim panoları ve analiz siteleri.</p>
+        <div class="etiketler"><span>Python</span><span>FastAPI</span><span>Node.js</span><span>React</span><span>TypeScript</span><span>ECharts</span></div>
+      </div>
+      <div class="yet" data-goster="3d">
+        <i class="ph-light ph-desktop simge" aria-hidden="true"></i>
+        <h3>Masaüstü ve mobil</h3>
+        <p>Sahada ve ofiste kurulumla çalışan uygulamalar.</p>
+        <div class="etiketler"><span>C#</span><span>.NET</span><span>WPF</span><span>.NET MAUI</span><span>Electron</span></div>
+      </div>
+      <div class="yet" data-goster="3d">
+        <i class="ph-light ph-cube simge" aria-hidden="true"></i>
+        <h3>3D ve görselleştirme</h3>
+        <p>Fabrika dijital ikizi ve web üzerinde 3D sunum.</p>
+        <div class="etiketler"><span>Three.js</span><span>React Three Fiber</span><span>Blender</span><span>GLB optimizasyonu</span></div>
+      </div>
+      <div class="yet" data-goster="3d">
+        <i class="ph-light ph-factory simge" aria-hidden="true"></i>
+        <h3>Sistemler ve süreç</h3>
+        <p>Üretim, kalite ve planlama tarafını bilen geliştirici.</p>
+        <div class="etiketler"><span>IFS</span><span>Netinox</span><span>Netsis</span><span>Atiker</span><span>Kalite yönetimi</span><span>DÖF</span><span>Kök neden analizi</span></div>
+      </div>
+      <div class="yet tam" data-goster="3d">
+        <i class="ph-light ph-sparkle simge" aria-hidden="true"></i>
+        <h3>Yapay zekâ destekli geliştirme</h3>
+        <p>Yapay zekâ araçlarını gereksinim analizinden test ve görsel kontrole kadar geliştirme sürecinin her adımında kullanarak, birimlerin ihtiyacını haftalar yerine günler içinde çalışan bir uygulamaya dönüştürüyorum.</p>
+        <div class="etiketler"><span>Hızlı prototipleme</span><span>Otomatik tarayıcı testi</span><span>LLM entegrasyonu</span><span>Docker</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TECH STACK -->
-<section id="stack" class="wrap section-pad">
-  <div class="sec-index"><span>TEKNİK STACK</span><span class="of">/ 04</span></div>
-  <p style="max-width:520px;color:var(--text-dim);font-weight:300;font-size:15px;">Üzerine gelin — kullanım alanı ve ilgili projeleri görün.</p>
-
-  <div class="stack-map">
-    <div class="stack-node" data-hover="İNCELE" style="--lvl:92%">
-      <div><div class="name">Excel VBA</div><div class="lvl">İLERİ SEVİYE</div></div>
-      <div class="detail">Uçtan uca raporlama otomasyonu, UserForm arayüzleri, hesaplama motorları. 9+ projede temel araç.</div>
-      <div class="bar"></div>
-    </div>
-    <div class="stack-node" data-hover="İNCELE" style="--lvl:80%">
-      <div><div class="name">SQL</div><div class="lvl">VERİ ALTYAPISI</div></div>
-      <div class="detail">Gerçek zamanlı veri entegrasyonu, ERP'lerden çekilen operasyonel verinin raporlanabilir hale getirilmesi.</div>
-      <div class="bar"></div>
-    </div>
-    <div class="stack-node" data-hover="İNCELE" style="--lvl:65%">
-      <div><div class="name">C#</div><div class="lvl">MASAÜSTÜ UYGULAMA</div></div>
-      <div class="detail">Stok, satış ve çek/senet yönetimi gibi bağımsız masaüstü sistemlerinin geliştirilmesi.</div>
-      <div class="bar"></div>
-    </div>
-    <div class="stack-node" data-hover="İNCELE" style="--lvl:70%">
-      <div><div class="name">IFS / Netinox ERP</div><div class="lvl">SİSTEM ENTEGRASYONU</div></div>
-      <div class="detail">Kurumsal ERP ortamlarından gerçek zamanlı veri çekme ve birimler arası akış kurma.</div>
-      <div class="bar"></div>
-    </div>
-    <div class="stack-node" data-hover="İNCELE" style="--lvl:75%">
-      <div><div class="name">Access / ACCDB</div><div class="lvl">VERİTABANI</div></div>
-      <div class="detail">VBA ile birlikte kullanılan, saha verisini yapılandırılmış hale getiren yerel veritabanı çözümleri.</div>
-      <div class="bar"></div>
-    </div>
-    <div class="stack-node" data-hover="İNCELE" style="--lvl:88%">
-      <div><div class="name">KPI &amp; Dashboard</div><div class="lvl">RAPORLAMA</div></div>
-      <div class="detail">OEE, hata oranı, teslimat riski gibi metriklerin tekil yönetici panellerinde birleştirilmesi.</div>
-      <div class="bar"></div>
-    </div>
-    <div class="stack-node" data-hover="İNCELE" style="--lvl:60%">
-      <div><div class="name">Yapay Zekâ Destekli Geliştirme</div><div class="lvl">WEB UYGULAMA</div></div>
-      <div class="detail">Raporlama odaklı, dijital ve web tabanlı uygulamaların geliştirilmesinde aktif kullanım.</div>
-      <div class="bar"></div>
-    </div>
-    <div class="stack-node" data-hover="İNCELE" style="--lvl:82%">
-      <div><div class="name">Kalite Yönetim Sistemi</div><div class="lvl">SÜREÇ</div></div>
-      <div class="detail">Kök neden analizi, DÖF koordinasyonu ve sürekli iyileştirme döngüsü.</div>
-      <div class="bar"></div>
+<!-- ÇALIŞMA AKIŞI -->
+<section class="bolum akis" id="akis" aria-labelledby="akisBaslik">
+  <div class="wrap">
+    <h2 class="baslik" id="akisBaslik" data-goster>Sahadan karara giden yol</h2>
+    <div class="akis-hat" id="akisHat">
+      <div class="akis-sahne" id="akisSahne" aria-hidden="true"><canvas id="akisTuval"></canvas></div>
+      <div class="akis-cizgi" aria-hidden="true"><span id="akisDolu"></span></div>
+      <ol class="akis-adimlar">
+        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">Veri</p><p>ERP, SQL ve sahadan gelen ham kayıt</p></li>
+        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">İşleme</p><p>Temizleme, eşleştirme, kod birleştirme</p></li>
+        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">Otomasyon</p><p>Zamanlanmış yenileme ve gönderim</p></li>
+        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">Analiz</p><p>KPI, trend, sapma ve risk</p></li>
+        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">Rapor</p><p>Pano, PDF ve e-posta</p></li>
+        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">Karar</p><p>Yönetimin aksiyon aldığı nokta</p></li>
+      </ol>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="wrap section-pad">
-  <div class="sec-index"><span>PROJELER</span><span class="of">/ 05</span></div>
-  <p style="max-width:560px;color:var(--text-dim);font-weight:300;font-size:15px;">2022'den bu yana sahada fiilen kullanılan 10 sistem — dosya numarası, firma ve tarihiyle birlikte.</p>
-  <div class="projects-note">
-    <span class="mk">＊</span>
-    <span>Görsellerdeki firma verileri (müşteri kodları, ürün bilgileri, kişisel veriler) gizlilik nedeniyle tarafımca kapatılmıştır. Kaynak kod veya iç sistem verisi paylaşılmamaktadır.</span>
-  </div>
-
-  <div class="proj" data-hover="PROJEYİ GÖR" data-images="[]">
-    <div class="proj-media empty">
-      <div class="proj-media-empty-text">GÖRSEL YAKINDA<br>KURUMSAL GİZLİLİK NEDENİYLE<br>HENÜZ YAYINLANMADI</div>
-      <div class="proj-media-tag">PNL-00</div>
-      <div class="proj-status">İŞLEMDE</div>
+<!-- İLETİŞİM -->
+<section class="iletisim" id="iletisim" aria-labelledby="iletisimBaslik">
+  <div class="wrap">
+    <h2 class="baslik" id="iletisimBaslik" data-goster>Birlikte çalışalım.</h2>
+    <p class="giris" data-goster>Raporlama, otomasyon veya dijital dönüşüm projeleri için ulaşabilirsiniz.</p>
+    <div class="baglantilar">
+      <a class="baglanti" href="mailto:alibuyukuyar.bm@gmail.com" data-goster="3d"><i class="ph-light ph-envelope-simple simge" aria-hidden="true"></i><span class="tur">E-posta</span><span class="deger">alibuyukuyar.bm@gmail.com</span><i class="ph-light ph-arrow-up-right ok" aria-hidden="true"></i></a>
+      <a class="baglanti" href="tel:+905332826783" data-goster><i class="ph-light ph-phone simge" aria-hidden="true"></i><span class="tur">Telefon</span><span class="deger">0533 282 67 83</span><i class="ph-light ph-arrow-up-right ok" aria-hidden="true"></i></a>
+      <a class="baglanti" href="https://github.com/Ali-Buyukuyar" target="_blank" rel="noopener" data-goster><i class="ph-light ph-github-logo simge" aria-hidden="true"></i><span class="tur">GitHub</span><span class="deger">github.com/Ali-Buyukuyar</span><i class="ph-light ph-arrow-up-right ok" aria-hidden="true"></i></a>
+      <a class="baglanti" href="https://ali-buyukuyar.github.io/Projeler/#projeler" target="_blank" rel="noopener" data-goster><i class="ph-light ph-presentation-chart simge" aria-hidden="true"></i><span class="tur">Proje sunumu</span><span class="deger">ali-buyukuyar.github.io/Projeler</span><i class="ph-light ph-arrow-up-right ok" aria-hidden="true"></i></a>
     </div>
-    <div class="proj-body">
-      <div class="proj-topline"><span class="proj-idx">01 / 10</span><span class="proj-year">2026 — FİMAK MAKİNA</span></div>
-      <div class="proj-title">FİMAK Panel — Yönetici Karar Destek Sistemi</div>
-      <p class="proj-tag">Gerçek zamanlı KPI paneli.</p>
-      <p class="proj-desc">Yapay zekâ destekli geliştirme araçlarıyla, gerçek zamanlı OEE, MÇF, hata oranı ve teslimat riski KPI'larını tek bir dijital panelde birleştiren, web tabanlı bir yönetici raporlama uygulaması üzerinde çalışıyor.</p>
-      <div class="proj-tools"><span>Web</span><span>SQL</span><span>KPI</span><span>Gerçek Zamanlı</span></div>
-    </div>
-  </div>
-
-  <div class="proj" data-hover="PROJEYİ GÖR" data-images='["img/slide-02.jpg"]'>
-    <div class="proj-media">
-      <img src="img/slide-02.jpg" alt="MDB-SQL Data Viewer arayüzü" loading="lazy">
-      <div class="proj-media-tag">PNL-01</div>
-    </div>
-    <div class="proj-body">
-      <div class="proj-topline"><span class="proj-idx">02 / 10</span><span class="proj-year">2022 — AYD AUTOMOTIVE</span></div>
-      <div class="proj-title">MDB-SQL Data Viewer</div>
-      <p class="proj-tag">Veritabanı yönetim aracı.</p>
-      <p class="proj-desc">SQL (.ACCDB) formatlı veritabanlarını Excel VBA üzerinden görüntüleyip düzenleyebilen bir veri yönetim aracı geliştirdi. Tablo, sütun ve satır seviyesinde CRUD işlemlerini tek arayüzden yönetilebilir hale getirdi.</p>
-      <div class="proj-tools"><span>Excel VBA</span><span>SQL / ACCDB</span><span>CRUD</span></div>
-    </div>
-  </div>
-
-  <div class="proj" data-hover="PROJEYİ GÖR" data-images='["img/slide-03.jpg","img/slide-04.jpg","img/slide-05.jpg","img/slide-06.jpg","img/slide-08.jpg","img/slide-09.jpg"]'>
-    <div class="proj-media">
-      <img src="img/slide-03.jpg" alt="Üretim Veri Takip Sistemi arayüzü" loading="lazy">
-      <div class="proj-media-tag">PNL-02</div>
-      <div class="proj-media-count">6 GÖRSEL</div>
-    </div>
-    <div class="proj-body">
-      <div class="proj-topline"><span class="proj-idx">03 / 10</span><span class="proj-year">2022 – 2024 — AYD AUTOMOTIVE</span></div>
-      <div class="proj-title">Üretim Veri Takip Sistemi Ailesi</div>
-      <p class="proj-tag">Vardiya bazlı veri giriş programları.</p>
-      <p class="proj-desc">Farklı üretim hatları için uyarlanabilen, vardiya bazlı üretim, hurda ve kayıp zaman verilerini kayıt altına alan bir dizi VBA tabanlı veri giriş programı tasarladı. Sistemler personel verimliliğini günlük/aylık/yıllık bazda hesaplıyor, operasyon sürelerini takip ederek MÇF bilgilerini güncelliyor ve yöneticiler için filtrelenebilir, Excel'e aktarılabilir detaylı rapor modülleri sunuyor.</p>
-      <div class="proj-tools"><span>Excel VBA</span><span>MÇF Takibi</span><span>Rapor Modülü</span></div>
-    </div>
-  </div>
-
-  <div class="proj" data-hover="PROJEYİ GÖR" data-images='["img/slide-07.jpg"]'>
-    <div class="proj-media">
-      <img src="img/slide-07.jpg" alt="Depo Stok Kayıt arayüzü" loading="lazy">
-      <div class="proj-media-tag">PNL-03</div>
-    </div>
-    <div class="proj-body">
-      <div class="proj-topline"><span class="proj-idx">04 / 10</span><span class="proj-year">2023 — AYD AUTOMOTIVE</span></div>
-      <div class="proj-title">Depo Stok Kayıt Sistemi</div>
-      <p class="proj-tag">Gerçek zamanlı stok senkronizasyonu.</p>
-      <p class="proj-desc">Depoya giren ve üretime çıkan malzemelerin kaydını tutan, SQL ile planlama sistemiyle anlık senkronize çalışan bir stok yönetim uygulaması geliştirdi. Sistem raf doluluk oranlarını, kayıtsız ürün analizini ve teknik resim/iş emri kontrolünü otomatikleştirdi.</p>
-      <div class="proj-tools"><span>SQL</span><span>Stok Yönetimi</span><span>Senkronizasyon</span></div>
-    </div>
-  </div>
-
-  <div class="proj" data-hover="PROJEYİ GÖR" data-images='["img/slide-10.jpg"]'>
-    <div class="proj-media">
-      <img src="img/slide-10.jpg" alt="İş Emri Çıkartma Sistemi arayüzü" loading="lazy">
-      <div class="proj-media-tag">PNL-04</div>
-    </div>
-    <div class="proj-body">
-      <div class="proj-topline"><span class="proj-idx">05 / 10</span><span class="proj-year">2024 — AYD AUTOMOTIVE</span></div>
-      <div class="proj-title">İş Emri Çıkartma Sistemi</div>
-      <p class="proj-tag">Otomatik belge derleme.</p>
-      <p class="proj-desc">Planlamanın oluşturduğu iş emirlerini bileşen ve operasyon bilgileriyle birlikte otomatik derleyip depo birimi için baskıya hazır hale getiren bir uygulama geliştirdi. Sistem ilgili teknik resimleri sunucudan çekip belgeye otomatik yerleştiriyor.</p>
-      <div class="proj-tools"><span>Excel VBA</span><span>Otomatik Belge</span><span>Teknik Resim</span></div>
-    </div>
-  </div>
-
-  <div class="proj" data-hover="PROJEYİ GÖR" data-images='["img/slide-11.jpg"]'>
-    <div class="proj-media">
-      <img src="img/slide-11.jpg" alt="Rota ve Resim Programı arayüzü" loading="lazy">
-      <div class="proj-media-tag">PNL-05</div>
-    </div>
-    <div class="proj-body">
-      <div class="proj-topline"><span class="proj-idx">06 / 10</span><span class="proj-year">2024 — AYD AUTOMOTIVE</span></div>
-      <div class="proj-title">Rota ve Resim Programı</div>
-      <p class="proj-tag">Tek ekrandan sorgulama modülü.</p>
-      <p class="proj-desc">Ürün rotasını ve teknik resmini tek ekrandan sorgulanabilir hale getiren, ana sistemlere yardımcı modül olarak çalışan bir uygulama geliştirdi.</p>
-      <div class="proj-tools"><span>Excel VBA</span><span>Sorgulama</span><span>Yardımcı Modül</span></div>
-    </div>
-  </div>
-
-  <div class="proj" data-hover="PROJEYİ GÖR" data-images='["img/slide-12.jpg","img/slide-13.jpg","img/slide-14.jpg"]'>
-    <div class="proj-media">
-      <img src="img/slide-12.jpg" alt="STP Sevk Programı arayüzü" loading="lazy">
-      <div class="proj-media-tag">PNL-06</div>
-      <div class="proj-media-count">3 GÖRSEL</div>
-    </div>
-    <div class="proj-body">
-      <div class="proj-topline"><span class="proj-idx">07 / 10</span><span class="proj-year">2024 — AYD AUTOMOTIVE</span></div>
-      <div class="proj-title">STP — Sevkiyat, Log ve Takip Platformu</div>
-      <p class="proj-tag">Üç parçalı sevkiyat sistemi.</p>
-      <p class="proj-desc">Sevkiyat sürecini uçtan uca dijitalleştiren üç parçalı bir sistem kuruldu: sevk kayıtlarını SQL üzerinden anlık işleyen Sevk Programı, oluşan hataları detaylı kodlama bilgisiyle yöneticiye e-posta olarak bildiren otomatik Log Modülü ve SQL kayıtlarını anlık yansıtan bir Takip Programı. Bu üçlü yapı, sevkiyat verisini gerçek zamanlı ve izlenebilir hale getirdi.</p>
-      <div class="proj-tools"><span>SQL</span><span>Log Modülü</span><span>Gerçek Zamanlı</span></div>
-    </div>
-  </div>
-
-  <div class="proj" data-hover="PROJEYİ GÖR" data-images='["img/slide-15.jpg","img/slide-16.jpg","img/slide-17.jpg"]'>
-    <div class="proj-media">
-      <img src="img/slide-15.jpg" alt="KKP Giriş ekranı" loading="lazy">
-      <div class="proj-media-tag">PNL-07</div>
-      <div class="proj-media-count">3 GÖRSEL</div>
-    </div>
-    <div class="proj-body">
-      <div class="proj-topline"><span class="proj-idx">08 / 10</span><span class="proj-year">2024 – 2025 — EMPERO</span></div>
-      <div class="proj-title">KKP — Kalite Kontrol ve Birim Takip Paneli</div>
-      <p class="proj-tag">Görev ve devamsızlık paneli.</p>
-      <p class="proj-desc">Birim personelinin görev ve devamsızlık takibini yöneten bir kalite kontrol paneli geliştirildi. Panel; görev oluşturma, aciliyet etiketleme, durum takibi ve devamsızlık kayıtlarını tek arayüzde topluyor.</p>
-      <div class="proj-tools"><span>Görev Takip</span><span>Devamsızlık</span><span>Panel</span></div>
-    </div>
-  </div>
-
-  <div class="proj" data-hover="PROJEYİ GÖR" data-images='["img/slide-18.jpg","img/slide-19.jpg","img/slide-20.jpg"]'>
-    <div class="proj-media">
-      <img src="img/slide-18.jpg" alt="Stok Satış Çek/Senet Giriş ekranı" loading="lazy">
-      <div class="proj-media-tag">PNL-08</div>
-      <div class="proj-media-count">3 GÖRSEL</div>
-    </div>
-    <div class="proj-body">
-      <div class="proj-topline"><span class="proj-idx">09 / 10</span><span class="proj-year">2025 — SERBEST PROJE / GÖKTAŞ PLASTIC</span></div>
-      <div class="proj-title">Stok, Satış ve Çek/Senet Yönetim Sistemi</div>
-      <p class="proj-tag">Bağımsız masaüstü uygulaması.</p>
-      <p class="proj-desc">Bir üretim firması için satış, stok ve çek/senet süreçlerini uçtan uca yöneten bağımsız bir masaüstü uygulaması geliştirdi. Sistem çoklu döviz kuru desteği, firma bazlı satış kaydı ve alacak/verecek bakiye raporlaması sunuyor.</p>
-      <div class="proj-tools"><span>C#</span><span>Çoklu Döviz</span><span>Masaüstü</span></div>
-    </div>
-  </div>
-
-  <div class="proj" data-hover="PROJEYİ GÖR" data-images='["img/slide-21.jpg","img/slide-22.jpg","img/slide-23.jpg","img/slide-24.jpg"]'>
-    <div class="proj-media">
-      <img src="img/slide-21.jpg" alt="Hurda Analiz Programı arayüzü" loading="lazy">
-      <div class="proj-media-tag">PNL-09</div>
-      <div class="proj-media-count">4 GÖRSEL</div>
-    </div>
-    <div class="proj-body">
-      <div class="proj-topline"><span class="proj-idx">10 / 10</span><span class="proj-year">2025 — EMPERO</span></div>
-      <div class="proj-title">Hurda Analiz Programı</div>
-      <p class="proj-tag">Departman bazlı maliyet raporlama.</p>
-      <p class="proj-desc">Şirket içi birimlerden gelen hurda verilerini departman, hat ve hata kodu bazında analiz eden, otomatik e-posta bildirimiyle ilgili sorumlulara ve yönetime anlık raporlama yapan bir sistem geliştirildi. Program ham veriyi filtrelenebilir grafiklere dönüştürüyor, hata kodlarına göre otomatik yorum üretiyor ve ürün/hurda tarihçesini otomatik oluşturuyor. Kurulan karantina alanı sayesinde hurdanın yaklaşık %30'u geri dönüştürülerek firmaya doğrudan maliyet kazancı sağlandı.</p>
-      <div class="proj-tools"><span>Excel VBA</span><span>Otomatik E-posta</span><span>Maliyet Analizi</span></div>
-    </div>
-  </div>
-
-</section>
-
-<!-- DATA / IMPACT -->
-<section id="impact" class="wrap section-pad">
-  <div class="sec-index"><span>ETKİ</span><span class="of">/ 06</span></div>
-
-  <div class="impact-grid">
-    <div class="impact-cell">
-      <div class="label">HURDA / EMPERO</div>
-      <div class="impact-num" data-count="30" data-suffix="%">0<span class="unit">%</span></div>
-      <div class="impact-cap">Karantine ve Raporlama Sistemi ile %30 Maliyet geri kazancı</div>
-      <div class="impact-bar-track"><div class="impact-bar-fill" data-fill="30"></div></div>
-    </div>
-    <div class="impact-cell">
-      <div class="label">OTOMASYON / AYD</div>
-      <div class="impact-num" data-count="5" data-suffix="">0</div>
-      <div class="impact-cap">Uçtan uca depo, sevkiyat ve üretim otomasyon projesi</div>
-      <div class="impact-bar-track"><div class="impact-bar-fill" data-fill="55"></div></div>
-    </div>
-    <div class="impact-cell">
-      <div class="label">SÜREKLİLİK</div>
-      <div class="impact-num" data-count="5" data-suffix="+">0<span class="unit">+</span></div>
-      <div class="impact-cap">Yıl, sanayi sektöründe kesintisiz operasyonel deneyim</div>
-      <div class="impact-bar-track"><div class="impact-bar-fill" data-fill="70"></div></div>
-    </div>
-    <div class="impact-cell">
-      <div class="label">KPS KAPSAMI / FİMAK</div>
-      <div class="impact-num" data-count="4" data-suffix="">0</div>
-      <div class="impact-cap">Gerçek zamanlı metrik: OEE, MÇF, hata oranı, teslimat riski</div>
-      <div class="impact-bar-track"><div class="impact-bar-fill" data-fill="60"></div></div>
-    </div>
+    <footer class="site-alt">
+      <p>© 2026 Ali Büyükuyar. Bu sitedeki kişisel veriler 6698 sayılı KVKK kapsamında korunmaktadır.</p>
+      <p>Görsellerdeki firma verileri gizlilik nedeniyle gizlenmiştir.</p>
+    </footer>
   </div>
 </section>
-
-<!-- WORKFLOW -->
-<section id="workflow" class="wrap section-pad">
-  <div class="sec-index"><span>ÇALIŞMA AKIŞI</span><span class="of">/ 07</span></div>
-  <p style="max-width:560px;color:var(--text-dim);font-weight:300;font-size:15px;">Sahadan yönetim raporuna giden yol — her projede tekrarlanan aynı yol hattı.</p>
-
-  <div class="flow" id="flow">
-    <svg class="flow-svg" id="flowSvg" aria-hidden="true">
-      <defs>
-        <filter id="flowGlow" x="-300%" y="-300%" width="700%" height="700%">
-          <feGaussianBlur stdDeviation="4.5"></feGaussianBlur>
-        </filter>
-      </defs>
-      <path class="flow-path" id="flowPath" d=""></path>
-      <circle class="flow-packet-glow" id="flowPacketGlow" r="7" cx="0" cy="0" filter="url(#flowGlow)">
-        <animateMotion id="flowMotionGlow" dur="4.8s" repeatCount="indefinite" path=""></animateMotion>
-        <animate attributeName="opacity" values="0;.55;.55;0" keyTimes="0;0.04;0.96;1" dur="4.8s" repeatCount="indefinite"></animate>
-      </circle>
-      <circle class="flow-packet" id="flowPacket" r="3.5" cx="0" cy="0">
-        <animateMotion id="flowMotion" dur="4.8s" repeatCount="indefinite" path=""></animateMotion>
-        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.04;0.96;1" dur="4.8s" repeatCount="indefinite"></animate>
-      </circle>
-    </svg>
-    <div class="flow-node"><div class="flow-dot"></div><div class="flabel">VERİ</div></div>
-    <div class="flow-node"><div class="flow-dot"></div><div class="flabel">İŞLEME</div></div>
-    <div class="flow-node"><div class="flow-dot"></div><div class="flabel">OTOMASYON</div></div>
-    <div class="flow-node"><div class="flow-dot"></div><div class="flabel">ANALİZ</div></div>
-    <div class="flow-node"><div class="flow-dot"></div><div class="flabel">RAPOR</div></div>
-    <div class="flow-node"><div class="flow-dot"></div><div class="flabel">KARAR</div></div>
-  </div>
-</section>
-
-<!-- CURRENT FOCUS -->
-<section id="focus" class="wrap">
-  <div class="sec-index"><span>ŞU AN</span><span class="of">/ 08</span></div>
-  <div class="focus-star">EN İYİ PROJEM</div>
-  <h2 class="focus-huge" id="focusText">ÜST PROJE<br><span class="dim">/ İŞ-GÖREV TAKİP</span></h2>
-  <p class="focus-desc">Bu proje ile iş yerinde her departmanın görev akışı, yoğunluğu(Gantt) olarak takip edilmektedir. Söz uçar, Proje kalır :)</p>
-  <div class="focus-tags">
-    <span>YAZILIM</span><span>OTOMASYON</span><span>VERİ SİSTEMLERİ</span>
-  </div>
-
-  <div class="focus-gallery">
-    <div class="focus-gallery-main">
-      <div class="focus-gallery-item"><img src="img/1.png" alt="İş-Görev Takip Paneli — Ekran 1" loading="lazy"><span class="tag">EKRAN 01</span></div>
-      <div class="focus-gallery-item"><img src="img/2.png" alt="İş-Görev Takip Paneli — Ekran 2" loading="lazy"><span class="tag">EKRAN 02</span></div>
-    </div>
-    <div class="focus-gallery-extra">
-      <div class="focus-gallery-item"><img src="img/ekleme1.png" alt="İş-Görev Takip Paneli — Detay 1" loading="lazy"><span class="tag">03</span></div>
-      <div class="focus-gallery-item"><img src="img/2.png" alt="İş-Görev Takip Paneli — Detay 2" loading="lazy"><span class="tag">04</span></div>
-      <div class="focus-gallery-item"><img src="img/3.png" alt="İş-Görev Takip Paneli — Detay 3" loading="lazy"><span class="tag">05</span></div>
-      <div class="focus-gallery-item"><img src="img/4.png" alt="İş-Görev Takip Paneli — Detay 4" loading="lazy"><span class="tag">06</span></div>
-      <div class="focus-gallery-item"><img src="img/5.png" alt="İş-Görev Takip Paneli — Detay 5" loading="lazy"><span class="tag">07</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="wrap">
-  <div class="contact-kicker">PROFİLİN SONU.</div>
-  <div class="contact-big reveal">Sıradaki<br>bağlantı?</div>
-
-  <div class="contact-links">
-    <a class="contact-link" data-hover="AÇ" href="mailto:alibuyukuyar.bm@gmail.com">
-      <span>E-POSTA</span><span class="arrow mono">alibuyukuyar.bm@gmail.com →</span>
-    </a>
-    <a class="contact-link" data-hover="AÇ" href="tel:+905332826783">
-      <span>TELEFON</span><span class="arrow mono">0533 282 6783 →</span>
-    </a>
-    <a class="contact-link" data-hover="AÇ" href="https://ali-buyukuyar.github.io/Projeler/#projeler" target="_blank" rel="noopener">
-      <span>PROJE PORTFÖYÜ</span><span class="arrow mono">GÖRÜNTÜLE →</span>
-    </a>
-  </div>
-
-  <footer>
-    <div>© 2026 ALİ BÜYÜKUYAR - Bu sitede yer alan kişisel veriler, 6698 sayılı KVKK kapsamında korunmaktadır.</div>
-    <div>ANKARA ÜNİVERSİTESİ — WEB TASARIM VE KODLAMA</div>
-  </footer>
-</section>
-
 </main>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Kapat">✕</button>
-  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Önceki görsel">‹</button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt="">
-  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Sonraki görsel">›</button>
-  <div class="lightbox-count" id="lightboxCount"></div>
-</div>
+
+<dialog class="galeri" id="galeri" aria-labelledby="galeriBaslik">
+  <div class="galeri-ust">
+    <p class="galeri-baslik"><span id="galeriBaslik"></span><span class="galeri-sayac" id="galeriSayac"></span></p>
+    <button class="yuvarlak" type="button" id="galeriKapat" aria-label="Kapat"><i class="ph-light ph-x" aria-hidden="true"></i></button>
+  </div>
+  <div class="galeri-orta">
+    <img id="galeriResim" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+    <button class="yuvarlak galeri-onceki" type="button" id="galeriOnceki" aria-label="Önceki görsel"><i class="ph-light ph-caret-left" aria-hidden="true"></i></button>
+    <button class="yuvarlak galeri-sonraki" type="button" id="galeriSonraki" aria-label="Sonraki görsel"><i class="ph-light ph-caret-right" aria-hidden="true"></i></button>
+  </div>
+  <p class="galeri-alt">Ok tuşlarıyla gezinebilir, Esc ile kapatabilirsiniz.</p>
+</dialog>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>
-gsap.registerPlugin(ScrollTrigger);
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* ---------------- boot sequence ---------------- */
-const bootLines = document.querySelectorAll('#boot .line');
-const bootBar = document.getElementById('bootBar');
-const bootEl = document.getElementById('boot');
-
-function runBoot(){
-  const tl = gsap.timeline({
-    onComplete:()=>{
-      gsap.to(bootEl,{yPercent:-100,duration:.9,ease:'power3.inOut',onComplete:()=>{bootEl.style.display='none'; document.body.style.cursor = window.innerWidth>860 ? 'none':'auto'; introSequence();}});
-    }
-  });
-  bootLines.forEach((l,i)=>{
-    tl.to(l,{opacity:1,duration:.05},i*0.28);
-  });
-  tl.to(bootBar,{width:'100%',duration:1.15,ease:'power2.inOut'},0.1);
-  tl.to({}, {duration:0.35}); // hold
-}
-if(reduced){
-  bootEl.style.display='none';
-  document.addEventListener('DOMContentLoaded', introSequence);
-} else {
-  window.addEventListener('load', runBoot);
-  setTimeout(()=>{ if(bootEl.style.display!=='none' && !document.body.classList.contains('booted')) runBoot(); }, 600);
-}
-
-/* ---------------- hero intro ---------------- */
-function introSequence(){
-  document.body.classList.add('booted');
-  gsap.set('.hero-name .row span', {yPercent:110});
-  gsap.set('.hero-meta-col, .hero-right', {autoAlpha:0, y:14});
-  gsap.set('.hero-sub-line', {autoAlpha:0, y:10});
-
-  const tl = gsap.timeline({defaults:{ease:'power4.out'}});
-  tl.to('.hero-name .row span',{yPercent:0,duration:1.1,stagger:0.12})
-    .to('.hero-meta-col',{autoAlpha:1,y:0,duration:.8},'-=0.7')
-    .to('.hero-right',{autoAlpha:1,y:0,duration:.8},'-=0.7')
-    .to('.hero-sub-line',{autoAlpha:1,y:0,duration:.7},'-=0.4');
-}
-
-/* ---------------- reveal on scroll ---------------- */
-gsap.utils.toArray('.reveal').forEach(el=>{
-  gsap.to(el,{
-    autoAlpha:1,y:0,duration:1,ease:'power3.out',
-    scrollTrigger:{trigger:el, start:'top 85%'}
-  });
-  gsap.set(el,{autoAlpha:0});
-});
-
-/* featured project gallery — staggered reveal */
-gsap.utils.toArray('.focus-gallery-item').forEach((el,i)=>{
-  gsap.from(el,{
-    autoAlpha:0,y:24,duration:.8,delay:i*0.06,ease:'power3.out',
-    scrollTrigger:{trigger:'.focus-gallery', start:'top 85%'}
-  });
-});
-
-/* about facts */
-gsap.utils.toArray('.about-fact').forEach((el,i)=>{
-  gsap.from(el,{
-    autoAlpha:0,y:20,duration:.7,delay:i*0.05,ease:'power2.out',
-    scrollTrigger:{trigger:'.about-facts', start:'top 80%'}
-  });
-});
-
-/* exp rows */
-gsap.utils.toArray('.exp-row').forEach(el=>{
-  gsap.from(el,{
-    autoAlpha:0,y:24,duration:.8,ease:'power2.out',
-    scrollTrigger:{trigger:el, start:'top 88%'}
-  });
-});
-
-/* active year indicator */
-const yearItems = document.querySelectorAll('.exp-year-item');
-document.querySelectorAll('.exp-row').forEach(row=>{
-  ScrollTrigger.create({
-    trigger:row, start:'top 55%', end:'bottom 55%',
-    onEnter:()=>setActiveYear(row.dataset.year),
-    onEnterBack:()=>setActiveYear(row.dataset.year)
-  });
-});
-function setActiveYear(y){
-  yearItems.forEach(it=>it.classList.toggle('active', it.dataset.year===y));
-}
-
-/* stack nodes */
-gsap.utils.toArray('.stack-node').forEach((el,i)=>{
-  gsap.from(el,{
-    autoAlpha:0,y:16,duration:.6,delay:(i%4)*0.05,ease:'power2.out',
-    scrollTrigger:{trigger:el, start:'top 92%'}
-  });
-});
-
-/* projects */
-gsap.utils.toArray('.proj').forEach(el=>{
-  gsap.from(el.children,{
-    autoAlpha:0,y:30,duration:.9,stagger:0.08,ease:'power3.out',
-    scrollTrigger:{trigger:el, start:'top 85%'}
-  });
-});
-
-/* ---------------- lightbox ---------------- */
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const lightboxCount = document.getElementById('lightboxCount');
-const lightboxPrev = document.getElementById('lightboxPrev');
-const lightboxNext = document.getElementById('lightboxNext');
-const lightboxClose = document.getElementById('lightboxClose');
-
-let lbImages = [];
-let lbIndex = 0;
-
-function updateLightbox(){
-  lightboxImg.src = lbImages[lbIndex];
-  const multi = lbImages.length > 1;
-  lightboxCount.textContent = multi ? (lbIndex+1)+' / '+lbImages.length : '';
-  lightboxPrev.style.display = multi ? 'flex' : 'none';
-  lightboxNext.style.display = multi ? 'flex' : 'none';
-}
-function Lightbox(images, index){
-  if(!images || !images.length) return;
-  lbImages = images;
-  lbIndex = index || 0;
-  updateLightbox();
-  lightbox.classList.add('active');
-}
-function closeLightbox(){
-  lightbox.classList.remove('active');
-}
-function lbStep(dir){
-  if(lbImages.length < 2) return;
-  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
-  updateLightbox();
-}
-lightboxClose.addEventListener('click', closeLightbox);
-lightboxPrev.addEventListener('click', (e)=>{ e.stopPropagation(); lbStep(-1); });
-lightboxNext.addEventListener('click', (e)=>{ e.stopPropagation(); lbStep(1); });
-lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
-document.addEventListener('keydown', (e)=>{
-  if(!lightbox.classList.contains('active')) return;
-  if(e.key === 'Escape') closeLightbox();
-  if(e.key === 'ArrowLeft') lbStep(-1);
-  if(e.key === 'ArrowRight') lbStep(1);
-});
-
-/*  lightbox from project cards */
-document.querySelectorAll('.proj[data-images]').forEach(proj=>{
-  let images = [];
-  try{ images = JSON.parse(proj.dataset.images || '[]'); }catch(e){ images = []; }
-  if(!images.length) return;
-  const media = proj.querySelector('.proj-media');
-  if(!media) return;
-  media.addEventListener('click', ()=>{
-    const currentImg = proj.querySelector('.proj-media img');
-    let startIdx = 0;
-    if(currentImg){
-      const found = images.indexOf(currentImg.getAttribute('src'));
-      if(found >= 0) startIdx = found;
-    }
-    Lightbox(images, startIdx);
-  });
-});
-
-/*  lightbox from featured project gallery */
-const focusGalleryImages = Array.from(document.querySelectorAll('.focus-gallery-item img')).map(img=>img.getAttribute('src'));
-document.querySelectorAll('.focus-gallery-item').forEach((item,i)=>{
-  item.addEventListener('click', ()=> Lightbox(focusGalleryImages, i));
-});
-
-/* project media — cycle through gallery images on hover */
-document.querySelectorAll('.proj[data-images]').forEach(proj=>{
-  let images = [];
-  try{ images = JSON.parse(proj.dataset.images || '[]'); }catch(e){ images = []; }
-  if(images.length < 2) return;
-  const img = proj.querySelector('.proj-media img');
-  if(!img) return;
-  let idx = 0, timer = null;
-  proj.addEventListener('mouseenter', ()=>{
-    timer = setInterval(()=>{
-      idx = (idx+1) % images.length;
-      img.style.opacity = '0';
-      setTimeout(()=>{ img.src = images[idx]; img.style.opacity = '1'; }, 180);
-    }, 950);
-  });
-  proj.addEventListener('mouseleave', ()=>{
-    clearInterval(timer);
-    idx = 0;
-    img.style.opacity = '1';
-    img.src = images[0];
-  });
-});
-
-/* impact counters */
-document.querySelectorAll('.impact-num').forEach(num=>{
-  const target = parseFloat(num.dataset.count);
-  const suffix = num.dataset.suffix || '';
-  const unitEl = num.querySelector('.unit');
-  ScrollTrigger.create({
-    trigger:num, start:'top 88%', once:true,
-    onEnter:()=>{
-      const obj = {v:0};
-      gsap.to(obj,{
-        v:target, duration:1.6, ease:'power2.out',
-        onUpdate:()=>{
-          num.childNodes[0].nodeValue = Math.round(obj.v);
-        }
-      });
-    }
-  });
-});
-document.querySelectorAll('.impact-bar-fill').forEach(bar=>{
-  ScrollTrigger.create({
-    trigger:bar, start:'top 90%', once:true,
-    onEnter:()=>{ bar.style.width = bar.dataset.fill+'%'; }
-  });
-});
-
-/* workflow: measure real dot positions, draw the connecting path (straight
-   on desktop, zigzag on mobile — whatever the CSS layout produces), and
-   drive the traveling packet + its glow along that exact path.
-   Node flashes are scheduled from JS with setTimeout, armed at the same
-   instant the SVG motion is (re)started — so a node can only ever light up
-   at the precise moment the dot's path-length matches the packet's, never
-   before. */
-const FLOW_DURATION = 4.8; // seconds — must match the <animateMotion dur> values
-let flowTimers = [];
-function clearFlowTimers(){
-  flowTimers.forEach(t=> t.kind==='interval' ? clearInterval(t.id) : clearTimeout(t.id));
-  flowTimers = [];
-}
-function flashFlowNode(dot){
-  const node = dot.closest('.flow-node');
-  const label = node && node.querySelector('.flabel');
-  dot.classList.remove('lit'); void dot.offsetWidth; dot.classList.add('lit');
-  if(label){ label.classList.remove('lit'); void label.offsetWidth; label.classList.add('lit'); }
-}
-function buildFlowPath(){
-  const flow = document.getElementById('flow');
-  const svg = document.getElementById('flowSvg');
-  const path = document.getElementById('flowPath');
-  const motion = document.getElementById('flowMotion');
-  const motionGlow = document.getElementById('flowMotionGlow');
-  if(!flow || !svg || !path || !motion) return;
-  const dots = Array.from(flow.querySelectorAll('.flow-node .flow-dot'));
-  if(!dots.length) return;
-
-  const rect = flow.getBoundingClientRect();
-  if(rect.width < 1 || rect.height < 1) return;
-  svg.setAttribute('viewBox', '0 0 '+rect.width+' '+rect.height);
-
-  const pts = dots.map(dot=>{
-    const r = dot.getBoundingClientRect();
-    return { x:(r.left + r.width/2) - rect.left, y:(r.top + r.height/2) - rect.top };
-  });
-  const d = pts.map((p,i)=> (i===0?'M':'L')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
-  path.setAttribute('d', d);
-  motion.setAttribute('path', d);
-  if(motionGlow) motionGlow.setAttribute('path', d);
-
-  const total = path.getTotalLength();
-  const delays = [];
-  let acc = 0;
-  dots.forEach((dot,i)=>{
-    if(i>0){
-      const dx = pts[i].x-pts[i-1].x, dy = pts[i].y-pts[i-1].y;
-      acc += Math.sqrt(dx*dx+dy*dy);
-    }
-    delays.push((total>0 ? acc/total : 0) * FLOW_DURATION);
-  });
-
-  clearFlowTimers();
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduced) return;
-
-  // restart the SVG motion and the JS-scheduled flashes together, right now
-  try{ motion.beginElement(); }catch(e){}
-  try{ motionGlow && motionGlow.beginElement(); }catch(e){}
-
-  function fireCycle(){
-    dots.forEach((dot,i)=>{
-      flowTimers.push({kind:'timeout', id: setTimeout(()=> flashFlowNode(dot), delays[i]*1000)});
-    });
-  }
-  fireCycle();
-  flowTimers.push({kind:'interval', id: setInterval(fireCycle, FLOW_DURATION*1000)});
-}
-window.addEventListener('load', ()=> setTimeout(buildFlowPath, 350));
-if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=> buildFlowPath()); }
-let flowResizeT;
-window.addEventListener('resize', ()=>{
-  clearTimeout(flowResizeT);
-  flowResizeT = setTimeout(buildFlowPath, 150);
-});
-ScrollTrigger.addEventListener('refresh', ()=> setTimeout(buildFlowPath, 50));
-
-gsap.utils.toArray('.flow-node').forEach((el,i)=>{
-  gsap.from(el,{
-    autoAlpha:0, y:14, duration:.6, delay:i*0.08, ease:'power2.out',
-    scrollTrigger:{trigger:'#flow', start:'top 82%'}
-  });
-});
-gsap.from('#flowPath',{
-  autoAlpha:0, duration:1, ease:'power2.inOut',
-  scrollTrigger:{trigger:'#flow', start:'top 82%', onEnter:buildFlowPath}
-});
-
-/* focus distortion on mouse */
-const focusText = document.getElementById('focusText');
-if(window.matchMedia('(min-width:861px)').matches && !reduced){
-  document.getElementById('focus').addEventListener('mousemove',(e)=>{
-    const r = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - r.left - r.width/2)/r.width;
-    const y = (e.clientY - r.top - r.height/2)/r.height;
-    gsap.to(focusText,{
-      x:x*18, y:y*10, skewX:x*3, duration:.6, ease:'power2.out'
-    });
-  });
-  document.getElementById('focus').addEventListener('mouseleave',()=>{
-    gsap.to(focusText,{x:0,y:0,skewX:0,duration:.8,ease:'power3.out'});
-  });
-}
-
-/* nav active section + rail dots */
-const sections = ['about','experience','stack','projects','contact'];
-const rail = document.getElementById('rail');
-sections.forEach(id=>{
-  const dot = document.createElement('div');
-  dot.className='rail-dot';
-  dot.dataset.id=id;
-  rail.appendChild(dot);
-});
-const railDots = document.querySelectorAll('.rail-dot');
-const navLinks = document.querySelectorAll('nav a');
-sections.forEach(id=>{
-  const sec = document.getElementById(id);
-  if(!sec) return;
-  ScrollTrigger.create({
-    trigger:sec, start:'top 50%', end:'bottom 50%',
-    onEnter:()=>setNav(id), onEnterBack:()=>setNav(id)
-  });
-});
-function setNav(id){
-  navLinks.forEach(a=>a.classList.toggle('active', a.dataset.target===id));
-  railDots.forEach(d=>d.classList.toggle('active', d.dataset.id===id));
-}
-navLinks.forEach(a=>{
-  a.addEventListener('click',(e)=>{
-    e.preventDefault();
-    const t = document.getElementById(a.dataset.target);
-    if(t) t.scrollIntoView({behavior: reduced?'auto':'smooth', block:'start'});
-  });
-});
-
-/* ---------------- custom cursor ---------------- */
-if(window.matchMedia('(min-width:861px)').matches){
-  const cur = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  const lbl = document.getElementById('cursorLabel');
-  let mx=window.innerWidth/2, my=window.innerHeight/2, rx=mx, ry=my, started=false;
-
-  function showCursor(){
-    if(started) return;
-    started = true;
-    cur.classList.add('live');
-    ring.classList.add('live');
-  }
-
-  window.addEventListener('mousemove',e=>{
-    mx=e.clientX; my=e.clientY;
-    cur.style.left=mx+'px'; cur.style.top=my+'px';
-    lbl.style.left=mx+'px'; lbl.style.top=my+'px';
-    showCursor();
-  }, {passive:true});
-  window.addEventListener('mouseenter', showCursor);
-
-  function ringLoop(){
-    rx += (mx-rx)*0.18; ry += (my-ry)*0.18;
-    ring.style.left=rx+'px'; ring.style.top=ry+'px';
-    requestAnimationFrame(ringLoop);
-  }
-  ringLoop();
-
-  function attachHover(el){
-    el.addEventListener('mouseenter',()=>{
-      const t = el.dataset.hover || (el.tagName==='A' ? 'GİT' : '');
-      ring.style.width='60px'; ring.style.height='60px';
-      cur.style.width='0px'; cur.style.height='0px';
-      if(t){ lbl.textContent=t; lbl.style.opacity='1'; }
-    });
-    el.addEventListener('mouseleave',()=>{
-      ring.style.width='36px'; ring.style.height='36px';
-      cur.style.width='9px'; cur.style.height='9px';
-      lbl.style.opacity='0';
-    });
-  }
-  document.querySelectorAll('a, .stack-node, .proj, [data-hover]').forEach(attachHover);
-}
-
-/* ---------------- background grid canvas ---------------- */
-const canvas = document.getElementById('bg-grid');
-const ctx = canvas.getContext('2d');
-let w,h;
-function resize(){
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = document.documentElement.scrollHeight;
-}
-resize();
-window.addEventListener('resize', resize);
-
-let offset = 0;
-function drawGrid(){
-  ctx.clearRect(0,0,w,h);
-  ctx.strokeStyle = 'rgba(237,234,226,0.045)';
-  ctx.lineWidth = 1;
-  const gap = 90;
-  const oy = offset % gap;
-  for(let x=0;x<w;x+=gap){
-    ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke();
-  }
-  for(let y=-gap+oy; y<h; y+=gap){
-    ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke();
-  }
-  if(!reduced){ offset += 0.06; }
-  requestAnimationFrame(drawGrid);
-}
-drawGrid();
-window.addEventListener('load', ()=> setTimeout(resize, 1200));
-ScrollTrigger.addEventListener('refresh', resize);
-
-/* refresh ScrollTrigger after boot transition changes layout */
-window.addEventListener('load', ()=>{ setTimeout(()=>ScrollTrigger.refresh(), 1400); });
-</script>
+<script src="assets/js/main.js?v=20261017b"></script>
+<script type="module" src="assets/js/sahne.js?v=20261017"></script>
+<script type="module" src="assets/js/akis3d.js?v=20261017b"></script>
 </body>
 </html>
