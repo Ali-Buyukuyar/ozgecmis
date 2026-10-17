@@ -63,7 +63,7 @@ ul, ol { padding: 0; list-style: none; }
 /* ---------- 3D sahne ---------- */
 #sahne {
   position: fixed; inset: 0;
-  width: 100%; height: 100lvh;
+  width: 100%; height: 100vh; height: 100lvh;
   z-index: 0;
   display: block;
   pointer-events: none;
@@ -215,7 +215,7 @@ main, .site-alt { position: relative; z-index: 1; }
 @media (max-width: 767px) {
   .hero { align-items: flex-end; padding-top: 96px; }
   .hero::before {
-    background: linear-gradient(0deg, rgba(11, 12, 14, 0.96) 0%, rgba(11, 12, 14, 0.78) 44%, rgba(11, 12, 14, 0) 78%);
+    background: linear-gradient(0deg, rgba(11, 12, 14, 0.94) 0%, rgba(11, 12, 14, 0.62) 40%, rgba(11, 12, 14, 0) 66%);
   }
 }
 
@@ -331,6 +331,8 @@ main, .site-alt { position: relative; z-index: 1; }
 .metin-btn i { transition: transform 0.3s var(--ease); }
 .metin-btn:hover i { transform: translateX(4px); }
 .proje-gorsel-mobil { display: none; }
+.gorsel-not { display: none; font-size: 0.8rem; line-height: 1.5; color: var(--text-3); }
+.gorsel-not-acik { display: block; margin-top: 14px; text-align: center; }
 
 .anlatim-sahne { position: relative; }
 .anlatim-sabit {
@@ -367,7 +369,7 @@ main, .site-alt { position: relative; z-index: 1; }
   background: radial-gradient(50% 50% at 50% 50%, rgba(242, 169, 59, 0.16), transparent 70%);
   filter: blur(14px); pointer-events: none;
 }
-.cerceve-not { margin-top: 18px; font-size: 0.85rem; color: var(--text-3); text-align: right; }
+.cerceve-not { margin-top: 18px; font-size: 0.85rem; color: var(--text-3); text-align: right; max-width: 52ch; margin-left: auto; }
 
 @media (max-width: 1023px) {
   .anlatim { grid-template-columns: 1fr; }
@@ -379,6 +381,7 @@ main, .site-alt { position: relative; z-index: 1; }
     aspect-ratio: 16 / 10; background: var(--panel); cursor: zoom-in;
   }
   .proje-gorsel-mobil img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+  .proje .gorsel-not { display: block; order: -1; margin: -14px 0 22px; font-size: 0.8rem; color: var(--text-3); max-width: none; }
 }
 
 /* ---------- Diğer işler ---------- */
@@ -642,7 +645,13 @@ main, .site-alt { position: relative; z-index: 1; }
   border-radius: 10px; border: 1px solid var(--line-2);
   object-fit: contain;
 }
-.galeri-alt { padding: 14px var(--gutter) 20px; text-align: center; color: var(--text-3); font-size: 0.86rem; }
+.galeri-alt { padding: 14px var(--gutter) 20px; text-align: center; color: var(--text-3); font-size: 0.86rem; display: grid; gap: 4px; }
+#galeriNot { color: var(--text-2); }
+.galeri-ipucu { font-size: 0.8rem; }
+.galeri-orta img { cursor: zoom-in; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.galeri-orta.yakin { overflow: auto; place-items: start; padding: 0; -webkit-overflow-scrolling: touch; }
+.galeri-orta.yakin img { max-width: none; max-height: none; width: 240%; height: auto; cursor: zoom-out; touch-action: auto; }
+.galeri-orta.yakin .galeri-onceki, .galeri-orta.yakin .galeri-sonraki { display: none; }
 .yuvarlak {
   width: 46px; height: 46px; border-radius: 999px;
   border: 1px solid var(--line-2); background: rgba(20, 22, 26, 0.85);

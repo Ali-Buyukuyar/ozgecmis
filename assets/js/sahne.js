@@ -36,7 +36,7 @@ function kur() {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const sahne = new THREE.Scene();
-  sahne.fog = new THREE.Fog(ZEMIN, dar ? 20 : 26, dar ? 46 : 60);
+  sahne.fog = new THREE.Fog(ZEMIN, dar ? 13 : 26, dar ? 32 : 60);
 
   const pmrem = new THREE.PMREMGenerator(renderer);
   sahne.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
@@ -50,7 +50,7 @@ function kur() {
   kenarIsik.position.set(8, 3.5, -14);
   sahne.add(kenarIsik);
 
-  const kamera = new THREE.PerspectiveCamera(30, 1, 0.1, 140);
+  const kamera = new THREE.PerspectiveCamera(dar ? 40 : 30, 1, 0.1, 140);
 
   // Sütun geometrisi: tabanı y=0'da, yükseklik örnek matrisinin y ölçeğiyle verilir.
   const geo = new RoundedBoxGeometry(0.8, 1, 0.8, 2, 0.07);
@@ -80,6 +80,9 @@ function kur() {
   sutunlar.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(ADET * 3), 3);
   sutunlar.instanceColor.setUsage(THREE.DynamicDrawUsage);
   sutunlar.frustumCulled = false;
+  // Telefonda alan küçültülür: dar ekranda daha çok sütun görünür
+  const OLCEK = dar ? 0.6 : 1;
+  sutunlar.scale.setScalar(OLCEK);
   sahne.add(sutunlar);
 
   const m = sutunlar.instanceMatrix.array;
@@ -120,7 +123,18 @@ function kur() {
       imlec.son = performance.now();
       imlec.hedefGuc = 1;
     }, { passive: true });
-    document.addEventListener('pointerleave', () => { imlec.hedefGuc = 0; });
+    document.addEventListener('pointerleave', () => { imlec.son = 0; });
+  } else if (!azHareket) {
+    // Dokunmatik ekranda sütunlar parmağın altında yükselir
+    const dokun = (e) => {
+      const t = e.touches[0];
+      if (!t) return;
+      ndc.set((t.clientX / innerWidth) * 2 - 1, -(t.clientY / innerHeight) * 2 + 1);
+      imlec.son = performance.now();
+      imlec.hedefGuc = 1;
+    };
+    addEventListener('touchstart', dokun, { passive: true });
+    addEventListener('touchmove', dokun, { passive: true });
   }
 
   let genislik = 0, yukseklik = 0;
@@ -130,6 +144,7 @@ function kur() {
     kamera.aspect = genislik / yukseklik;
     // Masaüstünde alanı sağa kaydır: metin solda sakin bir zeminde kalsın.
     if (genislik >= 1024) kamera.setViewOffset(genislik, yukseklik, -genislik * 0.16, 0, genislik, yukseklik);
+    else if (dar) kamera.setViewOffset(genislik, yukseklik, 0, yukseklik * 0.14, genislik, yukseklik); // alan yazının üstünde kalsın
     else kamera.clearViewOffset();
     kamera.updateProjectionMatrix();
     if (azHareket) ciz(3.2, 0);
@@ -138,7 +153,7 @@ function kur() {
 
   const kahramanPoz = { p: new THREE.Vector3(0, 15, 27), h: new THREE.Vector3(0, 0, -5) };
   const planPoz = { p: new THREE.Vector3(0, 30, 9), h: new THREE.Vector3(0, 0, -1) };
-  if (dar) { kahramanPoz.p.set(0, 17, 26); kahramanPoz.h.set(0, 0, -6); }
+  if (dar) { kahramanPoz.p.set(0, 9.5, 14); kahramanPoz.h.set(0, 0, -2); planPoz.p.set(0, 18, 6); }
   const hedef = new THREE.Vector3();
 
   const yumusak = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
@@ -164,11 +179,15 @@ function kur() {
     }
     kamera.lookAt(hedef);
 
-    // İmleç konumu
-    if (inceImlec && !azHareket) {
-      if (performance.now() - imlec.son > 2200) imlec.hedefGuc = 0;
+    // İmleç konumu; giriş yokken dalga kendi kendine alanın sağında dolaşır
+    if (!azHareket) {
+      if (performance.now() - imlec.son > 2200) {
+        if (dar) ndc.set(0.45 * Math.sin(t * 0.41), 0.42 + 0.25 * Math.sin(t * 0.29 + 1.3));
+        else ndc.set(0.38 + 0.32 * Math.sin(t * 0.41), -0.05 + 0.28 * Math.sin(t * 0.29 + 1.3));
+        imlec.hedefGuc = 0.75;
+      }
       isin.setFromCamera(ndc, kamera);
-      if (isin.ray.intersectPlane(duzlem, kesisim)) { imlec.hx = kesisim.x; imlec.hz = kesisim.z; }
+      if (isin.ray.intersectPlane(duzlem, kesisim)) { imlec.hx = kesisim.x / OLCEK; imlec.hz = kesisim.z / OLCEK; }
       imlec.x += (imlec.hx - imlec.x) * 0.09;
       imlec.z += (imlec.hz - imlec.z) * 0.09;
       imlec.guc += (imlec.hedefGuc * (1 - c) - imlec.guc) * 0.05;

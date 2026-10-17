@@ -21,8 +21,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
-<link rel="stylesheet" href="assets/css/site.css?v=20261017b">
+<link rel="stylesheet" href="assets/css/site.css?v=20261018">
 
+<script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js"></script>
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
@@ -86,8 +87,8 @@
 <section class="rakamlar" aria-label="Kısa özet">
   <div class="wrap rakam-izgara">
     <div class="rakam" data-goster="3d"><div class="deger"><span data-say="5">5</span><em>+</em></div><p class="aciklama">yıl sanayi sektöründe kesintisiz deneyim</p></div>
-    <div class="rakam" data-goster="3d"><div class="deger"><span data-say="30">30</span></div><p class="aciklama">geliştirilen sistem, rapor ve uygulama</p></div>
-    <div class="rakam" data-goster="3d"><div class="deger"><span data-say="21">21</span></div><p class="aciklama">2026 yılında geliştirilen proje ve araç</p></div>
+    <div class="rakam" data-goster="3d"><div class="deger"><span data-say="27">27</span></div><p class="aciklama">geliştirilen sistem, rapor ve uygulama</p></div>
+    <div class="rakam" data-goster="3d"><div class="deger"><span data-say="18">18</span></div><p class="aciklama">2026 yılında geliştirilen proje ve araç</p></div>
     <div class="rakam" data-goster="3d"><div class="deger"><em>%</em><span data-say="30">30</span></div><p class="aciklama">hurdanın geri dönüştürülmesiyle maliyet kazancı (Empero)</p></div>
   </div>
 </section>
@@ -194,13 +195,14 @@
   <div class="wrap">
     <p class="ust-etiket" data-goster>FİMAK Makina · 2026</p>
     <h2 class="baslik" id="fimakBaslik" data-goster>FİMAK'ta geliştirdiğim uygulamalar</h2>
-    <p class="giris" data-goster>Depo, satış, üretim ve maliyet verisini yönetimin ve birimlerin her gün kullandığı ekranlara taşıyan web, masaüstü ve mobil uygulamalar. Ekran görüntülerinde ürün, adet, tutar, müşteri ve kişi bilgileri gizlenmiştir.</p>
+    <p class="giris" data-goster>Depo, satış, üretim ve maliyet verisini yönetimin ve birimlerin her gün kullandığı ekranlara taşıyan web, masaüstü ve mobil uygulamalar. Ekran görüntülerindeki ürün, adet, tutar ve kişi bilgileri gizlenmiş, grafikler gerçek dışı örnek değerlerle yeniden çizilmiştir.</p>
 
     <div class="anlatim">
       <ol class="anlatim-liste" id="anlatim">
 
-        <li class="proje" data-i="0" data-baslik="Yönetim Raporu" data-galeri="assets/img/fimak/yonetim.webp">
+        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="0" data-baslik="Yönetim Raporu" data-galeri="assets/img/fimak/yonetim.webp">
           <button class="proje-gorsel-mobil" type="button" aria-label="Yönetim Raporu ekranlarını büyüt"><img src="assets/img/fimak/yonetim.webp" alt="Yönetim Raporu ana sayfası, altı soru kartı" width="1600" height="1000" loading="lazy"></button>
+          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
           <div class="proje-ust"><span class="durum">Kullanımda</span><span>Web uygulaması</span></div>
           <h3>Yönetim Raporu</h3>
           <p>Yöneticinin her sabah açtığı ekran. Depo, B2B satış ve ürün ağacı maliyetini tek sitede birleştirir; altı soru kartının her biri tıkladıkça bir kat daha ayrıntıya iner.</p>
@@ -213,8 +215,9 @@
           <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
         </li>
 
-        <li class="proje" data-i="1" data-baslik="B2B Satış Analizi" data-galeri="assets/img/fimak/b2b-genel.webp|assets/img/fimak/b2b-bolge.webp">
+        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="1" data-baslik="B2B Satış Analizi" data-galeri="assets/img/fimak/b2b-genel.webp|assets/img/fimak/b2b-bolge.webp">
           <button class="proje-gorsel-mobil" type="button" aria-label="B2B Satış Analizi ekranlarını büyüt"><img src="assets/img/fimak/b2b-genel.webp" alt="B2B Satış Analizi, satış özeti ekranı" width="1440" height="1160" loading="lazy"></button>
+          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
           <div class="proje-ust"><span class="durum">Kullanımda</span><span>Web uygulaması</span></div>
           <h3>B2B Satış Analizi</h3>
           <p>Excel satış raporunun yerini alan analiz sitesi. Satışçı, cari, ürün grubu, il ve ülke kırılımlarını; fiyat, döviz ve iskonto analizlerini 17 ekranda sunar.</p>
@@ -227,8 +230,9 @@
           <button class="metin-btn" type="button">2 ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
         </li>
 
-        <li class="proje" data-i="2" data-baslik="3D Fabrika İzleme" data-galeri="assets/img/fimak/fabrika-3d.webp|assets/img/fimak/fabrika-3d-gece.webp|assets/img/fimak/fabrika-3d-kaynak.webp">
+        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="2" data-baslik="3D Fabrika İzleme" data-galeri="assets/img/fimak/fabrika-3d.webp|assets/img/fimak/fabrika-3d-gece.webp|assets/img/fimak/fabrika-3d-kaynak.webp">
           <button class="proje-gorsel-mobil" type="button" aria-label="3D Fabrika İzleme ekranlarını büyüt"><img src="assets/img/fimak/fabrika-3d.webp" alt="Fabrikanın 3D modelinde yürüyüş modu: makineler ve çalışanlar" width="1600" height="1049" loading="lazy"></button>
+          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
           <div class="proje-ust"><span class="durum gri">Çalışan prototip</span><span>Web, 3D</span></div>
           <h3>3D Fabrika İzleme</h3>
           <p>Siparişleri ve iş emirlerini, fabrikanın yerleşim planından birebir kurulmuş 3D modeli üzerinde ait oldukları hat ve bölgede canlı gösterir.</p>
@@ -241,8 +245,9 @@
           <button class="metin-btn" type="button">3 ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
         </li>
 
-        <li class="proje" data-i="3" data-baslik="Depo Stok Paneli" data-galeri="assets/img/fimak/depo.webp">
+        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="3" data-baslik="Depo Stok Paneli" data-galeri="assets/img/fimak/depo.webp">
           <button class="proje-gorsel-mobil" type="button" aria-label="Depo Stok Paneli ekranını büyüt"><img src="assets/img/fimak/depo.webp" alt="Depo Stok Paneli, depo durumu ekranı" width="1600" height="1000" loading="lazy"></button>
+          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
           <div class="proje-ust"><span class="durum">Kullanımda</span><span>Web uygulaması</span></div>
           <h3>Depo Stok Paneli</h3>
           <p>Excel'deki VBA stok kurallarını Python'a birebir taşıyan depo ve üretim hattı paneli. Sevke hazır, satışa uygun ve cariye ayrılmış makineleri depo bazında gösterir.</p>
@@ -255,8 +260,9 @@
           <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
         </li>
 
-        <li class="proje" data-i="4" data-baslik="Fuar Görüşme Raporu" data-galeri="assets/img/fimak/fuar.webp">
+        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="4" data-baslik="Fuar Görüşme Raporu" data-galeri="assets/img/fimak/fuar.webp">
           <button class="proje-gorsel-mobil" type="button" aria-label="Fuar Görüşme Raporu ekranını büyüt"><img src="assets/img/fimak/fuar.webp" alt="IBAKTECH 2026 görüşme raporu panosu" width="1600" height="1000" loading="lazy"></button>
+          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
           <div class="proje-ust"><span class="durum">IBAKTECH 2026'da kullanıldı</span><span>Web uygulaması</span></div>
           <h3>Fuar Görüşme Raporu</h3>
           <p>Fuar boyunca ziyaretçi görüşmelerini canlı izleyen pano. Satışçı, sonuç, ülke ve sektör dağılımını anlık gösterir.</p>
@@ -269,8 +275,9 @@
           <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
         </li>
 
-        <li class="proje" data-i="5" data-baslik="FİMAK ERP (demo)" data-galeri="assets/img/fimak/erp-lobi.webp">
+        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="5" data-baslik="FİMAK ERP (demo)" data-galeri="assets/img/fimak/erp-lobi.webp">
           <button class="proje-gorsel-mobil" type="button" aria-label="FİMAK ERP ekranını büyüt"><img src="assets/img/fimak/erp-lobi.webp" alt="FİMAK ERP planlama ve sevkiyat lobisi" width="1600" height="900" loading="lazy"></button>
+          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
           <div class="proje-ust"><span class="durum gri">Demo</span><span>Masaüstü uygulaması</span></div>
           <h3>FİMAK ERP</h3>
           <p>Yönetime sunulmak üzere hazırlanan masaüstü ERP demosu. Satış, depo, sevkiyat, muhasebe ve insan kaynakları dahil 11 modül ve 45 ekran.</p>
@@ -283,8 +290,9 @@
           <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
         </li>
 
-        <li class="proje" data-i="6" data-baslik="Sac Kesim ve Stok Takip" data-galeri="assets/img/fimak/sac.webp|assets/img/fimak/sac-giris.webp">
+        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="6" data-baslik="Sac Kesim ve Stok Takip" data-galeri="assets/img/fimak/sac.webp|assets/img/fimak/sac-giris.webp">
           <button class="proje-gorsel-mobil" type="button" aria-label="Sac Kesim ve Stok Takip ekranlarını büyüt"><img src="assets/img/fimak/sac.webp" alt="Sac Kesim ve Stok Takip ana sayfası, sac stok haritası" width="1600" height="900" loading="lazy"></button>
+          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
           <div class="proje-ust"><span class="durum">v1.1</span><span>Masaüstü uygulaması</span></div>
           <h3>Sac Kesim ve Stok Takip</h3>
           <p>Lazer kesimde kullanılan sac stoğu ve ihtiyaç planlama programı. Net ihtiyacı, toplam ihtiyaçtan stoğu ve yoldaki siparişleri düşerek hesaplar.</p>
@@ -297,8 +305,9 @@
           <button class="metin-btn" type="button">2 ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
         </li>
 
-        <li class="proje" data-i="7" data-baslik="FİMAK Merkez" data-galeri="assets/img/fimak/merkez.webp">
+        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="7" data-baslik="FİMAK Merkez" data-galeri="assets/img/fimak/merkez.webp">
           <button class="proje-gorsel-mobil" type="button" aria-label="FİMAK Merkez ekranını büyüt"><img src="assets/img/fimak/merkez.webp" alt="FİMAK Merkez giriş ekranı" width="1200" height="800" loading="lazy"></button>
+          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
           <div class="proje-ust"><span class="durum gri">Prototip</span><span>Web uygulaması</span></div>
           <h3>FİMAK Merkez</h3>
           <p>Tüm birimlerin kullanacağı, yönetici odaklı portal. Kokpit yalnızca istisnaları gösterir; makine pasaportu seri numarasıyla bir makinenin üretimden satışa tüm kaydını açar.</p>
@@ -325,7 +334,7 @@
             <figure class="ekran3d" data-i="7"><img src="assets/img/fimak/merkez.webp" alt="" width="1200" height="800" loading="lazy"></figure>
           </div>
           <div class="cerceve-golge"></div>
-          <p class="cerceve-not">Büyütmek için ekrana tıklayın</p>
+          <p class="cerceve-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz. Büyütmek için tıklayın.</p>
         </div>
       </div>
     </div>
@@ -358,10 +367,7 @@
         <h3><i class="ph-light ph-gear-six" aria-hidden="true"></i>Veri ve otomasyon</h3>
         <ul>
           <li><p class="ad">Kapasite Raporu</p><p class="ne">ERP verisinden günlük ve haftalık üretim adetlerini çıkarır; her gün üretim yönetimine otomatik gönderilir.</p><p class="ile">Excel VBA</p></li>
-          <li><p class="ad">Netsis Reçete Aktarımı</p><p class="ne">Çok seviyeli ürün ağaçlarını Netsis reçete formatına dönüştürür. Python sürümü, VBA çıktısını 42 dosyada birebir doğruladı.</p><p class="ile">Excel VBA, Python</p></li>
-          <li><p class="ad">Ürün Ağacı Maliyet Analizi</p><p class="ne">Ürün başına malzeme maliyetini dört fiyat kaynağından öncelik sırasıyla doldurarak hesaplar, PDF fiyat listesi üretir.</p><p class="ile">Python, xlwings</p></li>
           <li><p class="ad">Satış ve Plasiyer Raporları</p><p class="ne">Kişi bazında hazırlanıp PDF olarak Outlook üzerinden otomatik gönderilen satış raporları.</p><p class="ile">Excel VBA, SQL, Outlook</p></li>
-          <li><p class="ad">Fuar Video Üretim Hattı</p><p class="ne">Ham fuar çekimlerini transkript ve sahne analiziyle kurgulayıp 9:16, 4:5 ve 16:9 formatlarında teslim eden hat.</p><p class="ile">Python, Whisper, FFmpeg</p></li>
         </ul>
       </div>
     </div>
@@ -376,7 +382,7 @@
 
     <div class="gorev-sahne">
       <div class="gorev-ekran" id="gorevEkran">
-        <div class="ekran-ic" id="gorevIc" role="button" tabindex="0" aria-label="İş-Görev Takip ekranlarını büyüt">
+        <div class="ekran-ic" id="gorevIc" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." role="button" tabindex="0" aria-label="İş-Görev Takip ekranlarını büyüt">
           <img class="aktif" src="assets/img/gorev/ekran-2.webp" alt="İş-Görev Takip, kişisel pano ekranı" width="2000" height="1020" loading="lazy">
           <img src="assets/img/gorev/ekran-ekleme1.webp" alt="İş-Görev Takip, departman süreleri ve Gantt takvimi" width="2000" height="1020" loading="lazy">
           <img src="assets/img/gorev/ekran-3.webp" alt="İş-Görev Takip, oluşturduğum görevler listesi" width="2000" height="1020" loading="lazy">
@@ -386,6 +392,7 @@
         </div>
         <div class="gorev-isik" aria-hidden="true"></div>
       </div>
+      <p class="gorsel-not gorsel-not-acik">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
       <div class="kucukler" id="kucukler" role="tablist" aria-label="Ekran seçimi">
         <button class="aktif" type="button" role="tab" aria-selected="true" aria-label="Pano"><img src="assets/img/gorev/ekran-2-k.webp" alt="" loading="lazy"></button>
         <button type="button" role="tab" aria-selected="false" aria-label="Gantt takvimi"><img src="assets/img/gorev/ekran-ekleme1-k.webp" alt="" loading="lazy"></button>
@@ -418,7 +425,7 @@
   <div class="arsiv-pist-dis" id="arsivDis">
     <div class="arsiv-pist" id="arsivPist">
 
-      <article class="kart" data-baslik="Hurda Analiz Programı" data-galeri="assets/img/proje/slide-21.webp|assets/img/proje/slide-22.webp|assets/img/proje/slide-23.webp|assets/img/proje/slide-24.webp">
+      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Hurda Analiz Programı" data-galeri="assets/img/proje/slide-21.webp|assets/img/proje/slide-22.webp|assets/img/proje/slide-23.webp|assets/img/proje/slide-24.webp">
         <button class="kart-gorsel" type="button" aria-label="Hurda Analiz Programı görsellerini aç"><img src="assets/img/proje/slide-21-ekran.webp" alt="Hurda Analiz Programı arayüzü" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>4</span></button>
         <div class="kart-govde">
           <p class="kart-ust">2025, Empero</p>
@@ -428,7 +435,7 @@
         </div>
       </article>
 
-      <article class="kart" data-baslik="Stok, Satış ve Çek/Senet Yönetim Sistemi" data-galeri="assets/img/proje/slide-18.webp|assets/img/proje/slide-19.webp|assets/img/proje/slide-20.webp">
+      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Stok, Satış ve Çek/Senet Yönetim Sistemi" data-galeri="assets/img/proje/slide-18.webp|assets/img/proje/slide-19.webp|assets/img/proje/slide-20.webp">
         <button class="kart-gorsel" type="button" aria-label="Stok, Satış ve Çek/Senet Yönetim Sistemi görsellerini aç"><img src="assets/img/proje/slide-19-ekran.webp" alt="Satış modülü arayüzü" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>3</span></button>
         <div class="kart-govde">
           <p class="kart-ust">2025, Serbest proje (Göktaş Plastic)</p>
@@ -438,7 +445,7 @@
         </div>
       </article>
 
-      <article class="kart" data-baslik="KKP, Kalite Kontrol ve Birim Takip Paneli" data-galeri="assets/img/proje/slide-15.webp|assets/img/proje/slide-16.webp|assets/img/proje/slide-17.webp">
+      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="KKP, Kalite Kontrol ve Birim Takip Paneli" data-galeri="assets/img/proje/slide-15.webp|assets/img/proje/slide-16.webp|assets/img/proje/slide-17.webp">
         <button class="kart-gorsel" type="button" aria-label="KKP görsellerini aç"><img src="assets/img/proje/slide-16-ekran.webp" alt="KKP görev takip ekranı" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>3</span></button>
         <div class="kart-govde">
           <p class="kart-ust">2024-2025, Empero</p>
@@ -448,7 +455,7 @@
         </div>
       </article>
 
-      <article class="kart" data-baslik="STP, Sevkiyat, Log ve Takip Platformu" data-galeri="assets/img/proje/slide-12.webp|assets/img/proje/slide-13.webp|assets/img/proje/slide-14.webp">
+      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="STP, Sevkiyat, Log ve Takip Platformu" data-galeri="assets/img/proje/slide-12.webp|assets/img/proje/slide-13.webp|assets/img/proje/slide-14.webp">
         <button class="kart-gorsel" type="button" aria-label="STP görsellerini aç"><img src="assets/img/proje/slide-12-ekran.webp" alt="STP sevk programı arayüzü" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>3</span></button>
         <div class="kart-govde">
           <p class="kart-ust">2024, AYD Automotive</p>
@@ -458,7 +465,7 @@
         </div>
       </article>
 
-      <article class="kart" data-baslik="Rota ve Resim Programı" data-galeri="assets/img/proje/slide-11.webp">
+      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Rota ve Resim Programı" data-galeri="assets/img/proje/slide-11.webp">
         <button class="kart-gorsel" type="button" aria-label="Rota ve Resim Programı görselini aç"><img src="assets/img/proje/slide-11-ekran.webp" alt="Rota ve Resim Programı arayüzü" loading="lazy"></button>
         <div class="kart-govde">
           <p class="kart-ust">2024, AYD Automotive</p>
@@ -468,7 +475,7 @@
         </div>
       </article>
 
-      <article class="kart" data-baslik="İş Emri Çıkartma Sistemi" data-galeri="assets/img/proje/slide-10.webp">
+      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="İş Emri Çıkartma Sistemi" data-galeri="assets/img/proje/slide-10.webp">
         <button class="kart-gorsel" type="button" aria-label="İş Emri Çıkartma Sistemi görselini aç"><img src="assets/img/proje/slide-10-ekran.webp" alt="İş emri çıktısı" loading="lazy"></button>
         <div class="kart-govde">
           <p class="kart-ust">2024, AYD Automotive</p>
@@ -478,7 +485,7 @@
         </div>
       </article>
 
-      <article class="kart" data-baslik="Depo Stok Kayıt Sistemi" data-galeri="assets/img/proje/slide-07.webp">
+      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Depo Stok Kayıt Sistemi" data-galeri="assets/img/proje/slide-07.webp">
         <button class="kart-gorsel" type="button" aria-label="Depo Stok Kayıt Sistemi görselini aç"><img src="assets/img/proje/slide-07-ekran.webp" alt="Depo Stok Kayıt arayüzü" loading="lazy"></button>
         <div class="kart-govde">
           <p class="kart-ust">2023, AYD Automotive</p>
@@ -488,7 +495,7 @@
         </div>
       </article>
 
-      <article class="kart" data-baslik="Üretim Veri Takip Sistemi Ailesi" data-galeri="assets/img/proje/slide-03.webp|assets/img/proje/slide-04.webp|assets/img/proje/slide-05.webp|assets/img/proje/slide-06.webp|assets/img/proje/slide-08.webp|assets/img/proje/slide-09.webp">
+      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Üretim Veri Takip Sistemi Ailesi" data-galeri="assets/img/proje/slide-03.webp|assets/img/proje/slide-04.webp|assets/img/proje/slide-05.webp|assets/img/proje/slide-06.webp|assets/img/proje/slide-08.webp|assets/img/proje/slide-09.webp">
         <button class="kart-gorsel" type="button" aria-label="Üretim Veri Takip görsellerini aç"><img src="assets/img/proje/slide-03-ekran.webp" alt="Montaj veri giriş programı" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>6</span></button>
         <div class="kart-govde">
           <p class="kart-ust">2022-2024, AYD Automotive</p>
@@ -498,7 +505,7 @@
         </div>
       </article>
 
-      <article class="kart" data-baslik="MDB-SQL Data Viewer" data-galeri="assets/img/proje/slide-02.webp">
+      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="MDB-SQL Data Viewer" data-galeri="assets/img/proje/slide-02.webp">
         <button class="kart-gorsel" type="button" aria-label="MDB-SQL Data Viewer görselini aç"><img src="assets/img/proje/slide-02-ekran.webp" alt="MDB-SQL Data Viewer arayüzü" loading="lazy"></button>
         <div class="kart-govde">
           <p class="kart-ust">2022, AYD Automotive</p>
@@ -545,7 +552,7 @@
         <i class="ph-light ph-factory simge" aria-hidden="true"></i>
         <h3>Sistemler ve süreç</h3>
         <p>Üretim, kalite ve planlama tarafını bilen geliştirici.</p>
-        <div class="etiketler"><span>IFS</span><span>Netinox</span><span>Netsis</span><span>Atiker</span><span>Kalite yönetimi</span><span>DÖF</span><span>Kök neden analizi</span></div>
+        <div class="etiketler"><span>IFS</span><span>Netinox</span><span>Atiker</span><span>Kalite yönetimi</span><span>DÖF</span><span>Kök neden analizi</span></div>
       </div>
       <div class="yet tam" data-goster="3d">
         <i class="ph-light ph-sparkle simge" aria-hidden="true"></i>
@@ -589,7 +596,7 @@
     </div>
     <footer class="site-alt">
       <p>© 2026 Ali Büyükuyar. Bu sitedeki kişisel veriler 6698 sayılı KVKK kapsamında korunmaktadır.</p>
-      <p>Görsellerdeki firma verileri gizlilik nedeniyle gizlenmiştir.</p>
+      <p>Görsellerdeki firma verileri gizlenmiştir; grafikler örnek veridir.</p>
     </footer>
   </div>
 </section>
@@ -606,13 +613,13 @@
     <button class="yuvarlak galeri-onceki" type="button" id="galeriOnceki" aria-label="Önceki görsel"><i class="ph-light ph-caret-left" aria-hidden="true"></i></button>
     <button class="yuvarlak galeri-sonraki" type="button" id="galeriSonraki" aria-label="Sonraki görsel"><i class="ph-light ph-caret-right" aria-hidden="true"></i></button>
   </div>
-  <p class="galeri-alt">Ok tuşlarıyla gezinebilir, Esc ile kapatabilirsiniz.</p>
+  <p class="galeri-alt"><span id="galeriNot"></span><span class="galeri-ipucu" id="galeriIpucu"></span></p>
 </dialog>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="assets/js/main.js?v=20261017b"></script>
-<script type="module" src="assets/js/sahne.js?v=20261017"></script>
-<script type="module" src="assets/js/akis3d.js?v=20261017b"></script>
+<script src="assets/js/main.js?v=20261018"></script>
+<script type="module" src="assets/js/sahne.js?v=20261018"></script>
+<script type="module" src="assets/js/akis3d.js?v=20261018"></script>
 </body>
 </html>

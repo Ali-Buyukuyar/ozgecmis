@@ -41,13 +41,21 @@
   $$('[data-yazdir]').forEach((b) => b.addEventListener('click', () => window.print()));
 
   /* ---------- Galeri ---------- */
+  // Masaüstünde ok tuşları, telefonda parmakla kaydırma; resme dokununca/tıklayınca yakınlaşır.
   const galeri = $('#galeri');
+  const gOrta = $('.galeri-orta', galeri);
   const gResim = $('#galeriResim');
   const gBaslik = $('#galeriBaslik');
   const gSayac = $('#galeriSayac');
+  const dokunmatik = matchMedia('(pointer: coarse)').matches;
+  $('#galeriIpucu').textContent = dokunmatik
+    ? 'Kaydırarak gezinin, yakınlaştırmak için resme dokunun.'
+    : 'Ok tuşlarıyla gezinin, yakınlaştırmak için resme tıklayın.';
   let gListe = [], gSira = 0, gAd = '';
 
+  function yakinKapat() { gOrta.classList.remove('yakin'); }
   function galeriGoster() {
+    yakinKapat();
     gResim.src = gListe[gSira];
     gResim.alt = `${gAd}, görsel ${gSira + 1}`;
     gSayac.textContent = gListe.length > 1 ? `${gSira + 1} / ${gListe.length}` : '';
@@ -56,31 +64,57 @@
     $('#galeriSonraki').hidden = !coklu;
     if (coklu) { const on = new Image(); on.src = gListe[(gSira + 1) % gListe.length]; }
   }
-  function galeriAc(liste, sira, ad) {
+  function galeriAc(liste, sira, ad, not) {
     if (!liste.length) return;
     gListe = liste; gSira = sira || 0; gAd = ad || '';
     gBaslik.textContent = gAd;
+    $('#galeriNot').textContent = not || '';
     galeriGoster();
     if (typeof galeri.showModal === 'function') galeri.showModal(); else galeri.setAttribute('open', '');
     kok.style.overflow = 'hidden';
   }
   function galeriKapat() { if (galeri.open) galeri.close(); }
   function adim(y) { gSira = (gSira + y + gListe.length) % gListe.length; galeriGoster(); }
-  galeri.addEventListener('close', () => { kok.style.overflow = ''; });
+  galeri.addEventListener('close', () => { kok.style.overflow = ''; yakinKapat(); });
   $('#galeriKapat').addEventListener('click', galeriKapat);
   $('#galeriOnceki').addEventListener('click', () => adim(-1));
   $('#galeriSonraki').addEventListener('click', () => adim(1));
-  galeri.addEventListener('click', (e) => { if (e.target === galeri || e.target.classList.contains('galeri-orta')) galeriKapat(); });
+  galeri.addEventListener('click', (e) => { if (e.target === galeri || (e.target === gOrta && !gOrta.classList.contains('yakin'))) galeriKapat(); });
   galeri.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') adim(1);
     if (e.key === 'ArrowLeft') adim(-1);
   });
+  // Yakınlaştırma: dokunulan noktayı ortalayarak büyütür, tekrar dokununca küçültür
+  gResim.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (gOrta.classList.contains('yakin')) { yakinKapat(); return; }
+    const r = gResim.getBoundingClientRect();
+    const fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+    gOrta.classList.add('yakin');
+    requestAnimationFrame(() => {
+      gOrta.scrollLeft = gResim.offsetWidth * fx - gOrta.clientWidth / 2;
+      gOrta.scrollTop = gResim.offsetHeight * fy - gOrta.clientHeight / 2;
+    });
+  });
+  // Parmakla kaydırma: yakın değilken sola/sağa kaydırmak sonraki/önceki görsele geçer
+  let dx0 = 0, dy0 = 0, dokunuyor = false;
+  gOrta.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) { dokunuyor = false; return; }
+    dokunuyor = true; dx0 = e.touches[0].clientX; dy0 = e.touches[0].clientY;
+  }, { passive: true });
+  gOrta.addEventListener('touchend', (e) => {
+    if (!dokunuyor || gOrta.classList.contains('yakin') || gListe.length < 2) return;
+    dokunuyor = false;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - dx0, dy = t.clientY - dy0;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.3) adim(dx < 0 ? 1 : -1);
+  }, { passive: true });
   const listeOku = (el) => (el.dataset.galeri || '').split('|').filter(Boolean);
 
   // Önceki projeler ve FİMAK projeleri
-  $$('.kart').forEach((k) => $('.kart-gorsel', k).addEventListener('click', () => galeriAc(listeOku(k), 0, k.dataset.baslik)));
+  $$('.kart').forEach((k) => $('.kart-gorsel', k).addEventListener('click', () => galeriAc(listeOku(k), 0, k.dataset.baslik, k.dataset.not)));
   $$('.proje').forEach((p) => {
-    const ac = () => galeriAc(listeOku(p), 0, p.dataset.baslik);
+    const ac = () => galeriAc(listeOku(p), 0, p.dataset.baslik, p.dataset.not);
     $('.metin-btn', p).addEventListener('click', ac);
     $('.proje-gorsel-mobil', p).addEventListener('click', ac);
   });
@@ -115,7 +149,7 @@
     desteDiz();
   }
   projeEtkin(0);
-  deste.addEventListener('click', () => { const p = projeler[etkin]; if (p) galeriAc(listeOku(p), 0, p.dataset.baslik); });
+  deste.addEventListener('click', () => { const p = projeler[etkin]; if (p) galeriAc(listeOku(p), 0, p.dataset.baslik, p.dataset.not); });
   if (inceImlec) {
     deste.addEventListener('pointermove', (e) => {
       const r = deste.getBoundingClientRect();
@@ -160,9 +194,36 @@
     gorevResimler.forEach((r, k) => r.classList.toggle('aktif', k === i));
     kucukler.forEach((d, k) => { d.classList.toggle('aktif', k === i); d.setAttribute('aria-selected', String(k === i)); });
   }));
-  const gorevAc = () => galeriAc(gorevResimler.map((r) => r.currentSrc || r.src), gorevSira, 'İş-Görev Takip Sistemi');
+  const gorevAc = () => galeriAc(gorevResimler.map((r) => r.currentSrc || r.src), gorevSira, 'İş-Görev Takip Sistemi', $('#gorevIc').dataset.not);
   $('#gorevIc').addEventListener('click', gorevAc);
   $('#gorevIc').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); gorevAc(); } });
+
+  /* ---------- Telefonda proje arşivi: kaydırırken kartlar 3D döner (kapak akışı) ---------- */
+  const arsivDis = $('#arsivDis');
+  const arsivKartlar = $$('.kart', arsivDis);
+  const darEkran = matchMedia('(max-width: 1023px)');
+  let akisIstek = 0;
+  function kapakAkisi() {
+    akisIstek = 0;
+    if (!darEkran.matches) return;
+    const r = arsivDis.getBoundingClientRect();
+    const orta = r.left + r.width / 2;
+    arsivKartlar.forEach((k) => {
+      const kr = k.getBoundingClientRect();
+      const d = Math.max(-1.5, Math.min(1.5, (kr.left + kr.width / 2 - orta) / r.width));
+      k.style.transform = `perspective(900px) rotateY(${(-d * 34).toFixed(1)}deg) translateZ(${(-Math.abs(d) * 90).toFixed(0)}px)`;
+      k.style.opacity = (1 - Math.min(Math.abs(d) * 0.35, 0.45)).toFixed(2);
+    });
+  }
+  if (!azHareket) {
+    arsivDis.addEventListener('scroll', () => { if (!akisIstek) akisIstek = requestAnimationFrame(kapakAkisi); }, { passive: true });
+    addEventListener('resize', () => { if (!akisIstek) akisIstek = requestAnimationFrame(kapakAkisi); });
+    darEkran.addEventListener('change', () => {
+      if (!darEkran.matches) arsivKartlar.forEach((k) => { k.style.transform = ''; k.style.opacity = ''; });
+      kapakAkisi();
+    });
+    kapakAkisi();
+  }
 
   /* ---------- Menüde etkin bölüm ---------- */
   const menuLinkleri = $$('.menu a');
@@ -304,6 +365,16 @@
   gsap.fromTo('#gorevEkran', { rotateX: 26, scale: 0.88, y: 70 }, {
     rotateX: 0, scale: 1, y: 0, ease: 'none',
     scrollTrigger: { trigger: '.gorev-sahne', start: 'top 95%', end: 'top 22%', scrub: true },
+  });
+
+  // Telefonda FİMAK ekranları: kaydırdıkça yatık hâlden doğrulur
+  gsap.matchMedia().add('(max-width: 1023px)', () => {
+    $$('.proje-gorsel-mobil').forEach((el) => {
+      gsap.fromTo(el, { rotationX: 32, rotationY: -10, scale: 0.86, transformPerspective: 900, transformOrigin: '50% 100%' }, {
+        rotationX: 0, rotationY: 0, scale: 1, ease: 'none',
+        scrollTrigger: { trigger: el, start: 'top bottom', end: 'top 42%', scrub: true },
+      });
+    });
   });
 
   // Çalışma akışı ve önceki projeler: ekran genişliğine göre
