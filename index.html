@@ -1,34 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ali Büyükuyar | Veri Analizi ve Raporlama Uzmanı</title>
-<meta name="description" content="Ali Büyükuyar: üretim, satış ve maliyet verisini yönetim raporlarına, web, masaüstü ve mobil uygulamalara dönüştüren veri analizi ve raporlama uzmanı. FİMAK Makina, Konya.">
-<meta name="theme-color" content="#0b0c0e">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    var rm = false;
+    try { rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (rm) d.classList.add('ve-rm'); else d.classList.add('ve-stage');
+    window.__veBoot = false;
+    // Güvenlik: sahne 2,2 sn içinde açılmazsa sayfa düz ve eksiksiz görünür.
+    setTimeout(function () {
+      if (!window.__veBoot) { d.classList.remove('ve-stage'); d.classList.add('ve-fallback'); }
+    }, 2200);
+  })();
+</script>
+<title>Ali Büyükuyar · Veri Analizi ve Raporlama</title>
+<meta name="description" content="Ali Büyükuyar: üretim, satış ve maliyet verisini raporlara, web, masaüstü ve mobil uygulamalara dönüştüren veri analizi ve raporlama uzmanı. Konya.">
+<meta name="theme-color" content="#05060A">
 <link rel="canonical" href="https://ali-buyukuyar.github.io/ozgecmis/">
 <meta property="og:type" content="profile">
 <meta property="og:locale" content="tr_TR">
-<meta property="og:title" content="Ali Büyükuyar | Veri Analizi ve Raporlama Uzmanı">
-<meta property="og:description" content="Üretim, satış ve maliyet verisini yönetimin her gün açtığı raporlara ve uygulamalara dönüştürüyorum.">
+<meta property="og:title" content="Ali Büyükuyar · Veri Analizi ve Raporlama">
+<meta property="og:description" content="Üretim, satış ve maliyet verisini her gün kullanılan raporlara ve uygulamalara dönüştürüyorum.">
 <meta property="og:url" content="https://ali-buyukuyar.github.io/ozgecmis/">
 <meta property="og:image" content="https://ali-buyukuyar.github.io/ozgecmis/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f2a93b'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='%231a1306'%3EAB%3C/text%3E%3C/svg%3E">
-
-<script>(function (d) { if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { d.classList.add('anim'); setTimeout(function () { if (!window.gsap) d.classList.remove('anim'); }, 4000); } })(document.documentElement);</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305060A'/%3E%3Cg fill='%23E4E9F2'%3E%3Ccircle cx='12' cy='51' r='3.4'/%3E%3Ccircle cx='12' cy='42' r='3.4'/%3E%3Ccircle cx='22' cy='51' r='3.4'/%3E%3Ccircle cx='32' cy='51' r='3.4'/%3E%3Ccircle cx='32' cy='42' r='3.4'/%3E%3Ccircle cx='32' cy='33' r='3.4'/%3E%3Ccircle cx='42' cy='51' r='3.4'/%3E%3Ccircle cx='42' cy='42' r='3.4'/%3E%3C/g%3E%3Cg fill='%23E8A33C'%3E%3Ccircle cx='52' cy='51' r='3.4'/%3E%3Ccircle cx='52' cy='42' r='3.4'/%3E%3Ccircle cx='52' cy='33' r='3.4'/%3E%3Ccircle cx='52' cy='24' r='3.4'/%3E%3Ccircle cx='52' cy='15' r='3.4'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
-<link rel="stylesheet" href="assets/css/site.css?v=20261018">
-
-<script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.10.0/dist/es-module-shims.js"></script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Unbounded:wght@300;400;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=20261021e">
 <script type="importmap">
-{ "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
-} }
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
 </script>
 <script type="application/ld+json">
 {
@@ -36,590 +49,695 @@
   "@type": "Person",
   "name": "Ali Büyükuyar",
   "jobTitle": "Veri Analizi ve Raporlama Uzmanı",
-  "worksFor": { "@type": "Organization", "name": "FİMAK Makina" },
   "address": { "@type": "PostalAddress", "addressLocality": "Konya", "addressCountry": "TR" },
   "email": "mailto:alibuyukuyar.bm@gmail.com",
+  "telephone": "+905332826783",
   "url": "https://ali-buyukuyar.github.io/ozgecmis/",
   "sameAs": ["https://github.com/Ali-Buyukuyar"]
 }
 </script>
 </head>
 <body>
-<a class="atla" href="#icerik">İçeriğe geç</a>
-<canvas id="sahne" aria-hidden="true"></canvas>
+<a class="skip" href="#icerik">İçeriğe geç</a>
 
-<header class="ust" id="ust">
-  <div class="wrap">
-    <a class="marka" href="#hero" aria-label="Ali Büyükuyar, başa dön"><span class="marka-isaret" aria-hidden="true">AB</span>Ali Büyükuyar</a>
-    <nav class="menu" id="menu" aria-label="Ana menü">
-      <a href="#profil" data-hedef="profil">Profil</a>
-      <a href="#deneyim" data-hedef="deneyim">Deneyim</a>
-      <a href="#fimak" data-hedef="fimak">FİMAK</a>
-      <a href="#projeler" data-hedef="projeler">Projeler</a>
-      <a href="#yetkinlikler" data-hedef="yetkinlikler">Yetkinlikler</a>
-      <a href="#iletisim" data-hedef="iletisim">İletişim</a>
-    </nav>
-    <div class="ust-sag">
-      <button class="btn btn-cizgi btn-kucuk" type="button" data-yazdir><i class="ph-light ph-download-simple" aria-hidden="true"></i>CV'yi indir</button>
-      <button class="menu-dugme" type="button" id="menuDugme" aria-expanded="false" aria-controls="menu" aria-label="Menüyü aç"><i class="ph-light ph-list" aria-hidden="true"></i></button>
-    </div>
+<header class="topbar" data-intro>
+  <a class="brand" href="#giris">Ali Büyükuyar</a>
+  <nav class="topnav" id="menu" aria-label="Ana menü">
+    <a href="#profil">Profil</a>
+    <a href="#deneyim">Deneyim</a>
+    <a href="#projeler">Projeler</a>
+    <a href="#yetkinlikler">Yetkinlikler</a>
+    <a href="#iletisim">İletişim</a>
+    <button class="btn btn-line menu-cv" type="button" data-print>CV'yi indir</button>
+  </nav>
+  <div class="top-actions">
+    <button class="motion-toggle" type="button" aria-pressed="false" hidden>
+      <span class="mt-icon" aria-hidden="true"></span><span class="mt-label">Hareketi durdur</span>
+    </button>
+    <button class="btn-mini top-cv" type="button" data-print>CV'yi indir</button>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="mb-lines" aria-hidden="true"></span><span class="mb-label">Menü</span></button>
   </div>
 </header>
 
 <main id="icerik">
 
-<!-- KAHRAMAN -->
-<section class="hero" id="hero" aria-label="Giriş">
-  <div class="wrap">
-    <div class="hero-ic">
-      <p class="ust-etiket">Veri Analizi ve Raporlama Uzmanı · FİMAK Makina</p>
-      <h1 class="hero-ad"><span class="satir"><span>Ali</span></span><span class="satir"><span>Büyükuyar</span></span></h1>
-      <p class="hero-alt">Üretim, satış ve maliyet verisini <strong>yönetimin her gün açtığı</strong> raporlara ve uygulamalara dönüştürüyorum.</p>
-      <div class="hero-cta">
-        <a class="btn btn-ana" href="#fimak">Projeleri gör<i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
-        <button class="btn btn-cizgi" type="button" data-yazdir><i class="ph-light ph-download-simple" aria-hidden="true"></i>CV'yi indir</button>
+  <!-- ============ Sabit sahne: giriş + yıllar ============ -->
+  <section class="stage" id="sahne" aria-label="Giriş ve yıllara göre projeler">
+    <div class="stage-inner">
+
+      <div class="scene scene-hero" id="giris">
+        <h1 class="hero-name"><span class="hn-line">Ali</span> <span class="hn-line">Büyükuyar</span></h1>
+        <div class="hero-copy">
+          <p class="hero-title" data-intro>Veri analizi ve raporlama uzmanı · Konya</p>
+          <p class="hero-lead" data-intro>Üretim, satış ve maliyet verisini her gün kullanılan raporlara ve web, masaüstü, mobil uygulamalara dönüştürüyorum.</p>
+          <div class="hero-cta" data-intro>
+            <a class="btn btn-solid" href="#projeler">Projeleri gör</a>
+            <button class="btn btn-line" type="button" data-print>CV'yi indir</button>
+          </div>
+          <p class="print-contact">alibuyukuyar.bm@gmail.com · 0533 282 67 83 · github.com/Ali-Buyukuyar · Konya</p>
+        </div>
       </div>
+
+      <div class="scene scene-years" id="yillar">
+        <h2 class="h-sec years-head">Yıllara göre projeler</h2>
+        <div class="years-side">
+          <dl class="stats">
+            <div class="stat"><dt>sanayide deneyim</dt><dd><span class="num" data-count="5" data-suffix="+">5+</span><span class="unit">yıl</span></dd></div>
+            <div class="stat"><dt>geliştirdiğim sistem</dt><dd><span class="num" id="sayiToplam" data-count="32">32</span></dd></div>
+            <div class="stat stat-accent"><dt>2026'da proje</dt><dd><span class="num" id="sayi2026" data-count="23">23</span></dd></div>
+            <div class="stat"><dt>hurda geri kazanımı (Empero)</dt><dd><span class="num" data-count="30" data-prefix="%">%30</span></dd></div>
+          </dl>
+          <p class="years-note">Bu sayfadaki projeler, başladığı yıla göre.</p>
+        </div>
+        <div class="chart-slot" aria-hidden="true"></div>
+        <ol class="year-chart" id="yilGrafik" aria-label="Yıllara göre proje sayısı">
+          <li class="yc" style="--v:2;--m:23"><span class="sr-only">2022 yılında 2 proje</span><span class="yc-count" aria-hidden="true">2</span><span class="yc-bar" aria-hidden="true"></span><span class="yc-year" aria-hidden="true">2022</span></li>
+          <li class="yc" style="--v:1;--m:23"><span class="sr-only">2023 yılında 1 proje</span><span class="yc-count" aria-hidden="true">1</span><span class="yc-bar" aria-hidden="true"></span><span class="yc-year" aria-hidden="true">2023</span></li>
+          <li class="yc" style="--v:4;--m:23"><span class="sr-only">2024 yılında 4 proje</span><span class="yc-count" aria-hidden="true">4</span><span class="yc-bar" aria-hidden="true"></span><span class="yc-year" aria-hidden="true">2024</span></li>
+          <li class="yc" style="--v:2;--m:23"><span class="sr-only">2025 yılında 2 proje</span><span class="yc-count" aria-hidden="true">2</span><span class="yc-bar" aria-hidden="true"></span><span class="yc-year" aria-hidden="true">2025</span></li>
+          <li class="yc is-accent" style="--v:23;--m:23"><span class="sr-only">2026 yılında 23 proje</span><span class="yc-count" aria-hidden="true">23</span><span class="yc-bar" aria-hidden="true"></span><span class="yc-year" aria-hidden="true">2026</span></li>
+        </ol>
+      </div>
+
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- RAKAMLAR -->
-<section class="rakamlar" aria-label="Kısa özet">
-  <div class="wrap rakam-izgara">
-    <div class="rakam" data-goster="3d"><div class="deger"><span data-say="5">5</span><em>+</em></div><p class="aciklama">yıl sanayi sektöründe kesintisiz deneyim</p></div>
-    <div class="rakam" data-goster="3d"><div class="deger"><span data-say="27">27</span></div><p class="aciklama">geliştirilen sistem, rapor ve uygulama</p></div>
-    <div class="rakam" data-goster="3d"><div class="deger"><span data-say="18">18</span></div><p class="aciklama">2026 yılında geliştirilen proje ve araç</p></div>
-    <div class="rakam" data-goster="3d"><div class="deger"><em>%</em><span data-say="30">30</span></div><p class="aciklama">hurdanın geri dönüştürülmesiyle maliyet kazancı (Empero)</p></div>
-  </div>
-</section>
-
-<!-- PROFİL -->
-<section class="bolum profil" id="profil" aria-labelledby="profilBaslik">
-  <div class="wrap">
-    <h2 class="gizli" id="profilBaslik">Profil</h2>
-    <p class="ifade" id="ifade">Ham veriyi <em>karar destek raporlarına</em>, süreç verimsizliklerini <em>ölçülebilir maliyet kazancına</em> dönüştürüyorum.</p>
-    <div class="profil-alt">
-      <div data-goster>
-        <p>2018'den bu yana muhasebe, üretim planlama, kalite kontrol ve raporlama görevlerinde çalıştım. Bugün FİMAK Makina'da üretim, depo, satış ve maliyet verisini yönetimin günlük kullandığı raporlara ve uygulamalara dönüştürüyorum.</p>
-        <p>Excel VBA ve SQL ile başlayan araç setim, yapay zekâ destekli geliştirme sayesinde Python, React, .NET ve Three.js ile kurulan web, masaüstü ve mobil uygulamalara genişledi.</p>
+  <!-- ============ Profil ============ -->
+  <section class="section profil" id="profil" aria-labelledby="profilBaslik">
+    <h2 class="h-sec" id="profilBaslik" data-split>Profil</h2>
+    <p class="statement" data-reveal>Ham veriyi yöneticilerin her gün açtığı raporlara, tekrar eden işleri <em>kendiliğinden çalışan sistemlere</em> dönüştürüyorum.</p>
+    <div class="profil-grid">
+      <div class="profil-text" data-reveal>
+        <p>2018'de muhasebede başlayan çalışma hayatım üretim planlama, kalite kontrol ve raporlama görevleriyle sürdü. Bugün <strong>FİMAK Makina</strong>'da depo, satış, üretim ve maliyet verisini yönetimin ve birimlerin kullandığı rapor ve uygulamalara dönüştürüyorum.</p>
+        <p>Excel VBA ve SQL ile başlayan araç setim; Python, React, .NET ve Three.js ile kurduğum web, masaüstü ve mobil uygulamalara genişledi. Yapay zekâ destekli geliştirme araçlarını analizden teste kadar her adımda kullanıyorum.</p>
+        <p>Bir raporun kimin için, hangi kararı desteklemek için hazırlandığını önce üretimin içinde öğrendim; uygulamalarımı da sahayı bilerek kuruyorum.</p>
       </div>
-      <dl class="bilgi" data-goster>
-        <div><dt>Şu an</dt><dd>FİMAK Makina, Veri Analizi ve Raporlama Uzmanı</dd></div>
+      <dl class="facts" data-reveal>
+        <div><dt>Şu an</dt><dd>Veri Analizi ve Raporlama Uzmanı, FİMAK Makina</dd></div>
         <div><dt>Konum</dt><dd>Konya, Türkiye</dd></div>
         <div><dt>Eğitim</dt><dd>Ankara Üniversitesi, Web Tasarım ve Kodlama</dd></div>
-        <div><dt>Odak</dt><dd>Raporlama, süreç otomasyonu, dijital dönüşüm</dd></div>
+        <div><dt>Odak</dt><dd>Raporlama, süreç otomasyonu, iç uygulamalar</dd></div>
       </dl>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- DENEYİM -->
-<section class="bolum deneyim" id="deneyim" aria-labelledby="deneyimBaslik">
-  <div class="wrap">
-    <h2 class="baslik" id="deneyimBaslik" data-goster>Deneyim</h2>
-    <ol class="cizelge" id="cizelge">
-      <li class="cizelge-hat" aria-hidden="true"><span id="cizelgeDolu"></span></li>
-
-      <li class="ci-satir">
-        <div class="ci-zaman"><span class="yil">2026</span><span class="sure">Devam ediyor</span></div>
-        <span class="ci-nokta" aria-hidden="true"></span>
-        <div class="ci-govde" data-goster="3d">
+  <!-- ============ Deneyim ============ -->
+  <section class="section deneyim" id="deneyim" aria-labelledby="deneyimBaslik">
+    <h2 class="h-sec" id="deneyimBaslik" data-split>Deneyim</h2>
+    <ol class="roles">
+      <li class="role is-current" data-reveal>
+        <div class="role-time"><span class="role-year">2026</span><span class="role-span">Devam ediyor</span></div>
+        <span class="role-node" aria-hidden="true"></span>
+        <div class="role-body">
           <h3>Veri Analizi ve Raporlama Uzmanı</h3>
-          <p class="ci-firma">FİMAK Makina</p>
-          <ul>
-            <li>Üretim ve operasyon verilerini analiz ederek yönetime yönelik KPI ve performans raporları hazırlıyor, karar destek süreçlerine doğrudan katkı sağlıyor.</li>
-            <li>Depo, B2B satış, üretim ve maliyet verisini birleştiren yönetim raporu ve analiz sitelerini geliştirdi; bu ekranlar yöneticilerin günlük karar aracı olarak kullanılıyor.</li>
-            <li>Yapay zekâ destekli geliştirme araçlarıyla web, masaüstü (.NET, Electron) ve mobil (.NET MAUI) uygulamalar geliştirerek birim süreçlerini dijital panellerde topluyor.</li>
-            <li>SQL tabanlı veri altyapıları, Excel VBA ve Outlook otomasyonlarıyla manuel raporlamayı saatlik ve günlük otomatik raporlara dönüştürdü.</li>
+          <p class="role-org">FİMAK Makina</p>
+          <ul class="points">
+            <li>Üretim, depo, B2B satış ve maliyet verisinden yönetimin her gün kullandığı rapor ve analiz ekranlarını geliştiriyorum.</li>
+            <li>Birim süreçlerini web, masaüstü (.NET, Electron) ve mobil (.NET MAUI) uygulamalara taşıyorum.</li>
+            <li>SQL, Excel VBA ve Outlook otomasyonlarıyla elle hazırlanan raporları saatlik ve günlük otomatik raporlara çevirdim.</li>
+            <li>Yeni iç uygulamaların ortak tasarım ve bileşen standardını oluşturdum.</li>
           </ul>
         </div>
       </li>
-
-      <li class="ci-satir">
-        <div class="ci-zaman"><span class="yil">2025</span><span class="sure">2025-2026</span></div>
-        <span class="ci-nokta" aria-hidden="true"></span>
-        <div class="ci-govde" data-goster="3d">
+      <li class="role" data-reveal>
+        <div class="role-time"><span class="role-year">2025</span><span class="role-span">2025 - 2026</span></div>
+        <span class="role-node" aria-hidden="true"></span>
+        <div class="role-body">
           <h3>Raportör, Veri Analizi ve Raporlama</h3>
-          <p class="ci-firma">Empero Endüstriyel Mutfak Ekipmanları</p>
-          <ul>
-            <li>Firma genelindeki maliyet analizlerini düzenli periyotlarla yürüterek yönetime sunulabilir rapor ve sunum formatına dönüştürdü.</li>
-            <li>Hesaplama, veri işleme ve raporlama adımlarını uçtan uca Excel VBA ile otomatikleştirerek analiz süresini kısalttı, hata payını azalttı.</li>
+          <p class="role-org">Empero Endüstriyel Mutfak Ekipmanları</p>
+          <ul class="points">
+            <li>Firma genelindeki maliyet analizlerini düzenli olarak yürüttüm, sonuçları yönetime rapor ve sunum olarak hazırladım.</li>
+            <li>Hesaplama, veri işleme ve raporlama adımlarını Excel VBA ile uçtan uca otomatikleştirdim; analiz süresi kısaldı, hata payı azaldı.</li>
           </ul>
         </div>
       </li>
-
-      <li class="ci-satir">
-        <div class="ci-zaman"><span class="yil">2024</span><span class="sure">2024-2025</span></div>
-        <span class="ci-nokta" aria-hidden="true"></span>
-        <div class="ci-govde" data-goster="3d">
+      <li class="role" data-reveal>
+        <div class="role-time"><span class="role-year">2024</span><span class="role-span">2024 - 2025</span></div>
+        <span class="role-node" aria-hidden="true"></span>
+        <div class="role-body">
           <h3>Kalite Kontrol Sorumlusu</h3>
-          <p class="ci-firma">Empero Endüstriyel Mutfak Ekipmanları</p>
-          <ul>
-            <li>Üretim süreçlerinde kalite kriterlerine uygunluğu denetleyerek uygunsuzlukları analiz etti, kök neden bazlı çözüm önerileri geliştirdi.</li>
-            <li>Düzeltici ve önleyici faaliyet (DÖF) süreçlerini koordine etti; kalite yönetim sistemi kapsamında düzenli performans raporlaması yaptı.</li>
+          <p class="role-org">Empero Endüstriyel Mutfak Ekipmanları</p>
+          <ul class="points">
+            <li>Üretimde kalite kriterlerine uygunluğu denetledim; uygunsuzlukları kök nedenleriyle analiz edip çözüm önerdim.</li>
+            <li>Düzeltici ve önleyici faaliyet (DÖF) süreçlerini yürüttüm, kalite performansını düzenli raporladım.</li>
           </ul>
         </div>
       </li>
-
-      <li class="ci-satir">
-        <div class="ci-zaman"><span class="yil">2021</span><span class="sure">2021-2024</span></div>
-        <span class="ci-nokta" aria-hidden="true"></span>
-        <div class="ci-govde" data-goster="3d">
+      <li class="role" data-reveal>
+        <div class="role-time"><span class="role-year">2021</span><span class="role-span">2021 - 2024</span></div>
+        <span class="role-node" aria-hidden="true"></span>
+        <div class="role-body">
           <h3>Üretim Planlama Saha Sorumlusu</h3>
-          <p class="ci-firma">AYD Automotive</p>
-          <ul>
-            <li>SQL destekli Excel VBA uygulamaları geliştirerek depo, sevkiyat ve üretim veri süreçlerini otomatikleştirdi (5 uçtan uca proje).</li>
-            <li>Planlama, üretim, depo ve sevkiyat birimleri arasında gerçek zamanlı veri akışı kurarak birimler arası koordinasyonu iyileştirdi.</li>
-            <li>Personel üretim kayıtlarından performans, üretim adedi ve kayıp zaman analizleri üreterek saha ile planlama arasında karar destek sağladı.</li>
+          <p class="role-org">AYD Automotive</p>
+          <ul class="points">
+            <li>Depo, sevkiyat ve üretim veri süreçlerini SQL destekli Excel VBA uygulamalarıyla otomatikleştirdim (5 uçtan uca proje).</li>
+            <li>Planlama, üretim, depo ve sevkiyat birimleri arasında anlık veri akışı kurdum.</li>
+            <li>Personel üretim kayıtlarından performans, üretim adedi ve kayıp zaman analizleri hazırladım.</li>
           </ul>
         </div>
       </li>
-
-      <li class="ci-satir">
-        <div class="ci-zaman"><span class="yil">2018</span><span class="sure">2018-2019</span></div>
-        <span class="ci-nokta" aria-hidden="true"></span>
-        <div class="ci-govde" data-goster="3d">
+      <li class="role" data-reveal>
+        <div class="role-time"><span class="role-year">2018</span><span class="role-span">2018 - 2019</span></div>
+        <span class="role-node" aria-hidden="true"></span>
+        <div class="role-body">
           <h3>Muhasebe Stajyeri</h3>
-          <p class="ci-firma">Kemal Karabulut SMMM</p>
-          <ul>
-            <li>Günlük mali işlemlerin kaydı, fatura takibi ve arşivleme süreçlerinde muhasebe ekibine veri düzenleme ve raporlama desteği verdi.</li>
+          <p class="role-org">Kemal Karabulut SMMM</p>
+          <ul class="points">
+            <li>Günlük kayıt, fatura takibi ve arşivlemede ekibe veri düzenleme ve raporlama desteği verdim.</li>
           </ul>
         </div>
       </li>
     </ol>
-  </div>
-</section>
+  </section>
 
-<!-- FİMAK -->
-<section class="bolum fimak" id="fimak" aria-labelledby="fimakBaslik">
-  <div class="wrap">
-    <p class="ust-etiket" data-goster>FİMAK Makina · 2026</p>
-    <h2 class="baslik" id="fimakBaslik" data-goster>FİMAK'ta geliştirdiğim uygulamalar</h2>
-    <p class="giris" data-goster>Depo, satış, üretim ve maliyet verisini yönetimin ve birimlerin her gün kullandığı ekranlara taşıyan web, masaüstü ve mobil uygulamalar. Ekran görüntülerindeki ürün, adet, tutar ve kişi bilgileri gizlenmiş, grafikler gerçek dışı örnek değerlerle yeniden çizilmiştir.</p>
+  <!-- ============ Projeler ============ -->
+  <section class="section projeler" id="projeler" aria-labelledby="projelerBaslik">
+    <div class="proj-intro">
+      <h2 class="h-sec" id="projelerBaslik" data-split>Projeler</h2>
+      <p class="lead-sm" data-reveal>2026'da geliştirdiğim uygulamalar ve 2022 - 2025 arasında sahada kullanılan sistemler. Ekran görüntülerinde ürün, adet, tutar ve kişi bilgileri gizlenmiş, grafikler gerçek dışı örnek değerlerle yeniden çizilmiştir.</p>
+    </div>
 
-    <div class="anlatim">
-      <ol class="anlatim-liste" id="anlatim">
+    <div class="seq" id="sekans">
+      <div class="seq-head" aria-hidden="true">
+        <p class="seq-label">2026 projeleri</p>
+        <p class="seq-count"><b class="seq-cur">01</b><span> / </span><span class="seq-total">11</span></p>
+        <span class="seq-progress"><i></i></span>
+      </div>
+      <nav class="seq-index" aria-label="Öne çıkan projeler"></nav>
+      <div class="seq-steps" id="projeListe">
 
-        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="0" data-baslik="Yönetim Raporu" data-galeri="assets/img/fimak/yonetim.webp">
-          <button class="proje-gorsel-mobil" type="button" aria-label="Yönetim Raporu ekranlarını büyüt"><img src="assets/img/fimak/yonetim.webp" alt="Yönetim Raporu ana sayfası, altı soru kartı" width="1600" height="1000" loading="lazy"></button>
-          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
-          <div class="proje-ust"><span class="durum">Kullanımda</span><span>Web uygulaması</span></div>
-          <h3>Yönetim Raporu</h3>
-          <p>Yöneticinin her sabah açtığı ekran. Depo, B2B satış ve ürün ağacı maliyetini tek sitede birleştirir; altı soru kartının her biri tıkladıkça bir kat daha ayrıntıya iner.</p>
-          <ul>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Üç farklı kod sistemini (depo, B2B, maliyet) ortak ürün ailesinde eşleştirir</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Yıl sonu tahmini, hedef takibi ve kural tabanlı risk listesi</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Kaynak kapalıysa son alınan kopyadan çalışır, Windows açılışında arka planda başlar</li>
-          </ul>
-          <div class="etiketler"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>ECharts</span></div>
-          <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
-        </li>
-
-        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="1" data-baslik="B2B Satış Analizi" data-galeri="assets/img/fimak/b2b-genel.webp|assets/img/fimak/b2b-bolge.webp">
-          <button class="proje-gorsel-mobil" type="button" aria-label="B2B Satış Analizi ekranlarını büyüt"><img src="assets/img/fimak/b2b-genel.webp" alt="B2B Satış Analizi, satış özeti ekranı" width="1440" height="1160" loading="lazy"></button>
-          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
-          <div class="proje-ust"><span class="durum">Kullanımda</span><span>Web uygulaması</span></div>
-          <h3>B2B Satış Analizi</h3>
-          <p>Excel satış raporunun yerini alan analiz sitesi. Satışçı, cari, ürün grubu, il ve ülke kırılımlarını; fiyat, döviz ve iskonto analizlerini 17 ekranda sunar.</p>
-          <ul>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Ciro değişimini adet etkisi ve fiyat etkisi olarak ikiye ayırır</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Türkiye il ve dünya haritası, dönem karşılaştırma, TL, USD ve EUR görünümü</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Saat başı PDF ekli otomatik Outlook raporu; bağlantı koparsa kendini yeniden dener</li>
-          </ul>
-          <div class="etiketler"><span>Node.js</span><span>React</span><span>ECharts</span><span>Python</span><span>SQL Server</span></div>
-          <button class="metin-btn" type="button">2 ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
-        </li>
-
-        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="2" data-baslik="3D Fabrika İzleme" data-galeri="assets/img/fimak/fabrika-3d.webp|assets/img/fimak/fabrika-3d-gece.webp|assets/img/fimak/fabrika-3d-kaynak.webp">
-          <button class="proje-gorsel-mobil" type="button" aria-label="3D Fabrika İzleme ekranlarını büyüt"><img src="assets/img/fimak/fabrika-3d.webp" alt="Fabrikanın 3D modelinde yürüyüş modu: makineler ve çalışanlar" width="1600" height="1049" loading="lazy"></button>
-          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
-          <div class="proje-ust"><span class="durum gri">Çalışan prototip</span><span>Web, 3D</span></div>
-          <h3>3D Fabrika İzleme</h3>
-          <p>Siparişleri ve iş emirlerini, fabrikanın yerleşim planından birebir kurulmuş 3D modeli üzerinde ait oldukları hat ve bölgede canlı gösterir.</p>
-          <ul>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>DWG planı Python ile işlendi, makine modelleri Blender ile üretilip GLB olarak sıkıştırıldı</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Gece ve gündüz döngüsü, yürüyüş modu, gecikme yoğunluk haritası</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Genel bakış, hatlar, gecikmeler ve sevkiyat dahil 8 ekran</li>
-          </ul>
-          <div class="etiketler"><span>React Three Fiber</span><span>Three.js</span><span>Blender</span><span>Node.js</span></div>
-          <button class="metin-btn" type="button">3 ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
-        </li>
-
-        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="3" data-baslik="Depo Stok Paneli" data-galeri="assets/img/fimak/depo.webp">
-          <button class="proje-gorsel-mobil" type="button" aria-label="Depo Stok Paneli ekranını büyüt"><img src="assets/img/fimak/depo.webp" alt="Depo Stok Paneli, depo durumu ekranı" width="1600" height="1000" loading="lazy"></button>
-          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
-          <div class="proje-ust"><span class="durum">Kullanımda</span><span>Web uygulaması</span></div>
-          <h3>Depo Stok Paneli</h3>
-          <p>Excel'deki VBA stok kurallarını Python'a birebir taşıyan depo ve üretim hattı paneli. Sevke hazır, satışa uygun ve cariye ayrılmış makineleri depo bazında gösterir.</p>
-          <ul>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Fuar standı için dokunmatik sorgu ve termin hesaplama ekranı</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Kendi küçük sorgu dili ve müşteri adı göndermeden yapay zekâ ile stok yorumu</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>10 dakikada bir SQL yenileme, A4 PDF rapor</li>
-          </ul>
-          <div class="etiketler"><span>Python</span><span>FastAPI</span><span>React</span><span>Fluent UI</span><span>Excel COM</span></div>
-          <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
-        </li>
-
-        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="4" data-baslik="Fuar Görüşme Raporu" data-galeri="assets/img/fimak/fuar.webp">
-          <button class="proje-gorsel-mobil" type="button" aria-label="Fuar Görüşme Raporu ekranını büyüt"><img src="assets/img/fimak/fuar.webp" alt="IBAKTECH 2026 görüşme raporu panosu" width="1600" height="1000" loading="lazy"></button>
-          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
-          <div class="proje-ust"><span class="durum">IBAKTECH 2026'da kullanıldı</span><span>Web uygulaması</span></div>
-          <h3>Fuar Görüşme Raporu</h3>
-          <p>Fuar boyunca ziyaretçi görüşmelerini canlı izleyen pano. Satışçı, sonuç, ülke ve sektör dağılımını anlık gösterir.</p>
-          <ul>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Saat başı ayrıntılı PDF ve gün karşılaştırması Outlook ile otomatik gönderilir</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Göndermeden önce taslağı Outlook'ta gösteren test modu</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Gün karşılaştırma ekranı, Excel ve A4 PDF çıktısı</li>
-          </ul>
-          <div class="etiketler"><span>Node.js</span><span>Python</span><span>Outlook COM</span><span>Headless Chrome</span></div>
-          <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
-        </li>
-
-        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="5" data-baslik="FİMAK ERP (demo)" data-galeri="assets/img/fimak/erp-lobi.webp">
-          <button class="proje-gorsel-mobil" type="button" aria-label="FİMAK ERP ekranını büyüt"><img src="assets/img/fimak/erp-lobi.webp" alt="FİMAK ERP planlama ve sevkiyat lobisi" width="1600" height="900" loading="lazy"></button>
-          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
-          <div class="proje-ust"><span class="durum gri">Demo</span><span>Masaüstü uygulaması</span></div>
-          <h3>FİMAK ERP</h3>
-          <p>Yönetime sunulmak üzere hazırlanan masaüstü ERP demosu. Satış, depo, sevkiyat, muhasebe ve insan kaynakları dahil 11 modül ve 45 ekran.</p>
-          <ul>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Modüler monolit mimari, modül, ekran ve eylem düzeyinde yetki anahtarları</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Kurulum gerektirmeyen tek dosyalık exe</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Otomatik ekran görüntüsü ve veri doğrulama komutları</li>
-          </ul>
-          <div class="etiketler"><span>.NET 10</span><span>WPF</span><span>C#</span><span>SQLite</span></div>
-          <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
-        </li>
-
-        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="6" data-baslik="Sac Kesim ve Stok Takip" data-galeri="assets/img/fimak/sac.webp|assets/img/fimak/sac-giris.webp">
-          <button class="proje-gorsel-mobil" type="button" aria-label="Sac Kesim ve Stok Takip ekranlarını büyüt"><img src="assets/img/fimak/sac.webp" alt="Sac Kesim ve Stok Takip ana sayfası, sac stok haritası" width="1600" height="900" loading="lazy"></button>
-          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
-          <div class="proje-ust"><span class="durum">v1.1</span><span>Masaüstü uygulaması</span></div>
-          <h3>Sac Kesim ve Stok Takip</h3>
-          <p>Lazer kesimde kullanılan sac stoğu ve ihtiyaç planlama programı. Net ihtiyacı, toplam ihtiyaçtan stoğu ve yoldaki siparişleri düşerek hesaplar.</p>
-          <ul>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Cins, kalınlık ve ebada göre renk kodlu sac stok haritası</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Lazer ışınının logoyu yazdığı Three.js giriş animasyonu</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Kurulum ve taşınabilir exe, Excel ve PDF çıktısı, yedekleme</li>
-          </ul>
-          <div class="etiketler"><span>Electron</span><span>React</span><span>SQLite</span><span>Three.js</span></div>
-          <button class="metin-btn" type="button">2 ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
-        </li>
-
-        <li class="proje" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-i="7" data-baslik="FİMAK Merkez" data-galeri="assets/img/fimak/merkez.webp">
-          <button class="proje-gorsel-mobil" type="button" aria-label="FİMAK Merkez ekranını büyüt"><img src="assets/img/fimak/merkez.webp" alt="FİMAK Merkez giriş ekranı" width="1200" height="800" loading="lazy"></button>
-          <p class="gorsel-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
-          <div class="proje-ust"><span class="durum gri">Prototip</span><span>Web uygulaması</span></div>
-          <h3>FİMAK Merkez</h3>
-          <p>Tüm birimlerin kullanacağı, yönetici odaklı portal. Kokpit yalnızca istisnaları gösterir; makine pasaportu seri numarasıyla bir makinenin üretimden satışa tüm kaydını açar.</p>
-          <ul>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Dört rol, PBKDF2 ile saklanan şifreler, hatalı girişte hesap kilidi</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Fiyat yetkisi olmayan rolde tutarlar sunucuda ayıklanır, tarayıcıya hiç gitmez</li>
-            <li><i class="ph-light ph-check" aria-hidden="true"></i>Termin performansı ekranı ve gerçek ürün fotoğraflı model vitrini</li>
-          </ul>
-          <div class="etiketler"><span>Python</span><span>FastAPI</span><span>pandas</span><span>JavaScript</span></div>
-          <button class="metin-btn" type="button">Ekranı incele<i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
-        </li>
-      </ol>
-
-      <div class="anlatim-sahne" aria-hidden="true">
-        <div class="anlatim-sabit">
-          <div class="deste" id="deste">
-            <figure class="ekran3d" data-i="0"><img src="assets/img/fimak/yonetim.webp" alt="" width="1600" height="1000"></figure>
-            <figure class="ekran3d" data-i="1"><img src="assets/img/fimak/b2b-genel.webp" alt="" width="1440" height="1160"></figure>
-            <figure class="ekran3d" data-i="2"><img src="assets/img/fimak/fabrika-3d.webp" alt="" width="1600" height="1049"></figure>
-            <figure class="ekran3d" data-i="3"><img src="assets/img/fimak/depo.webp" alt="" width="1600" height="1000" loading="lazy"></figure>
-            <figure class="ekran3d" data-i="4"><img src="assets/img/fimak/fuar.webp" alt="" width="1600" height="1000" loading="lazy"></figure>
-            <figure class="ekran3d" data-i="5"><img src="assets/img/fimak/erp-lobi.webp" alt="" width="1600" height="900" loading="lazy"></figure>
-            <figure class="ekran3d" data-i="6"><img src="assets/img/fimak/sac.webp" alt="" width="1600" height="900" loading="lazy"></figure>
-            <figure class="ekran3d" data-i="7"><img src="assets/img/fimak/merkez.webp" alt="" width="1200" height="800" loading="lazy"></figure>
+        <article class="proj" data-tur="web" data-durum="kullanimda" data-arac="Python,FastAPI,React,TypeScript,ECharts" data-baslik="Yönetim Raporu" data-galeri="assets/img/fimak/yonetim.webp" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-alts="Yönetim Raporu ana sayfası, altı soru kartı">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <button class="proj-frame" type="button" aria-label="Görseli büyüt: Yönetim Raporu"><img class="proj-img" src="assets/img/fimak/yonetim.webp" alt="Yönetim Raporu ana sayfası, altı soru kartı" width="1600" height="1000" loading="lazy" decoding="async"></button>
+              <figcaption class="note">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</figcaption>
+            </figure>
           </div>
-          <div class="cerceve-golge"></div>
-          <p class="cerceve-not">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz. Büyütmek için tıklayın.</p>
-        </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">Kullanımda</span><span>Web uygulaması</span></p>
+            <h3 class="proj-title">Yönetim Raporu</h3>
+            <p class="proj-desc">Yöneticinin güne başlarken açtığı ekran. Depo, B2B satış ve ürün ağacı maliyetini tek sitede birleştirir; altı soru kartının her biri tıklandıkça bir kat daha ayrıntıya iner.</p>
+            <ul class="points">
+              <li>Depo, B2B ve maliyet tarafındaki üç ayrı kod sistemini ortak ürün ailesinde eşleştirir</li>
+              <li>Yıl sonu tahmini, hedef takibi ve kural tabanlı risk listesi</li>
+              <li>Veri kaynağına ulaşılamazsa son alınan kopyayla çalışmaya devam eder</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>Python</li><li>FastAPI</li><li>React</li><li>TypeScript</li><li>ECharts</li></ul>
+          </div></div>
+        </article>
+
+        <article class="proj" data-tur="web" data-durum="kullanimda" data-arac="Node.js,React,ECharts,Python,SQL Server" data-baslik="B2B Satış Analizi" data-galeri="assets/img/fimak/b2b-genel.webp|assets/img/fimak/b2b-bolge.webp" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-alts="B2B Satış Analizi, satış özeti ekranı|B2B Satış Analizi, ülke ve il raporları ekranı, Türkiye il haritası">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <button class="proj-frame" type="button" aria-label="Görseli büyüt: B2B Satış Analizi"><img class="proj-img" src="assets/img/fimak/b2b-genel.webp" alt="B2B Satış Analizi, satış özeti ekranı" width="1440" height="1160" loading="lazy" decoding="async"></button>
+              <figcaption class="note">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</figcaption>
+            </figure>
+            <div class="proj-tabs" role="group" aria-label="B2B Satış Analizi ekranları">
+              <button class="tab" type="button" aria-pressed="true" data-shot="0">Satış özeti</button>
+              <button class="tab" type="button" aria-pressed="false" data-shot="1">Ülke ve il raporları</button>
+            </div>
+          </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">Kullanımda</span><span>Web uygulaması</span></p>
+            <h3 class="proj-title">B2B Satış Analizi</h3>
+            <p class="proj-desc">Excel'deki satış raporunun yerini alan analiz sitesi. Satışçı, cari, ürün grubu, il ve ülke kırılımlarıyla fiyat, döviz ve iskonto analizlerini 17 ekranda sunar.</p>
+            <ul class="points">
+              <li>Ciro değişimini adet etkisi ve fiyat etkisi olarak ikiye ayırır</li>
+              <li>Türkiye il ve dünya haritası; TL, USD ve EUR görünümü; iki dönemi yan yana koyan kıyaslama ekranı</li>
+              <li>Saat başı PDF ekli otomatik e-posta raporu</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>Node.js</li><li>React</li><li>ECharts</li><li>Python</li><li>SQL Server</li></ul>
+          </div></div>
+        </article>
+
+        <article class="proj" data-tur="web" data-durum="suruyor" data-arac="Python,FastAPI,React,TypeScript,ECharts,SQL Server" data-baslik="FİMAK Konsol" data-shape="konsol">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <div class="proj-frame is-shape shape-faz" role="img" aria-label="Geliştirme durumu: beş aşamanın üçü tamamlandı; üretim analizi ve uzaktan erişim sırada.">
+                <div class="shape-head"><span>Geliştirme durumu</span><span class="shape-sum"><b>3</b> / 5 aşama</span></div>
+                <ol class="faz-list">
+                  <li class="done"><span class="faz-no">01</span><span class="faz-ad">Temel altyapı, roller ve yetkiler</span><span class="faz-bar"></span><span class="faz-st">Tamam</span></li>
+                  <li class="done"><span class="faz-no">02</span><span class="faz-ad">B2B satış ekranları</span><span class="faz-bar"></span><span class="faz-st">Tamam</span></li>
+                  <li class="done"><span class="faz-no">03</span><span class="faz-ad">Depo ekranları</span><span class="faz-bar"></span><span class="faz-st">Tamam</span></li>
+                  <li class="next"><span class="faz-no">04</span><span class="faz-ad">Üretim analizi</span><span class="faz-bar"></span><span class="faz-st">Sırada</span></li>
+                  <li class="next"><span class="faz-no">05</span><span class="faz-ad">Ana ekran ve uzaktan erişim</span><span class="faz-bar"></span><span class="faz-st">Sırada</span></li>
+                </ol>
+              </div>
+              <figcaption class="note">Gerçek veriyle çalıştığı için ekran görüntüsü paylaşılmıyor.</figcaption>
+            </figure>
+          </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">Geliştiriliyor</span><span>Masaüstü ve web</span><span class="chip">Yeni</span></p>
+            <h3 class="proj-title">FİMAK Konsol</h3>
+            <p class="proj-desc">Ayrı ayrı açılan panoları tek uygulamada toplayan yönetim konsolu. B2B satış, depo ve üretim ekranları; her ekranın kendi ayarları ve Excel, PDF, yazdırma çıktıları bir arada.</p>
+            <ul class="points">
+              <li>Bilgisayarda simgesiyle çalışan tek dosyalık uygulama; yetkili kullanıcılar tarayıcıdan da bağlanır</li>
+              <li>Rol ve ekran bazında yetki; yetkisi olmayan kullanıcıya tutar ve müşteri adı sunucudan hiç gönderilmez</li>
+              <li>Özet, ayrıntılı ve çok ayrıntılı rapor seviyeleri; veri değiştikçe ekran kendiliğinden yenilenir</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>Python</li><li>FastAPI</li><li>React</li><li>TypeScript</li><li>ECharts</li><li>SQL Server</li></ul>
+          </div></div>
+        </article>
+
+        <article class="proj" data-tur="web" data-durum="hazir" data-arac="Python,SQLite,JavaScript,ECharts" data-baslik="Komite Yönetimi" data-galeri="assets/img/fimak/komite-pano.webp|assets/img/fimak/komite-calismalar.webp|assets/img/fimak/komite-calisma.webp|assets/img/fimak/komite-riskler.webp" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-alts="Komite Yönetimi panosu: doğrulanan tasarruf, haftalık aksiyonlar ve aşama halkaları|Komite Yönetimi çalışmalar ekranı: iyileştirme çalışmalarının aşama sütunlarına dizildiği pano|Komite Yönetimi çalışma detayı: sekiz aşamalı ilerleme çizgisi, zorunlu çıktılar ve ölçüm tablosu|Komite Yönetimi risk ekranı: 5×5 risk matrisi ve risk kayıtları">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <button class="proj-frame" type="button" aria-label="Görseli büyüt: Komite Yönetimi"><img class="proj-img" src="assets/img/fimak/komite-pano.webp" alt="Komite Yönetimi panosu: doğrulanan tasarruf, haftalık aksiyonlar ve aşama halkaları" width="1440" height="900" loading="lazy" decoding="async"></button>
+              <figcaption class="note">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</figcaption>
+            </figure>
+            <div class="proj-tabs" role="group" aria-label="Komite Yönetimi ekranları">
+              <button class="tab" type="button" aria-pressed="true" data-shot="0">Pano</button>
+              <button class="tab" type="button" aria-pressed="false" data-shot="1">Çalışmalar</button>
+              <button class="tab" type="button" aria-pressed="false" data-shot="2">Çalışma detayı</button>
+              <button class="tab" type="button" aria-pressed="false" data-shot="3">Riskler</button>
+            </div>
+          </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">Kullanıma hazır</span><span>Web uygulaması</span><span class="chip">Yeni</span></p>
+            <h3 class="proj-title">Komite Yönetimi</h3>
+            <p class="proj-desc">İnceleme ve iyileştirme komitesinin işleyişini baştan sona yürüten uygulama. Sorun havuzundan çıkan her çalışma sekiz aşamadan geçer; kök neden, çözüm ve ölçüm gibi zorunlu çıktılar tamamlanmadan sonraki aşamaya geçilmez.</p>
+            <ul class="points">
+              <li>Puanlı sorun havuzu, aşama panosu, 5 Neden ve balık kılçığı analizi</li>
+              <li>Aksiyon takibi, 5×5 risk matrisi, maliyet incelemesi ve haftalık toplantı gündemi</li>
+              <li>Canlı veriden 10 slaytlık yönetim sunumu ve yazdırılabilir rapor; 45 iş kuralı ve 25 arayüz testiyle doğrulandı</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>Python</li><li>SQLite</li><li>JavaScript</li><li>ECharts</li></ul>
+          </div></div>
+        </article>
+
+        <article class="proj" data-tur="web" data-durum="kullanimda" data-arac="Python,FastAPI,React,SQL Server" data-baslik="Depo Stok Paneli" data-galeri="assets/img/fimak/depo.webp" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-alts="Depo Stok Paneli, depo durumu ekranı">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <button class="proj-frame" type="button" aria-label="Görseli büyüt: Depo Stok Paneli"><img class="proj-img" src="assets/img/fimak/depo.webp" alt="Depo Stok Paneli, depo durumu ekranı" width="1600" height="1000" loading="lazy" decoding="async"></button>
+              <figcaption class="note">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</figcaption>
+            </figure>
+          </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">Kullanımda</span><span>Web uygulaması</span></p>
+            <h3 class="proj-title">Depo Stok Paneli</h3>
+            <p class="proj-desc">Excel'deki stok kurallarını Python'a birebir taşıyan depo ve üretim hattı paneli. Sevke hazır, satışa uygun ve müşteriye ayrılmış makineleri depo bazında gösterir.</p>
+            <ul class="points">
+              <li>Fuar standı için dokunmatik stok sorgu ve termin hesaplama ekranı</li>
+              <li>Veritabanından 10 dakikada bir kendiliğinden yenilenir</li>
+              <li>Tek tıkla A4 PDF stok raporu</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>Python</li><li>FastAPI</li><li>React</li><li>Fluent UI</li><li>SQL Server</li></ul>
+          </div></div>
+        </article>
+
+        <article class="proj" data-tur="web" data-durum="prototip" data-arac="React,Three.js,Blender,Node.js" data-baslik="3D Fabrika İzleme" data-galeri="assets/img/fimak/fabrika-3d.webp|assets/img/fimak/fabrika-3d-gece.webp|assets/img/fimak/fabrika-3d-kaynak.webp" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-alts="Fabrikanın 3D modelinde yürüyüş modu: makineler ve çalışanlar|Fabrikanın 3D modeli, akşam ışığında hat görünümü|Fabrikanın 3D modelinde kaynak istasyonu ve forklift">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <button class="proj-frame" type="button" aria-label="Görseli büyüt: 3D Fabrika İzleme"><img class="proj-img" src="assets/img/fimak/fabrika-3d.webp" alt="Fabrikanın 3D modelinde yürüyüş modu: makineler ve çalışanlar" width="1600" height="1049" loading="lazy" decoding="async"></button>
+              <figcaption class="note">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</figcaption>
+            </figure>
+            <div class="proj-tabs" role="group" aria-label="3D Fabrika İzleme ekranları">
+              <button class="tab" type="button" aria-pressed="true" data-shot="0">Yürüyüş modu</button>
+              <button class="tab" type="button" aria-pressed="false" data-shot="1">Akşam ışığı</button>
+              <button class="tab" type="button" aria-pressed="false" data-shot="2">Kaynak istasyonu</button>
+            </div>
+          </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">Çalışan prototip</span><span>Web, 3D</span></p>
+            <h3 class="proj-title">3D Fabrika İzleme</h3>
+            <p class="proj-desc">Siparişleri ve iş emirlerini, fabrikanın yerleşim planından kurulmuş 3D model üzerinde ait oldukları hat ve bölgede canlı gösterir.</p>
+            <ul class="points">
+              <li>Yerleşim planı Python ile işlendi; makine modelleri Blender'da üretilip web için sıkıştırıldı</li>
+              <li>Gece ve gündüz döngüsü, yürüyüş modu, gecikme yoğunluk haritası</li>
+              <li>Genel bakış, hatlar, gecikmeler ve sevkiyat dahil 8 ekran</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>React Three Fiber</li><li>Three.js</li><li>Blender</li><li>Node.js</li></ul>
+          </div></div>
+        </article>
+
+        <article class="proj" data-tur="web" data-durum="kullanimda" data-arac="Node.js,Python,Outlook" data-baslik="Fuar Görüşme Raporu" data-galeri="assets/img/fimak/fuar.webp" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-alts="Fuar görüşme raporu panosu">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <button class="proj-frame" type="button" aria-label="Görseli büyüt: Fuar Görüşme Raporu"><img class="proj-img" src="assets/img/fimak/fuar.webp" alt="Fuar görüşme raporu panosu" width="1600" height="1000" loading="lazy" decoding="async"></button>
+              <figcaption class="note">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</figcaption>
+            </figure>
+          </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">IBAKTECH 2026'da kullanıldı</span><span>Web uygulaması</span></p>
+            <h3 class="proj-title">Fuar Görüşme Raporu</h3>
+            <p class="proj-desc">Fuar boyunca ziyaretçi görüşmelerini canlı izleyen pano. Satışçı, sonuç, ülke ve sektör dağılımını anlık gösterir.</p>
+            <ul class="points">
+              <li>Saat başı ayrıntılı PDF ve gün karşılaştırması otomatik e-postayla gönderilir</li>
+              <li>Gün karşılaştırma ekranı, Excel ve A4 PDF çıktısı</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>Node.js</li><li>Python</li><li>Outlook otomasyonu</li></ul>
+          </div></div>
+        </article>
+
+        <article class="proj" data-tur="arac" data-durum="kullanimda" data-arac="Python,Yapay zekâ ajanı" data-baslik="Sesli Masaüstü Asistanı" data-shape="asistan">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <div class="proj-frame is-shape shape-dalga" role="img" aria-label="Bir isteğin izlediği yol: uyandırma, konuşmayı yazıya çevirme, yapay zekâ ajanı, onay ve sesli yanıt.">
+                <div class="shape-head"><span>Bir isteğin yolu</span><span class="shape-sum"><b>5</b> adım</span></div>
+                <span class="dalga-alan"></span>
+                <ol class="dalga-adim">
+                  <li><span class="faz-no">01</span><span class="da-ad">"Hey Asistan" ile uyanır</span><em>bilgisayarda</em></li>
+                  <li><span class="faz-no">02</span><span class="da-ad">Konuşmayı yazıya çevirir</span><em>bilgisayarda</em></li>
+                  <li class="is-cloud"><span class="faz-no">03</span><span class="da-ad">İşi yapay zekâ ajanı yapar</span><em>bulutta</em></li>
+                  <li><span class="faz-no">04</span><span class="da-ad">Dışarıya giden işte onay ister</span><em>sesli ve yazılı</em></li>
+                  <li><span class="faz-no">05</span><span class="da-ad">Sonucu gösterir ve okur</span><em>bilgisayarda</em></li>
+                </ol>
+              </div>
+              <figcaption class="note">Masaüstü aracı; ekran görüntüsü yerine işleyişi gösteriliyor.</figcaption>
+            </figure>
+          </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">Kullanımda</span><span>Masaüstü aracı</span><span class="chip">Yeni</span></p>
+            <h3 class="proj-title">Sesli Masaüstü Asistanı</h3>
+            <p class="proj-desc">Türkçe konuşarak iş yaptıran masaüstü asistanı. İsteği bir yapay zekâ ajanı yerine getirir, sonucu ekranda gösterip sesli okur: güncel raporu hazırlamak, bir uygulamayı açmak ya da özet PDF'i göndermek gibi.</p>
+            <ul class="points">
+              <li>Uyandırma sözcüğü, konuşma tanıma ve Türkçe seslendirme tamamen bilgisayarda çalışır</li>
+              <li>Dışarıya giden ya da geri alınamayan her işten önce sesli ve yazılı onay ister</li>
+              <li>Yerel uygulamalarla kendi araçları üzerinden konuşur; boştayken belleği boşaltır</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>Python</li><li>Claude Agent SDK</li><li>faster-whisper</li><li>Piper</li><li>Vosk</li></ul>
+          </div></div>
+        </article>
+
+        <article class="proj" data-tur="masaustu" data-durum="demo" data-arac="C# / .NET,WPF,SQLite" data-baslik="FİMAK ERP (demo)" data-galeri="assets/img/fimak/erp-lobi.webp" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-alts="FİMAK ERP planlama ve sevkiyat ekranı">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <button class="proj-frame" type="button" aria-label="Görseli büyüt: FİMAK ERP"><img class="proj-img" src="assets/img/fimak/erp-lobi.webp" alt="FİMAK ERP planlama ve sevkiyat ekranı" width="1600" height="900" loading="lazy" decoding="async"></button>
+              <figcaption class="note">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</figcaption>
+            </figure>
+          </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">Demo</span><span>Masaüstü uygulaması</span></p>
+            <h3 class="proj-title">FİMAK ERP</h3>
+            <p class="proj-desc">Yönetime sunulmak üzere hazırlanan masaüstü ERP demosu: satış, depo, sevkiyat, muhasebe ve insan kaynakları dahil 11 modül, 45 ekran.</p>
+            <ul class="points">
+              <li>Modüler yapı; modül, ekran ve işlem düzeyinde yetkilendirme</li>
+              <li>Kurulum gerektirmeyen tek dosyalık uygulama</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>.NET 10</li><li>WPF</li><li>C#</li><li>SQLite</li></ul>
+          </div></div>
+        </article>
+
+        <article class="proj" data-tur="masaustu" data-durum="diger" data-arac="Electron,React,SQLite" data-baslik="Sac Kesim ve Stok Takip" data-galeri="assets/img/fimak/sac.webp|assets/img/fimak/sac-giris.webp" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-alts="Sac Kesim ve Stok Takip ana sayfası, sac stok haritası|Sac Kesim ve Stok Takip açılış ekranı">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <button class="proj-frame" type="button" aria-label="Görseli büyüt: Sac Kesim ve Stok Takip"><img class="proj-img" src="assets/img/fimak/sac.webp" alt="Sac Kesim ve Stok Takip ana sayfası, sac stok haritası" width="1600" height="900" loading="lazy" decoding="async"></button>
+              <figcaption class="note">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</figcaption>
+            </figure>
+            <div class="proj-tabs" role="group" aria-label="Sac Kesim ve Stok Takip ekranları">
+              <button class="tab" type="button" aria-pressed="true" data-shot="0">Stok haritası</button>
+              <button class="tab" type="button" aria-pressed="false" data-shot="1">Açılış ekranı</button>
+            </div>
+          </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">Sürüm 1.1</span><span>Masaüstü uygulaması</span></p>
+            <h3 class="proj-title">Sac Kesim ve Stok Takip</h3>
+            <p class="proj-desc">Lazer kesimde kullanılan sac stoğunu ve ihtiyacını planlayan program. Net ihtiyacı, toplam ihtiyaçtan eldeki stoğu ve yoldaki siparişleri düşerek hesaplar.</p>
+            <ul class="points">
+              <li>Cins, kalınlık ve ebada göre renk kodlu sac stok haritası</li>
+              <li>Kurulumlu ve taşınabilir sürüm; Excel ve PDF çıktısı, yedekleme</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>Electron</li><li>React</li><li>SQLite</li></ul>
+          </div></div>
+        </article>
+
+        <article class="proj" data-tur="web" data-durum="prototip" data-arac="Python,FastAPI,JavaScript" data-baslik="FİMAK Merkez" data-galeri="assets/img/fimak/merkez.webp" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-alts="FİMAK Merkez giriş ekranı">
+          <div class="proj-media">
+            <figure class="proj-figure">
+              <button class="proj-frame" type="button" aria-label="Görseli büyüt: FİMAK Merkez"><img class="proj-img" src="assets/img/fimak/merkez.webp" alt="FİMAK Merkez giriş ekranı" width="1200" height="800" loading="lazy" decoding="async"></button>
+              <figcaption class="note">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</figcaption>
+            </figure>
+          </div>
+          <div class="proj-text"><div class="proj-scroll">
+            <p class="proj-meta"><span class="status">Prototip</span><span>Web uygulaması</span></p>
+            <h3 class="proj-title">FİMAK Merkez</h3>
+            <p class="proj-desc">Bütün birimlerin kullanması için tasarlanan, yönetici odaklı portal. Ana ekran yalnızca dikkat isteyen durumları gösterir; makine pasaportu, seri numarasıyla bir makinenin üretimden satışa bütün kaydını açar.</p>
+            <ul class="points">
+              <li>Dört rol, şifreli giriş ve hatalı denemede hesap kilidi</li>
+              <li>Fiyat yetkisi olmayan kullanıcıya tutarlar sunucudan hiç gönderilmez</li>
+              <li>Termin performansı ekranı</li>
+            </ul>
+            <ul class="tags" aria-label="Kullanılan teknolojiler"><li>Python</li><li>FastAPI</li><li>pandas</li><li>JavaScript</li></ul>
+          </div></div>
+        </article>
+
       </div>
     </div>
-  </div>
-</section>
 
-<!-- DİĞER İŞLER -->
-<section class="bolum diger" aria-labelledby="digerBaslik">
-  <div class="wrap">
-    <h2 class="baslik" id="digerBaslik" data-goster>Aynı yıl içinde yaptığım diğer işler</h2>
-    <div class="diger-izgara">
-      <div class="grup" data-goster="3d">
-        <h3><i class="ph-light ph-device-mobile" aria-hidden="true"></i>Masaüstü, mobil ve saha</h3>
-        <ul>
-          <li><p class="ad">FiBot</p><p class="ne">Fabrika girişindeki danışma kioskunun uygulaması. Yemekhane menüsü ve duyurular otomatik gelir, paylaşım klasöründen uzaktan güncellenir.</p><p class="ile">Electron, Node.js, Python</p></li>
-          <li><p class="ad">Üretim Kronometresi</p><p class="ne">Operasyon sürelerini sahada ölçen Android uygulaması. Toplam ve ortalama süreyi hesaplar, yöneticiye Excel çıktısı verir, çevrimdışı çalışır.</p><p class="ile">.NET MAUI, C#, JavaScript</p></li>
-          <li><p class="ad">CNC Depo Sarf Takip</p><p class="ne">Talaşlı imalat için takım ve sarf malzemesi giriş çıkışı, personel ve makine bazında tüketim, fire ve hurda stoğu.</p><p class="ile">Electron, React, Express, MUI</p></li>
-          <li><p class="ad">Seri No Okuyucu</p><p class="ne">Sevkiyat etiketindeki seri numarasını el okuyucusu, telefon kamerası veya OCR ile okuyup biçimini doğrular, Excel'e aktarır.</p><p class="ile">HTML, ZXing, Tesseract.js</p></li>
-        </ul>
+    <!-- İş-Görev Takip -->
+    <div class="sub gorev-blok" id="gorev">
+      <div class="sub-head">
+        <h3 class="h-sub" data-split>İş-Görev Takip Sistemi</h3>
+        <p class="sub-lead" data-reveal>Departmanlar arası görev atama, devretme ve takip.</p>
       </div>
-      <div class="grup" data-goster="3d">
-        <h3><i class="ph-light ph-chart-line-up" aria-hidden="true"></i>Web raporları</h3>
-        <ul>
-          <li><p class="ad">Satış Yönetim Raporu</p><p class="ne">Tek dosyalık satış panosu: satışçı performansı, TV için canlı sıralama ekranı, il ve dünya haritaları, sekme bazlı yetki.</p><p class="ile">JavaScript, Chart.js, SheetJS</p></li>
-          <li><p class="ad">Üretim Takip ve Raporlama</p><p class="ne">Montaj hattına giren, geciken ve sevk edilen makineleri haftalık raporlar; gecikme sebebi dağılımını gösterir.</p><p class="ile">JavaScript, Chart.js, jsPDF</p></li>
-          <li><p class="ad">Fabrika İzleme</p><p class="ne">B2B siparişlerini fabrikadaki üretim kayıtlarıyla puanlı eşleştirir; opsiyon bazlı stok uyumu, 8 haftalık sevk planı ve TV modu sunar.</p><p class="ile">Python, FastAPI, SQL Server</p></li>
-        </ul>
-      </div>
-      <div class="grup" data-goster="3d">
-        <h3><i class="ph-light ph-gear-six" aria-hidden="true"></i>Veri ve otomasyon</h3>
-        <ul>
-          <li><p class="ad">Kapasite Raporu</p><p class="ne">ERP verisinden günlük ve haftalık üretim adetlerini çıkarır; her gün üretim yönetimine otomatik gönderilir.</p><p class="ile">Excel VBA</p></li>
-          <li><p class="ad">Satış ve Plasiyer Raporları</p><p class="ne">Kişi bazında hazırlanıp PDF olarak Outlook üzerinden otomatik gönderilen satış raporları.</p><p class="ile">Excel VBA, SQL, Outlook</p></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- İŞ-GÖREV TAKİP -->
-<section class="bolum gorev" id="gorev" aria-labelledby="gorevBaslik">
-  <div class="wrap">
-    <h2 class="baslik" id="gorevBaslik" data-goster>İş-Görev Takip Sistemi</h2>
-    <p class="giris" data-goster>Departmanlar arası görev atama, devretme ve takip. Her departmanın iş akışı ve yoğunluğu Gantt takviminde izlenir. Söz uçar, proje kalır.</p>
-
-    <div class="gorev-sahne">
-      <div class="gorev-ekran" id="gorevEkran">
-        <div class="ekran-ic" id="gorevIc" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." role="button" tabindex="0" aria-label="İş-Görev Takip ekranlarını büyüt">
-          <img class="aktif" src="assets/img/gorev/ekran-2.webp" alt="İş-Görev Takip, kişisel pano ekranı" width="2000" height="1020" loading="lazy">
-          <img src="assets/img/gorev/ekran-ekleme1.webp" alt="İş-Görev Takip, departman süreleri ve Gantt takvimi" width="2000" height="1020" loading="lazy">
-          <img src="assets/img/gorev/ekran-3.webp" alt="İş-Görev Takip, oluşturduğum görevler listesi" width="2000" height="1020" loading="lazy">
-          <img src="assets/img/gorev/ekran-5.webp" alt="İş-Görev Takip, bildirimler paneli" width="2000" height="1020" loading="lazy">
-          <img src="assets/img/gorev/ekran-4.webp" alt="İş-Görev Takip, kişisel görevler" width="2000" height="1020" loading="lazy">
-          <img src="assets/img/gorev/ekran-1.webp" alt="İş-Görev Takip, giriş ekranı" width="2000" height="1020" loading="lazy">
+      <article class="gorev proj-like" data-tur="web" data-durum="diger" data-arac="Node.js,SQLite,JavaScript,Docker" data-baslik="İş-Görev Takip Sistemi" data-galeri="assets/img/gorev/ekran-2.webp|assets/img/gorev/ekran-ekleme1.webp|assets/img/gorev/ekran-3.webp|assets/img/gorev/ekran-5.webp|assets/img/gorev/ekran-4.webp|assets/img/gorev/ekran-1.webp" data-kucuk="assets/img/gorev/ekran-2-k.webp|assets/img/gorev/ekran-ekleme1-k.webp|assets/img/gorev/ekran-3-k.webp|assets/img/gorev/ekran-5-k.webp|assets/img/gorev/ekran-4-k.webp|assets/img/gorev/ekran-1-k.webp" data-not="Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz." data-alts="İş-Görev Takip, kişisel pano ekranı|İş-Görev Takip, departman süreleri ve Gantt takvimi|İş-Görev Takip, oluşturduğum görevler listesi|İş-Görev Takip, bildirimler paneli|İş-Görev Takip, kişisel görevler|İş-Görev Takip, giriş ekranı">
+        <div class="proj-media">
+          <figure class="proj-figure">
+            <button class="proj-frame frame-wide" type="button" aria-label="Görseli büyüt: İş-Görev Takip Sistemi"><img class="proj-img" src="assets/img/gorev/ekran-2.webp" alt="İş-Görev Takip, kişisel pano ekranı" width="2000" height="1019" loading="lazy" decoding="async"></button>
+            <figcaption class="note">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</figcaption>
+          </figure>
+          <div class="proj-tabs" role="group" aria-label="İş-Görev Takip ekranları">
+            <button class="tab" type="button" aria-pressed="true" data-shot="0">Pano</button>
+            <button class="tab" type="button" aria-pressed="false" data-shot="1">Gantt takvimi</button>
+            <button class="tab" type="button" aria-pressed="false" data-shot="2">Görev listesi</button>
+            <button class="tab" type="button" aria-pressed="false" data-shot="3">Bildirimler</button>
+            <button class="tab" type="button" aria-pressed="false" data-shot="4">Kişisel görevler</button>
+            <button class="tab" type="button" aria-pressed="false" data-shot="5">Giriş</button>
+          </div>
         </div>
-        <div class="gorev-isik" aria-hidden="true"></div>
-      </div>
-      <p class="gorsel-not gorsel-not-acik">Görseldeki veriler gerçek dışı örnek veridir; gerçek değerleri yansıtmaz.</p>
-      <div class="kucukler" id="kucukler" role="tablist" aria-label="Ekran seçimi">
-        <button class="aktif" type="button" role="tab" aria-selected="true" aria-label="Pano"><img src="assets/img/gorev/ekran-2-k.webp" alt="" loading="lazy"></button>
-        <button type="button" role="tab" aria-selected="false" aria-label="Gantt takvimi"><img src="assets/img/gorev/ekran-ekleme1-k.webp" alt="" loading="lazy"></button>
-        <button type="button" role="tab" aria-selected="false" aria-label="Görev listesi"><img src="assets/img/gorev/ekran-3-k.webp" alt="" loading="lazy"></button>
-        <button type="button" role="tab" aria-selected="false" aria-label="Bildirimler"><img src="assets/img/gorev/ekran-5-k.webp" alt="" loading="lazy"></button>
-        <button type="button" role="tab" aria-selected="false" aria-label="Kişisel görevler"><img src="assets/img/gorev/ekran-4-k.webp" alt="" loading="lazy"></button>
-        <button type="button" role="tab" aria-selected="false" aria-label="Giriş"><img src="assets/img/gorev/ekran-1-k.webp" alt="" loading="lazy"></button>
-      </div>
+        <div class="gorev-text" data-reveal>
+          <p class="proj-meta"><span class="status">Sürüm 2.0</span><span>Web uygulaması</span></p>
+          <p class="proj-desc">Görevler yönetimden departman yöneticisine, oradan personele devredilir; her departmanın iş yükü ve gecikmeleri Gantt takviminde izlenir.</p>
+          <dl class="features">
+            <div><dt>Rol bazlı pano</dt><dd>Dört rol, altı gösterge ve her göstergede 14 günlük mini grafik</dd></div>
+            <div><dt>İki katmanlı devretme</dt><dd>Yedi görev durumu ile uçtan uca takip</dd></div>
+            <div><dt>Gantt takvimi</dt><dd>İlerleme ve gecikme bir arada; planlanan ve gerçekleşen süre karşılaştırması</dd></div>
+            <div><dt>Kendi sunucusunda çalışır</dt><dd>Birden çok firmayı destekler; Docker ile kurulum, Windows için tek dosya</dd></div>
+          </dl>
+          <ul class="tags" aria-label="Kullanılan teknolojiler"><li>Node.js</li><li>Express</li><li>SQLite</li><li>Chart.js</li><li>Docker</li></ul>
+        </div>
+      </article>
     </div>
 
-    <div class="gorev-ozellik">
-      <div data-goster="3d"><p class="baslikcik">Rol bazlı pano</p><p>Dört rol, altı KPI kartı ve her kartta 14 günlük mini grafik.</p></div>
-      <div data-goster="3d"><p class="baslikcik">İki katmanlı devretme</p><p>Yönetimden departman yöneticisine, oradan personele; yedi görev durumu.</p></div>
-      <div data-goster="3d"><p class="baslikcik">Gantt takvimi</p><p>Dolgu ilerlemeyi, kesikli kenar gecikmeyi gösterir; planlanan ve gerçekleşen süre karşılaştırması.</p></div>
-      <div data-goster="3d"><p class="baslikcik">Kendi sunucunda yayın</p><p>Sürüm 2.0 çok firmalı; Docker ve Caddy ile otomatik HTTPS, Windows için tek exe.</p></div>
+    <!-- Diğer uygulamalar -->
+    <div class="sub" id="diger">
+      <div class="sub-head">
+        <h3 class="h-sub" data-split>Diğer uygulamalar ve raporlar <span class="h-sub-year">2026</span></h3>
+      </div>
+      <ul class="apps">
+        <li class="app" data-tur="arac" data-durum="kullanimda" data-arac="Python"><p class="app-name">Masaüstü Uygulama Başlatıcı</p><p class="app-desc">İç uygulamaları masaüstünde klasör kutucuklarında toplar; tıklanan uygulamanın sunucusu kapalıysa arka planda başlatıp tarayıcıda açar. Bütün kutucuklar tek bir listeden üretilir.</p><p class="app-tools">Python, Rainmeter, Görev Zamanlayıcı</p><p class="app-type"><span class="status">Kullanımda</span><span>Araç</span><span class="chip">Yeni</span></p></li>
+        <li class="app" data-tur="arac" data-durum="kullanimda" data-arac="JavaScript,Three.js"><p class="app-name">Arayüz Tasarım Standardı</p><p class="app-desc">Yeni iç uygulamaların ortak görsel dili: renk ve yazı kuralları, bileşen kütüphanesi, yükleme ve geçiş animasyonları, açık ve koyu tema.</p><p class="app-tools">CSS, JavaScript, Three.js</p><p class="app-type"><span class="status">Kullanımda</span><span>Araç</span><span class="chip">Yeni</span></p></li>
+        <li class="app" data-tur="web" data-durum="diger" data-arac="Python,FastAPI,SQL Server"><p class="app-name">Fabrika İzleme</p><p class="app-desc">B2B siparişlerini fabrikadaki üretim kayıtlarıyla eşleştirir; stok uyumu, 8 haftalık sevk planı ve TV ekranı görünümü sunar.</p><p class="app-tools">Python, FastAPI, SQL Server</p><p class="app-type"><span>Web uygulaması</span></p></li>
+        <li class="app" data-tur="mobil" data-durum="diger" data-arac="Electron,Node.js,Python"><p class="app-name">FiBot</p><p class="app-desc">Fabrika girişindeki danışma kioskunun uygulaması. Yemekhane menüsü ve duyurular kendiliğinden güncellenir; içerik paylaşım klasöründen uzaktan değiştirilir.</p><p class="app-tools">Electron, Node.js, Python</p><p class="app-type"><span>Kiosk</span></p></li>
+        <li class="app" data-tur="mobil" data-durum="diger" data-arac="C# / .NET"><p class="app-name">Üretim Kronometresi</p><p class="app-desc">Operasyon sürelerini sahada ölçen Android uygulaması. Toplam ve ortalama süreyi hesaplar, Excel çıktısı verir, internet olmadan çalışır.</p><p class="app-tools">.NET MAUI, C#</p><p class="app-type"><span>Mobil</span></p></li>
+        <li class="app" data-tur="mobil" data-durum="diger" data-arac="JavaScript"><p class="app-name">Seri No Okuyucu</p><p class="app-desc">Sevkiyat etiketindeki seri numarasını el okuyucusu, telefon kamerası ya da yazı tanımayla okur, biçimini doğrular ve Excel'e aktarır.</p><p class="app-tools">HTML, ZXing, Tesseract.js</p><p class="app-type"><span>Mobil ve web</span></p></li>
+        <li class="app" data-tur="masaustu" data-durum="diger" data-arac="Electron,React,Node.js"><p class="app-name">CNC Depo Sarf Takip</p><p class="app-desc">Talaşlı imalatta takım ve sarf malzemesinin giriş çıkışı; personel ve makine bazında tüketim, fire ve hurda takibi.</p><p class="app-tools">Electron, React, Express</p><p class="app-type"><span>Masaüstü</span></p></li>
+        <li class="app" data-tur="rapor" data-durum="diger" data-arac="JavaScript"><p class="app-name">Satış Yönetim Raporu</p><p class="app-desc">Tek dosyalık satış panosu: satışçı performansı, TV için canlı sıralama ekranı, il ve dünya haritaları, sekme bazında yetki.</p><p class="app-tools">JavaScript, Chart.js, SheetJS</p><p class="app-type"><span>Web raporu</span></p></li>
+        <li class="app" data-tur="rapor" data-durum="diger" data-arac="JavaScript"><p class="app-name">Üretim Takip ve Raporlama</p><p class="app-desc">Montaj hattına giren, geciken ve sevk edilen makineleri haftalık raporlar; gecikme sebeplerinin dağılımını gösterir.</p><p class="app-tools">JavaScript, Chart.js, jsPDF</p><p class="app-type"><span>Web raporu</span></p></li>
+        <li class="app" data-tur="rapor" data-durum="kullanimda" data-arac="Excel VBA"><p class="app-name">Kapasite Raporu</p><p class="app-desc">ERP verisinden günlük ve haftalık üretim adetlerini çıkarır; her gün üretim yönetimine kendiliğinden gönderilir.</p><p class="app-tools">Excel VBA</p><p class="app-type"><span class="status">Kullanımda</span><span>Otomasyon</span></p></li>
+        <li class="app" data-tur="rapor" data-durum="kullanimda" data-arac="Excel VBA,SQL Server,Outlook"><p class="app-name">Satış ve Plasiyer Raporları</p><p class="app-desc">Kişi bazında hazırlanıp PDF olarak e-postayla kendiliğinden gönderilen satış raporları.</p><p class="app-tools">Excel VBA, SQL, Outlook</p><p class="app-type"><span class="status">Kullanımda</span><span>Otomasyon</span></p></li>
+      </ul>
     </div>
-    <div class="gorev-alt">
-      <div class="etiketler"><span>Node.js</span><span>Express</span><span>SQLite</span><span>Chart.js</span><span>Docker</span></div>
+
+    <!-- Önceki projeler -->
+    <div class="sub" id="onceki">
+      <div class="sub-head">
+        <h3 class="h-sub" data-split>Önceki projeler <span class="h-sub-year">2022 - 2025</span></h3>
+        <p class="sub-lead" data-reveal>AYD Automotive, Empero ve serbest çalışma.</p>
+      </div>
+      <p class="arsiv-not" data-reveal>Sahada fiilen kullanılan sistemler. Görsellerdeki müşteri kodları, ürün bilgileri ve kişisel veriler gizlilik nedeniyle kapatılmıştır; kaynak kod ve iç sistem verisi paylaşılmamaktadır.</p>
+      <ul class="arsiv" id="arsiv">
+        <li class="kart" data-arac="Excel VBA" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Hurda Analiz Programı" data-galeri="assets/img/proje/slide-21.webp|assets/img/proje/slide-22.webp|assets/img/proje/slide-23.webp|assets/img/proje/slide-24.webp" data-kapak="assets/img/proje/slide-21-ekran.webp">
+          <button class="row" type="button" aria-label="Hurda Analiz Programı görsellerini aç (4 görsel)">
+            <span class="row-year kart-ust">2025 · Empero</span>
+            <span class="row-name">Hurda Analiz Programı</span>
+            <span class="row-desc">Birimlerden gelen hurda verisini departman, hat ve hata kodu bazında analiz eder; sorumlulara ve yönetime otomatik e-postayla rapor gönderir. Analizin ardından kurulan karantina alanıyla hurdanın yaklaşık %30'u geri kazanıldı.</span>
+            <span class="row-tags">Excel VBA · Otomatik e-posta · Maliyet analizi</span>
+            <span class="row-count">4 görsel</span>
+          </button>
+          <figure class="row-thumb"><img src="assets/img/proje/slide-21-ekran.webp" alt="Hurda Analiz Programı arayüzü" width="1228" height="650" loading="lazy" decoding="async"><figcaption class="note">Görsellerdeki firma verileri gizlenmiştir.</figcaption></figure>
+        </li>
+        <li class="kart" data-arac="C# / .NET" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Stok, Satış ve Çek/Senet Yönetim Sistemi" data-galeri="assets/img/proje/slide-18.webp|assets/img/proje/slide-19.webp|assets/img/proje/slide-20.webp" data-kapak="assets/img/proje/slide-19-ekran.webp">
+          <button class="row" type="button" aria-label="Stok, Satış ve Çek/Senet Yönetim Sistemi görsellerini aç (3 görsel)">
+            <span class="row-year kart-ust">2025 · Serbest proje (Göktaş Plastic)</span>
+            <span class="row-name">Stok, Satış ve Çek/Senet Yönetim Sistemi</span>
+            <span class="row-desc">Bir üretim firması için satış, stok ve çek/senet süreçlerini yöneten masaüstü uygulaması. Çoklu döviz kuru, firma bazlı satış kaydı ve alacak/verecek bakiye raporu.</span>
+            <span class="row-tags">C# · Çoklu döviz · Masaüstü</span>
+            <span class="row-count">3 görsel</span>
+          </button>
+          <figure class="row-thumb"><img src="assets/img/proje/slide-19-ekran.webp" alt="Satış modülü arayüzü" width="1228" height="650" loading="lazy" decoding="async"><figcaption class="note">Görsellerdeki firma verileri gizlenmiştir.</figcaption></figure>
+        </li>
+        <li class="kart" data-arac="Excel VBA" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="KKP, Kalite Kontrol ve Birim Takip Paneli" data-galeri="assets/img/proje/slide-15.webp|assets/img/proje/slide-16.webp|assets/img/proje/slide-17.webp" data-kapak="assets/img/proje/slide-16-ekran.webp">
+          <button class="row" type="button" aria-label="KKP, Kalite Kontrol ve Birim Takip Paneli görsellerini aç (3 görsel)">
+            <span class="row-year kart-ust">2024 - 2025 · Empero</span>
+            <span class="row-name">KKP, Kalite Kontrol ve Birim Takip Paneli</span>
+            <span class="row-desc">Birim personelinin görev ve devamsızlık takibini yöneten panel. Görev oluşturma, aciliyet etiketleme, durum takibi ve devamsızlık kayıtları tek arayüzde.</span>
+            <span class="row-tags">Excel VBA · Görev takibi · Devamsızlık</span>
+            <span class="row-count">3 görsel</span>
+          </button>
+          <figure class="row-thumb"><img src="assets/img/proje/slide-16-ekran.webp" alt="KKP görev takip ekranı" width="1156" height="659" loading="lazy" decoding="async"><figcaption class="note">Görsellerdeki firma verileri gizlenmiştir.</figcaption></figure>
+        </li>
+        <li class="kart" data-arac="Excel VBA,SQL Server" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="STP, Sevkiyat, Log ve Takip Platformu" data-galeri="assets/img/proje/slide-12.webp|assets/img/proje/slide-13.webp|assets/img/proje/slide-14.webp" data-kapak="assets/img/proje/slide-12-ekran.webp">
+          <button class="row" type="button" aria-label="STP, Sevkiyat, Log ve Takip Platformu görsellerini aç (3 görsel)">
+            <span class="row-year kart-ust">2024 · AYD Automotive</span>
+            <span class="row-name">STP, Sevkiyat, Log ve Takip Platformu</span>
+            <span class="row-desc">Sevk kayıtlarını SQL üzerinden anlık işleyen sevk programı, hataları kodlarıyla yöneticiye e-postayla bildiren kayıt modülü ve kayıtları anlık gösteren takip programı.</span>
+            <span class="row-tags">Excel VBA · SQL · Hata kaydı</span>
+            <span class="row-count">3 görsel</span>
+          </button>
+          <figure class="row-thumb"><img src="assets/img/proje/slide-12-ekran.webp" alt="STP sevk programı arayüzü" width="962" height="795" loading="lazy" decoding="async"><figcaption class="note">Görsellerdeki firma verileri gizlenmiştir.</figcaption></figure>
+        </li>
+        <li class="kart" data-arac="Excel VBA" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Rota ve Resim Programı" data-galeri="assets/img/proje/slide-11.webp" data-kapak="assets/img/proje/slide-11-ekran.webp">
+          <button class="row" type="button" aria-label="Rota ve Resim Programı görselini aç">
+            <span class="row-year kart-ust">2024 · AYD Automotive</span>
+            <span class="row-name">Rota ve Resim Programı</span>
+            <span class="row-desc">Ürün rotasını ve teknik resmini tek ekrandan sorgulanabilir hale getiren, ana sistemlere yardımcı modül olarak çalışan uygulama.</span>
+            <span class="row-tags">Excel VBA · Sorgulama</span>
+            <span class="row-count">1 görsel</span>
+          </button>
+          <figure class="row-thumb"><img src="assets/img/proje/slide-11-ekran.webp" alt="Rota ve Resim Programı arayüzü" width="1002" height="795" loading="lazy" decoding="async"><figcaption class="note">Görsellerdeki firma verileri gizlenmiştir.</figcaption></figure>
+        </li>
+        <li class="kart" data-arac="Excel VBA" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="İş Emri Çıkartma Sistemi" data-galeri="assets/img/proje/slide-10.webp" data-kapak="assets/img/proje/slide-10-ekran.webp">
+          <button class="row" type="button" aria-label="İş Emri Çıkartma Sistemi görselini aç">
+            <span class="row-year kart-ust">2024 · AYD Automotive</span>
+            <span class="row-name">İş Emri Çıkartma Sistemi</span>
+            <span class="row-desc">Planlamanın oluşturduğu iş emirlerini bileşen ve operasyon bilgileriyle derleyip depo için baskıya hazırlar; ilgili teknik resimleri sunucudan çekip belgeye yerleştirir.</span>
+            <span class="row-tags">Excel VBA · Otomatik belge</span>
+            <span class="row-count">1 görsel</span>
+          </button>
+          <figure class="row-thumb"><img src="assets/img/proje/slide-10-ekran.webp" alt="İş emri çıktısı" width="769" height="803" loading="lazy" decoding="async"><figcaption class="note">Görsellerdeki firma verileri gizlenmiştir.</figcaption></figure>
+        </li>
+        <li class="kart" data-arac="Excel VBA,SQL Server" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Depo Stok Kayıt Sistemi" data-galeri="assets/img/proje/slide-07.webp" data-kapak="assets/img/proje/slide-07-ekran.webp">
+          <button class="row" type="button" aria-label="Depo Stok Kayıt Sistemi görselini aç">
+            <span class="row-year kart-ust">2023 · AYD Automotive</span>
+            <span class="row-name">Depo Stok Kayıt Sistemi</span>
+            <span class="row-desc">Depoya giren ve üretime çıkan malzemeleri kaydeden, SQL ile planlama sistemine anlık bağlı stok uygulaması. Raf doluluk oranı, kayıtsız ürün analizi ve teknik resim kontrolü.</span>
+            <span class="row-tags">SQL · Stok yönetimi</span>
+            <span class="row-count">1 görsel</span>
+          </button>
+          <figure class="row-thumb"><img src="assets/img/proje/slide-07-ekran.webp" alt="Depo Stok Kayıt arayüzü" width="1229" height="703" loading="lazy" decoding="async"><figcaption class="note">Görsellerdeki firma verileri gizlenmiştir.</figcaption></figure>
+        </li>
+        <li class="kart" data-arac="Excel VBA" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Üretim Veri Takip Sistemi Ailesi" data-galeri="assets/img/proje/slide-03.webp|assets/img/proje/slide-04.webp|assets/img/proje/slide-05.webp|assets/img/proje/slide-06.webp|assets/img/proje/slide-08.webp|assets/img/proje/slide-09.webp" data-kapak="assets/img/proje/slide-03-ekran.webp">
+          <button class="row" type="button" aria-label="Üretim Veri Takip Sistemi Ailesi görsellerini aç (6 görsel)">
+            <span class="row-year kart-ust">2022 - 2024 · AYD Automotive</span>
+            <span class="row-name">Üretim Veri Takip Sistemi Ailesi</span>
+            <span class="row-desc">Farklı hatlara uyarlanan, vardiya bazlı üretim, hurda ve kayıp zaman verisini toplayan programlar. Personel verimliliğini günlük, aylık ve yıllık hesaplar; süzülebilir rapor modülleri sunar.</span>
+            <span class="row-tags">Excel VBA · Vardiya takibi · Rapor modülü</span>
+            <span class="row-count">6 görsel</span>
+          </button>
+          <figure class="row-thumb"><img src="assets/img/proje/slide-03-ekran.webp" alt="Montaj veri giriş programı" width="1252" height="720" loading="lazy" decoding="async"><figcaption class="note">Görsellerdeki firma verileri gizlenmiştir.</figcaption></figure>
+        </li>
+        <li class="kart" data-arac="Excel VBA,Access" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="MDB-SQL Data Viewer" data-galeri="assets/img/proje/slide-02.webp" data-kapak="assets/img/proje/slide-02-ekran.webp">
+          <button class="row" type="button" aria-label="MDB-SQL Data Viewer görselini aç">
+            <span class="row-year kart-ust">2022 · AYD Automotive</span>
+            <span class="row-name">MDB-SQL Data Viewer</span>
+            <span class="row-desc">Access veritabanlarını Excel VBA üzerinden görüntüleyip düzenleyen veri yönetim aracı. Tablo, sütun ve satır düzeyinde ekleme, güncelleme ve silme tek arayüzde.</span>
+            <span class="row-tags">Excel VBA · Access · Veri yönetimi</span>
+            <span class="row-count">1 görsel</span>
+          </button>
+          <figure class="row-thumb"><img src="assets/img/proje/slide-02-ekran.webp" alt="MDB-SQL Data Viewer arayüzü" width="1252" height="720" loading="lazy" decoding="async"><figcaption class="note">Görsellerdeki firma verileri gizlenmiştir.</figcaption></figure>
+        </li>
+      </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ÖNCEKİ PROJELER -->
-<section class="bolum arsiv" id="projeler" aria-labelledby="arsivBaslik">
-  <div class="wrap arsiv-ust">
-    <p class="ust-etiket" data-goster>AYD Automotive · Empero · Serbest</p>
-    <h2 class="baslik" id="arsivBaslik" data-goster>Önceki projeler</h2>
-    <p class="arsiv-not" data-goster><i class="ph-light ph-eye-slash" aria-hidden="true"></i>2022-2025 arasında sahada fiilen kullanılan sistemler. Görsellerdeki müşteri kodları, ürün bilgileri ve kişisel veriler gizlilik nedeniyle kapatılmıştır; kaynak kod ve iç sistem verisi paylaşılmamaktadır.</p>
-  </div>
-  <div class="arsiv-pist-dis" id="arsivDis">
-    <div class="arsiv-pist" id="arsivPist">
-
-      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Hurda Analiz Programı" data-galeri="assets/img/proje/slide-21.webp|assets/img/proje/slide-22.webp|assets/img/proje/slide-23.webp|assets/img/proje/slide-24.webp">
-        <button class="kart-gorsel" type="button" aria-label="Hurda Analiz Programı görsellerini aç"><img src="assets/img/proje/slide-21-ekran.webp" alt="Hurda Analiz Programı arayüzü" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>4</span></button>
-        <div class="kart-govde">
-          <p class="kart-ust">2025, Empero</p>
-          <h3>Hurda Analiz Programı</h3>
-          <p>Birimlerden gelen hurda verisini departman, hat ve hata kodu bazında analiz eder; sorumlulara ve yönetime otomatik e-postayla rapor gönderir. Kurulan karantina alanı sayesinde hurdanın yaklaşık %30'u geri dönüştürüldü.</p>
-          <div class="etiketler"><span>Excel VBA</span><span>Otomatik e-posta</span><span>Maliyet analizi</span></div>
-        </div>
-      </article>
-
-      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Stok, Satış ve Çek/Senet Yönetim Sistemi" data-galeri="assets/img/proje/slide-18.webp|assets/img/proje/slide-19.webp|assets/img/proje/slide-20.webp">
-        <button class="kart-gorsel" type="button" aria-label="Stok, Satış ve Çek/Senet Yönetim Sistemi görsellerini aç"><img src="assets/img/proje/slide-19-ekran.webp" alt="Satış modülü arayüzü" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>3</span></button>
-        <div class="kart-govde">
-          <p class="kart-ust">2025, Serbest proje (Göktaş Plastic)</p>
-          <h3>Stok, Satış ve Çek/Senet Yönetim Sistemi</h3>
-          <p>Bir üretim firması için satış, stok ve çek/senet süreçlerini uçtan uca yöneten bağımsız masaüstü uygulaması. Çoklu döviz kuru, firma bazlı satış kaydı ve alacak/verecek bakiye raporu.</p>
-          <div class="etiketler"><span>C#</span><span>Çoklu döviz</span><span>Masaüstü</span></div>
-        </div>
-      </article>
-
-      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="KKP, Kalite Kontrol ve Birim Takip Paneli" data-galeri="assets/img/proje/slide-15.webp|assets/img/proje/slide-16.webp|assets/img/proje/slide-17.webp">
-        <button class="kart-gorsel" type="button" aria-label="KKP görsellerini aç"><img src="assets/img/proje/slide-16-ekran.webp" alt="KKP görev takip ekranı" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>3</span></button>
-        <div class="kart-govde">
-          <p class="kart-ust">2024-2025, Empero</p>
-          <h3>KKP, Kalite Kontrol ve Birim Takip Paneli</h3>
-          <p>Birim personelinin görev ve devamsızlık takibini yöneten panel. Görev oluşturma, aciliyet etiketleme, durum takibi ve devamsızlık kayıtları tek arayüzde.</p>
-          <div class="etiketler"><span>Excel VBA</span><span>Görev takibi</span><span>Devamsızlık</span></div>
-        </div>
-      </article>
-
-      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="STP, Sevkiyat, Log ve Takip Platformu" data-galeri="assets/img/proje/slide-12.webp|assets/img/proje/slide-13.webp|assets/img/proje/slide-14.webp">
-        <button class="kart-gorsel" type="button" aria-label="STP görsellerini aç"><img src="assets/img/proje/slide-12-ekran.webp" alt="STP sevk programı arayüzü" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>3</span></button>
-        <div class="kart-govde">
-          <p class="kart-ust">2024, AYD Automotive</p>
-          <h3>STP, Sevkiyat, Log ve Takip Platformu</h3>
-          <p>Sevk kayıtlarını SQL üzerinden anlık işleyen Sevk Programı, hataları kodlarıyla yöneticiye e-postayla bildiren Log Modülü ve kayıtları anlık yansıtan Takip Programı.</p>
-          <div class="etiketler"><span>Excel VBA</span><span>SQL</span><span>Log modülü</span></div>
-        </div>
-      </article>
-
-      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Rota ve Resim Programı" data-galeri="assets/img/proje/slide-11.webp">
-        <button class="kart-gorsel" type="button" aria-label="Rota ve Resim Programı görselini aç"><img src="assets/img/proje/slide-11-ekran.webp" alt="Rota ve Resim Programı arayüzü" loading="lazy"></button>
-        <div class="kart-govde">
-          <p class="kart-ust">2024, AYD Automotive</p>
-          <h3>Rota ve Resim Programı</h3>
-          <p>Ürün rotasını ve teknik resmini tek ekrandan sorgulanabilir hale getiren, ana sistemlere yardımcı modül olarak çalışan uygulama.</p>
-          <div class="etiketler"><span>Excel VBA</span><span>Sorgulama</span></div>
-        </div>
-      </article>
-
-      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="İş Emri Çıkartma Sistemi" data-galeri="assets/img/proje/slide-10.webp">
-        <button class="kart-gorsel" type="button" aria-label="İş Emri Çıkartma Sistemi görselini aç"><img src="assets/img/proje/slide-10-ekran.webp" alt="İş emri çıktısı" loading="lazy"></button>
-        <div class="kart-govde">
-          <p class="kart-ust">2024, AYD Automotive</p>
-          <h3>İş Emri Çıkartma Sistemi</h3>
-          <p>Planlamanın oluşturduğu iş emirlerini bileşen ve operasyon bilgileriyle derleyip depo için baskıya hazırlar; ilgili teknik resimleri sunucudan çekip belgeye yerleştirir.</p>
-          <div class="etiketler"><span>Excel VBA</span><span>Otomatik belge</span></div>
-        </div>
-      </article>
-
-      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Depo Stok Kayıt Sistemi" data-galeri="assets/img/proje/slide-07.webp">
-        <button class="kart-gorsel" type="button" aria-label="Depo Stok Kayıt Sistemi görselini aç"><img src="assets/img/proje/slide-07-ekran.webp" alt="Depo Stok Kayıt arayüzü" loading="lazy"></button>
-        <div class="kart-govde">
-          <p class="kart-ust">2023, AYD Automotive</p>
-          <h3>Depo Stok Kayıt Sistemi</h3>
-          <p>Depoya giren ve üretime çıkan malzemeleri kaydeden, SQL ile planlama sistemine anlık bağlı stok uygulaması. Raf doluluk oranı, kayıtsız ürün analizi ve teknik resim kontrolü.</p>
-          <div class="etiketler"><span>SQL</span><span>Stok yönetimi</span></div>
-        </div>
-      </article>
-
-      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="Üretim Veri Takip Sistemi Ailesi" data-galeri="assets/img/proje/slide-03.webp|assets/img/proje/slide-04.webp|assets/img/proje/slide-05.webp|assets/img/proje/slide-06.webp|assets/img/proje/slide-08.webp|assets/img/proje/slide-09.webp">
-        <button class="kart-gorsel" type="button" aria-label="Üretim Veri Takip görsellerini aç"><img src="assets/img/proje/slide-03-ekran.webp" alt="Montaj veri giriş programı" loading="lazy"><span class="adet"><i class="ph-light ph-images" aria-hidden="true"></i>6</span></button>
-        <div class="kart-govde">
-          <p class="kart-ust">2022-2024, AYD Automotive</p>
-          <h3>Üretim Veri Takip Sistemi Ailesi</h3>
-          <p>Farklı hatlara uyarlanan, vardiya bazlı üretim, hurda ve kayıp zaman verisini toplayan programlar. Personel verimliliğini günlük, aylık ve yıllık hesaplar; filtrelenebilir rapor modülleri sunar.</p>
-          <div class="etiketler"><span>Excel VBA</span><span>MÇF takibi</span><span>Rapor modülü</span></div>
-        </div>
-      </article>
-
-      <article class="kart" data-not="Görsellerdeki firma verileri gizlenmiştir." data-baslik="MDB-SQL Data Viewer" data-galeri="assets/img/proje/slide-02.webp">
-        <button class="kart-gorsel" type="button" aria-label="MDB-SQL Data Viewer görselini aç"><img src="assets/img/proje/slide-02-ekran.webp" alt="MDB-SQL Data Viewer arayüzü" loading="lazy"></button>
-        <div class="kart-govde">
-          <p class="kart-ust">2022, AYD Automotive</p>
-          <h3>MDB-SQL Data Viewer</h3>
-          <p>Access (.ACCDB) veritabanlarını Excel VBA üzerinden görüntüleyip düzenleyen veri yönetim aracı. Tablo, sütun ve satır düzeyinde ekleme, güncelleme ve silme işlemleri tek arayüzde.</p>
-          <div class="etiketler"><span>Excel VBA</span><span>ACCDB</span><span>CRUD</span></div>
-        </div>
-      </article>
-
+  <!-- ============ Yetkinlikler ============ -->
+  <section class="section yetkinlik" id="yetkinlikler" aria-labelledby="yetBaslik">
+    <h2 class="h-sec" id="yetBaslik" data-split>Yetkinlikler</h2>
+    <div class="tools-panel">
+      <div class="tools-head">
+        <h3 class="h-sub-sm" id="aracBaslik">En çok kullandığım araçlar</h3>
+        <p class="tools-sub">Bu sayfadaki projelerden sayıldı</p>
+      </div>
+      <ol class="tools" id="araclar" aria-labelledby="aracBaslik">
+        <li class="tool" style="--v:11;--m:11"><span class="tool-name">Python</span><span class="tool-track" aria-hidden="true"><i></i></span><span class="tool-n">11</span></li>
+      </ol>
+      <p class="tools-note" id="aracNot">Her proje, kullandığı her araca bir kez sayılır.</p>
     </div>
-  </div>
-</section>
-
-<!-- YETKİNLİKLER -->
-<section class="bolum yetkinlik" id="yetkinlikler" aria-labelledby="yetBaslik">
-  <div class="wrap">
-    <h2 class="baslik" id="yetBaslik" data-goster>Yetkinlikler</h2>
-    <div class="yet-izgara">
-      <div class="yet genis vurgu" data-goster="3d">
-        <i class="ph-light ph-database simge" aria-hidden="true"></i>
+    <div class="skills">
+      <div class="skill skill-wide" data-reveal>
         <h3>Veri, raporlama ve otomasyon</h3>
-        <p>ERP ve SQL kaynaklarından veriyi çekip temizlemek, KPI'lara dönüştürmek ve raporu insan beklemeden göndermek.</p>
-        <div class="etiketler"><span>SQL Server</span><span>Access</span><span>Excel VBA</span><span>UserForm</span><span>pandas</span><span>Outlook otomasyonu</span><span>KPI ve dashboard</span><span>PDF raporlama</span></div>
+        <p>ERP ve SQL kaynaklarından veriyi çekmek, temizlemek, göstergelere dönüştürmek ve raporu kimse beklemeden göndermek.</p>
+        <ul class="tags"><li>SQL Server</li><li>Access</li><li>Excel VBA</li><li>UserForm</li><li>pandas</li><li>Outlook otomasyonu</li><li>Gösterge ve pano</li><li>PDF raporlama</li></ul>
       </div>
-      <div class="yet desen" data-goster="3d">
-        <i class="ph-light ph-code simge" aria-hidden="true"></i>
+      <div class="skill" data-reveal>
         <h3>Web uygulamaları</h3>
-        <p>Yönetim panoları ve analiz siteleri.</p>
-        <div class="etiketler"><span>Python</span><span>FastAPI</span><span>Node.js</span><span>React</span><span>TypeScript</span><span>ECharts</span></div>
+        <p>Yönetim panoları, analiz siteleri ve iç portallar.</p>
+        <ul class="tags"><li>Python</li><li>FastAPI</li><li>Node.js</li><li>React</li><li>TypeScript</li><li>ECharts</li></ul>
       </div>
-      <div class="yet" data-goster="3d">
-        <i class="ph-light ph-desktop simge" aria-hidden="true"></i>
+      <div class="skill" data-reveal>
         <h3>Masaüstü ve mobil</h3>
-        <p>Sahada ve ofiste kurulumla çalışan uygulamalar.</p>
-        <div class="etiketler"><span>C#</span><span>.NET</span><span>WPF</span><span>.NET MAUI</span><span>Electron</span></div>
+        <p>Ofiste ve sahada kurulumla çalışan uygulamalar.</p>
+        <ul class="tags"><li>C#</li><li>.NET</li><li>WPF</li><li>.NET MAUI</li><li>Electron</li></ul>
       </div>
-      <div class="yet" data-goster="3d">
-        <i class="ph-light ph-cube simge" aria-hidden="true"></i>
+      <div class="skill" data-reveal>
         <h3>3D ve görselleştirme</h3>
         <p>Fabrika dijital ikizi ve web üzerinde 3D sunum.</p>
-        <div class="etiketler"><span>Three.js</span><span>React Three Fiber</span><span>Blender</span><span>GLB optimizasyonu</span></div>
+        <ul class="tags"><li>Three.js</li><li>React Three Fiber</li><li>Blender</li><li>GLB optimizasyonu</li></ul>
       </div>
-      <div class="yet" data-goster="3d">
-        <i class="ph-light ph-factory simge" aria-hidden="true"></i>
+      <div class="skill" data-reveal>
         <h3>Sistemler ve süreç</h3>
-        <p>Üretim, kalite ve planlama tarafını bilen geliştirici.</p>
-        <div class="etiketler"><span>IFS</span><span>Netinox</span><span>Atiker</span><span>Kalite yönetimi</span><span>DÖF</span><span>Kök neden analizi</span></div>
+        <p>Üretim, kalite ve planlama tarafını içeriden bilen geliştirici.</p>
+        <ul class="tags"><li>IFS</li><li>Netinox</li><li>Atiker</li><li>Kalite yönetimi</li><li>DÖF</li><li>Kök neden analizi</li></ul>
       </div>
-      <div class="yet tam" data-goster="3d">
-        <i class="ph-light ph-sparkle simge" aria-hidden="true"></i>
+      <div class="skill skill-wide" data-reveal>
         <h3>Yapay zekâ destekli geliştirme</h3>
-        <p>Yapay zekâ araçlarını gereksinim analizinden test ve görsel kontrole kadar geliştirme sürecinin her adımında kullanarak, birimlerin ihtiyacını haftalar yerine günler içinde çalışan bir uygulamaya dönüştürüyorum.</p>
-        <div class="etiketler"><span>Hızlı prototipleme</span><span>Otomatik tarayıcı testi</span><span>LLM entegrasyonu</span><span>Docker</span></div>
+        <p>Yapay zekâ araçlarını gereksinim analizinden teste ve görsel kontrole kadar her adımda kullanıyorum; birimin ihtiyacı haftalar yerine günler içinde çalışan bir uygulamaya dönüşüyor.</p>
+        <ul class="tags"><li>Hızlı prototipleme</li><li>Otomatik tarayıcı testi</li><li>Yapay zekâ ajanları</li><li>Docker</li></ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ÇALIŞMA AKIŞI -->
-<section class="bolum akis" id="akis" aria-labelledby="akisBaslik">
-  <div class="wrap">
-    <h2 class="baslik" id="akisBaslik" data-goster>Sahadan karara giden yol</h2>
-    <div class="akis-hat" id="akisHat">
-      <div class="akis-sahne" id="akisSahne" aria-hidden="true"><canvas id="akisTuval"></canvas></div>
-      <div class="akis-cizgi" aria-hidden="true"><span id="akisDolu"></span></div>
-      <ol class="akis-adimlar">
-        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">Veri</p><p>ERP, SQL ve sahadan gelen ham kayıt</p></li>
-        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">İşleme</p><p>Temizleme, eşleştirme, kod birleştirme</p></li>
-        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">Otomasyon</p><p>Zamanlanmış yenileme ve gönderim</p></li>
-        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">Analiz</p><p>KPI, trend, sapma ve risk</p></li>
-        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">Rapor</p><p>Pano, PDF ve e-posta</p></li>
-        <li class="adim"><span class="nokta" aria-hidden="true"></span><p class="ad">Karar</p><p>Yönetimin aksiyon aldığı nokta</p></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- İLETİŞİM -->
-<section class="iletisim" id="iletisim" aria-labelledby="iletisimBaslik">
-  <div class="wrap">
-    <h2 class="baslik" id="iletisimBaslik" data-goster>Birlikte çalışalım.</h2>
-    <p class="giris" data-goster>Raporlama, otomasyon veya dijital dönüşüm projeleri için ulaşabilirsiniz.</p>
-    <div class="baglantilar">
-      <a class="baglanti" href="mailto:alibuyukuyar.bm@gmail.com" data-goster="3d"><i class="ph-light ph-envelope-simple simge" aria-hidden="true"></i><span class="tur">E-posta</span><span class="deger">alibuyukuyar.bm@gmail.com</span><i class="ph-light ph-arrow-up-right ok" aria-hidden="true"></i></a>
-      <a class="baglanti" href="tel:+905332826783" data-goster><i class="ph-light ph-phone simge" aria-hidden="true"></i><span class="tur">Telefon</span><span class="deger">0533 282 67 83</span><i class="ph-light ph-arrow-up-right ok" aria-hidden="true"></i></a>
-      <a class="baglanti" href="https://github.com/Ali-Buyukuyar" target="_blank" rel="noopener" data-goster><i class="ph-light ph-github-logo simge" aria-hidden="true"></i><span class="tur">GitHub</span><span class="deger">github.com/Ali-Buyukuyar</span><i class="ph-light ph-arrow-up-right ok" aria-hidden="true"></i></a>
-      <a class="baglanti" href="https://ali-buyukuyar.github.io/Projeler/#projeler" target="_blank" rel="noopener" data-goster><i class="ph-light ph-presentation-chart simge" aria-hidden="true"></i><span class="tur">Proje sunumu</span><span class="deger">ali-buyukuyar.github.io/Projeler</span><i class="ph-light ph-arrow-up-right ok" aria-hidden="true"></i></a>
-    </div>
-    <footer class="site-alt">
-      <p>© 2026 Ali Büyükuyar. Bu sitedeki kişisel veriler 6698 sayılı KVKK kapsamında korunmaktadır.</p>
-      <p>Görsellerdeki firma verileri gizlenmiştir; grafikler örnek veridir.</p>
+  <!-- ============ İletişim ============ -->
+  <section class="section iletisim" id="iletisim" aria-labelledby="iletisimBaslik">
+    <span class="close-orb" aria-hidden="true"></span>
+    <h2 class="h-close" id="iletisimBaslik" data-split>İletişim</h2>
+    <p class="lead-sm close-lead" data-reveal>Raporlama, otomasyon ve iç uygulama projeleri için yazabilirsiniz.</p>
+    <a class="mail" href="mailto:alibuyukuyar.bm@gmail.com">alibuyukuyar.bm@gmail.com</a>
+    <ul class="contact-links">
+      <li><span class="cl-k">Telefon</span><a href="tel:+905332826783">0533 282 67 83</a></li>
+      <li><span class="cl-k">GitHub</span><a href="https://github.com/Ali-Buyukuyar" target="_blank" rel="noopener">github.com/Ali-Buyukuyar</a></li>
+    </ul>
+    <footer class="site-foot">
+      <p>© 2026 Ali Büyükuyar</p>
+      <p>Ekran görüntülerindeki firma verileri gizlenmiştir; grafikler örnek veridir.</p>
     </footer>
-  </div>
-</section>
+  </section>
+
 </main>
 
+<div class="preview" aria-hidden="true">
+  <div class="pv-inner">
+    <img class="pv-img" alt="" width="1228" height="650">
+    <p class="note">Görsellerdeki firma verileri gizlenmiştir.</p>
+  </div>
+</div>
 
-<dialog class="galeri" id="galeri" aria-labelledby="galeriBaslik">
-  <div class="galeri-ust">
-    <p class="galeri-baslik"><span id="galeriBaslik"></span><span class="galeri-sayac" id="galeriSayac"></span></p>
-    <button class="yuvarlak" type="button" id="galeriKapat" aria-label="Kapat"><i class="ph-light ph-x" aria-hidden="true"></i></button>
+<dialog class="lightbox" id="galeri" aria-labelledby="lbTitle" data-lenis-prevent>
+  <div class="lb-body">
+    <div class="lb-head">
+      <p class="lb-title"><span id="lbTitle"></span><span class="lb-count" id="lbCount"></span></p>
+      <button class="btn btn-line lb-close" type="button">Kapat</button>
+    </div>
+    <div class="lb-stage" id="lbStage">
+      <div class="lb-track" id="lbTrack"><img class="lb-img" id="lbImg" alt="" draggable="false"></div>
+      <button class="lb-nav lb-prev" type="button" aria-label="Önceki görsel"><span aria-hidden="true"></span></button>
+      <button class="lb-nav lb-next" type="button" aria-label="Sonraki görsel"><span aria-hidden="true"></span></button>
+    </div>
+    <div class="lb-foot">
+      <p class="note lb-note" id="lbNote"></p>
+      <p class="lb-hint" id="lbHint"></p>
+    </div>
   </div>
-  <div class="galeri-orta">
-    <img id="galeriResim" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
-    <button class="yuvarlak galeri-onceki" type="button" id="galeriOnceki" aria-label="Önceki görsel"><i class="ph-light ph-caret-left" aria-hidden="true"></i></button>
-    <button class="yuvarlak galeri-sonraki" type="button" id="galeriSonraki" aria-label="Sonraki görsel"><i class="ph-light ph-caret-right" aria-hidden="true"></i></button>
-  </div>
-  <p class="galeri-alt"><span id="galeriNot"></span><span class="galeri-ipucu" id="galeriIpucu"></span></p>
 </dialog>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="assets/js/main.js?v=20261018"></script>
-<script type="module" src="assets/js/sahne.js?v=20261018"></script>
-<script type="module" src="assets/js/akis3d.js?v=20261018"></script>
+<div class="canvas-wrap" aria-hidden="true"><canvas id="evren"></canvas></div>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="assets/js/main.js?v=20261021e"></script>
+<script type="module" src="assets/js/sahne.js?v=20261021e"></script>
 </body>
 </html>
