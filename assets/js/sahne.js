@@ -807,7 +807,6 @@ async function initStage(renderer) {
   const chartList = $('#yilGrafik');
   const slot = $('.chart-slot');
   const canvasWrap = $('.canvas-wrap');
-  const toggle = $('.motion-toggle');
   const topbarEl = $('.topbar');
   const projArts = $$('#projeListe .proj');
   const gorevArt = $('.gorev');
@@ -1013,15 +1012,8 @@ async function initStage(renderer) {
   window.addEventListener('touchend', release, { passive: true });
   window.addEventListener('touchcancel', release, { passive: true });
 
-  /* --- hareket düğmesi --- */
-  let paused = false;
-  toggle.hidden = false;
-  toggle.addEventListener('click', () => {
-    paused = !paused;
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.querySelector('.mt-label').textContent = paused ? 'Hareketi sürdür' : 'Hareketi durdur';
-    Site.__needs = 2;
-  });
+  /* --- hareket her zaman açık (durdurma düğmesi yok) --- */
+  const paused = false;
 
   /* --- sayfa içi bağlantılar --- */
   const targetY = (id) => {

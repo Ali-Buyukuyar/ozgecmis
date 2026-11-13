@@ -95,24 +95,6 @@ html.lenis, html.lenis body { height: auto; }
   transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 }
 .btn-mini:hover { background: var(--text); color: var(--ink); border-color: var(--text); }
-.motion-toggle {
-  display: inline-flex; align-items: center; gap: 9px;
-  height: 34px; padding: 0 14px 0 12px; border-radius: 999px;
-  border: 1px solid var(--line); background: rgba(10, 12, 18, 0.55); color: var(--text-2);
-  font-size: 13px; letter-spacing: 0.01em; white-space: nowrap; cursor: pointer;
-  transition: color 0.3s, border-color 0.3s;
-}
-.motion-toggle:hover { color: var(--text); border-color: var(--line-2); }
-.motion-toggle[hidden] { display: none; }
-.mt-icon { position: relative; width: 9px; height: 10px; flex: none; }
-.mt-icon::before, .mt-icon::after { content: ""; position: absolute; top: 0; width: 3px; height: 10px; background: currentColor; border-radius: 1px; }
-.mt-icon::before { left: 0; }
-.mt-icon::after { right: 0; }
-.motion-toggle[aria-pressed="true"] .mt-icon::before {
-  width: 0; height: 0; background: none; border-radius: 0;
-  border-left: 9px solid currentColor; border-top: 5px solid transparent; border-bottom: 5px solid transparent;
-}
-.motion-toggle[aria-pressed="true"] .mt-icon::after { display: none; }
 .menu-btn {
   display: none; align-items: center; gap: 9px; height: 34px; padding: 0 13px;
   border-radius: 999px; border: 1px solid var(--line-2); background: transparent; color: var(--text);
@@ -553,7 +535,6 @@ button.proj-frame { cursor: zoom-in; }
   :root { --top-h: 60px; }
   body { font-size: 16px; }
   .brand { font-size: 14px; }
-  .motion-toggle { height: 32px; padding: 0 11px 0 10px; font-size: 12px; gap: 7px; }
   .menu-btn { height: 34px; width: 38px; padding: 0; justify-content: center; font-size: 12px; }
   .mb-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .topbar { gap: 12px; }
