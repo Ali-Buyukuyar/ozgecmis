@@ -1,9 +1,9 @@
-/* Öne çıkan proje: FİMAK Kalite
+/* Lansman projesi vitrini (önce FİMAK Kalite için yazıldı, 20.11.2026'dan beri Karar Defteri)
    Sitenin dili korunur (koyu mürekkep, tek vurgu safran, görseller 6 px, düğmeler hap).
    Hareket değerleri kalite.js'ten CSS değişkeniyle gelir: --p (sahnenin kaydırma ilerlemesi 0..1),
    --mx / --my (imleç), --adim (yolculukta etkin adım). Hareket azaltıldığında her şey son hâlinde durur. */
 
-.kalite { position: relative; margin-top: clamp(80px, 13vh, 150px); }
+.vitrin { position: relative; margin-top: clamp(80px, 13vh, 150px); }
 
 /* ---------------- Başlık ---------------- */
 .kl-head { display: grid; gap: 18px; max-width: 1040px; }
@@ -259,3 +259,30 @@ html.kl-hazir .kl-modul.kl-anim.is-in.is-hazir { transition: transform 0.55s var
   .kl-modul { border: 0; background: none; margin-bottom: 6pt; }
   .kl-modul-metin { padding: 0; }
 }
+
+/* ---------------- Masaüstü uygulaması: yolculukta yatay ekran, sahnede A4 belge ---------------- */
+.kl-yol-izgara.is-yatay { grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: clamp(28px, 4vw, 72px); }
+.kl-yol-izgara.is-yatay .kl-yol-sahne { height: auto; align-self: start; top: calc(50vh - min(17vw, 250px)); }
+.kl-yol-telefon.is-yatay { height: auto; width: 100%; aspect-ratio: 16 / 10; padding: 7px; border-radius: 16px; transform: rotateY(calc(-9deg + var(--mx, 0) * 8deg)) rotateX(calc(3deg + var(--my, 0) * -5deg)); }
+.kl-yol-telefon.is-yatay .kl-yol-ekran { inset: 7px; width: calc(100% - 14px); height: calc(100% - 14px); border-radius: 10px; object-position: top left; }
+.kl-kagit {
+  position: absolute; right: 0; bottom: -8%; width: 23%;
+  margin: 0; padding: 0; border: 1px solid var(--line-2); border-radius: 6px;
+  background: #fff; cursor: zoom-in; overflow: hidden;
+  transform:
+    translate3d(0, calc((1 - var(--p)) * 40%), calc(70px + var(--p) * 60px))
+    rotateY(calc(-14deg - (1 - var(--p)) * 20deg))
+    rotateZ(calc(2deg + (1 - var(--p)) * 5deg));
+  transition: border-color 0.4s;
+}
+.kl-kagit:hover { border-color: rgba(232, 163, 60, 0.55); }
+.kl-kagit img { display: block; width: 100%; height: auto; }
+@media (max-width: 960px) {
+  .kl-adim-gorsel.is-yatay { width: 100%; max-width: 560px; padding: 5px; border-radius: 12px; }
+  .kl-adim-gorsel.is-yatay img { border-radius: 8px; }
+}
+@media (max-width: 760px) {
+  .kl-kagit { width: 34%; bottom: -12%; }
+}
+@media (prefers-reduced-motion: reduce) { .kl-kagit { transition: none; } }
+@media print { .kl-kagit { display: none !important; } }

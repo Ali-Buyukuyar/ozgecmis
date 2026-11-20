@@ -1,9 +1,9 @@
-/* Öne çıkan proje: FİMAK Kalite
+/* Lansman projesi vitrini (Karar Defteri)
    Sahnenin kaydırma ilerlemesi, imleç eğimi, yolculukta etkin adım, sayaçlar ve galeri.
    WebGL sahnesinden bağımsızdır; görünür olmayan bölümde kare çizmez. */
 (function () {
   'use strict';
-  const kok = document.getElementById('kalite');
+  const kok = document.getElementById('lansman');
   if (!kok) return;
   const html = document.documentElement;
   const $ = (s, r = kok) => r.querySelector(s);
